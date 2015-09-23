@@ -1,0 +1,11 @@
+@import "../../helpers/*.css";
+
+@component menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background: $white;
+    z-index: 200;
+    }

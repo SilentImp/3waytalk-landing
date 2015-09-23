@@ -1,0 +1,52 @@
+@import "../../helpers/*.css";
+
+@component step {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    margin: 0 395px 0 0;
+    border-bottom: 1px solid $cyan;
+    width: 230px;
+    padding: 0 70px 10px 0;
+    @descendent number {
+        position: absolute;
+        top: 100%;
+        left: 100%;
+        width: 28px;
+        height: 28px;
+        font-size: 0;
+        line-height: 28px;
+        text-align: center;
+        border-radius: 100%;
+        border: 1px solid $cyan;
+        background-color: color($cyan a(50%));
+        margin: -15px 0 0;
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            width: 22px;
+            height: 22px;
+            border-radius: 100%;
+            background-color: $cyan;
+            color: $white;
+            font-size: 14px;
+            line-height: 22px;
+            }
+        }
+    @descendent title {
+        font-size: 22px;
+        line-height: 26px;
+        color: $dark-grey;
+        }
+    @descendent abstract {
+        font-size: 16px;
+        line-height: 26px;
+        color: $footer-grey;
+        }
+    @modifier two.step {
+        margin-bottom: -225px;
+        }
+    @modifier three.step {
+        margin-bottom: -380px;
+        }
+    }

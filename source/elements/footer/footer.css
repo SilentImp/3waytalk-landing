@@ -1,0 +1,90 @@
+@import "../../helpers/*.css";
+
+@component footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: $white;
+    height: 90px;
+    line-height: 90px;
+    padding: 0 90px;
+    font-size: 14px;
+    z-index: 1;
+    @descendent copyright {
+        color: $text-grey;
+        margin: 0 20px 0 0;
+        }
+    @descendent navigation {
+        float: right;
+        }
+    @descendent link {
+        color: $text-grey;
+        margin: 0 20px 0 21px;
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 16px;
+        &:hover
+        , &:hover span{
+            text-decoration: none;
+            }
+        &:after {
+            content: "";
+            height: 15px;
+            width: 1px;
+            pointer-events: none;
+            background-color: $text-grey;
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            margin: -7px 0 0 0;
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            }
+        }
+    @descendent top {
+        color: $cyan;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 18px;
+        border-bottom: 2px dotted $cyan;
+        vertical-align: middle;
+        display: inline-block;
+        position: relative;
+        &:hover {
+            border-bottom-style: none;
+            }
+        }
+    }
+
+@media (max-width: 1260px) and (min-width: 980px) {
+    @component footer {
+        padding: 0 90px 0 20px;
+    }
+}
+
+@media (max-width: 979px) {
+    @component footer {
+        padding: 20px 90px 20px 20px;
+        height: auto;
+        line-height: 24px;
+        @descendent link {
+            position: relative;
+            left: -20px;
+            }
+        @descendent navigation {
+            float: none;
+            overflow: hidden;
+            }
+        @descendent top {
+            display: none;
+            }
+        @descendent copyright {
+            display: block;
+        }
+    }
+}

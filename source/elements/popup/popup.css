@@ -1,0 +1,25 @@
+@import "../../helpers/*.css";
+
+@component popup{
+    background-color: $cyan;
+    position: relative;
+    padding: 20px 90px 20px 20px;
+    text-align: left;
+    margin-top: 0;
+    @descendent text{
+        color: $white;
+        line-height: 24px;
+        font-size: 16px;
+        }
+    @descendent close{
+        @mixin clear_button;
+        position: absolute;
+        right: 35px;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0;
+        background: url( ../images/close.svg ) 50% 50% no-repeat;
+        cursor: pointer;
+        }
+    }

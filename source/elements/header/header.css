@@ -1,0 +1,202 @@
+@import "../../helpers/*.css";
+
+@component header {
+    position: fixed;
+    top: -200px;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    min-height: 60px;
+    background-color: $white;
+    line-height: 60px;
+    text-align: center;
+    color: $text-grey;
+    font-size: 16px;
+    transition: top .25s;
+    overflow: hidden;
+    @modifier open {
+        top: 0;
+        }
+    @descendent wrapper {
+        padding: 0 20px 0 90px;
+        }
+    @descendent logotype {
+        display: inline-block;
+        width: 130px;
+        height: 60px;
+        background: url('../images/logotype.svg') 0 50% no-repeat;
+        background-size: contain;
+        float: left;
+        overflow: hidden;
+        text-indent: -9999px;
+        text-align: left;
+        }
+    @descendent auth {
+        float: right;
+        text-align: left;
+        a {
+            color: $cyan;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px dotted $cyan;
+            &:hover {
+                border-style: none;
+                }
+            }
+        }
+    @descendent text {
+        vertical-align: middle;
+        &_tablet {
+            display: none;
+            }
+        }
+    @descendent downloads {
+        display: inline-block;
+        }
+
+    @descendent links {
+        &_unknown-os {
+            display: inline-block;
+        }
+        &_appstore {
+            display: none;
+        }
+        &_googleplay {
+            display: none;
+        }
+    }
+
+    @descendent download {
+        color: $cyan;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 20px;
+        background-repeat: no-repeat;
+        &_appstore,
+        &_googleplay {
+            width: 130px;
+            height: 40px;
+            background-color: $black;
+            font-size: 0;
+            overflow: hidden;
+            text-indent: -9999px;
+            background-position: 50% 50%;
+            background-size: contain;
+            }
+        &_appstore {
+            background-image: url('../images/appstore.svg');
+            }
+        &_googleplay {
+            background-image: url('../images/googleplay.svg');
+            }
+        &_apple,
+        &_android {
+            font-size: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            border: 1px solid;
+            background-size: 40px 40px;
+            }
+        &_apple {
+            border-color: $green;
+            background-image: url('../images/android.svg');
+            background-position: 50% 50%;
+            }
+        &_android {
+            border-color: $blue;
+            background-image: url('../images/apple.svg');
+            background-position: 50% -1px;
+            }
+        }
+    }
+
+
+html.android body {
+    @component header {
+        @descendent links {
+            &_unknown-os {
+                display: none;
+            }
+            &_appstore {
+                display: none;
+            }
+            &_googleplay {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+html.ios body {
+    @component header {
+        @descendent links {
+            &_unknown-os {
+                display: none;
+            }
+            &_appstore {
+                display: inline-block;
+            }
+            &_googleplay {
+                display: none;
+            }
+        }
+    }
+}
+
+html body.fp-viewing-6-0,
+html body.fp-viewing-6 {
+    @component header {
+        @descendent downloads {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 1260px) and (min-width: 980px) {
+    @component header {
+        @descendent wrapper {
+            padding: 0 20px;
+            }
+        @descendent text {
+            &_desktop {
+                display: none;
+                }
+            &_tablet {
+                display: inline-block;
+                }
+            }
+        }
+    }
+
+@media (max-width: 979px) {
+    @component header {
+        @descendent wrapper {
+            padding: 0 20px;
+            }
+        @descendent auth {
+            display: none;
+            }
+        @descendent downloads {
+            float: right;
+            }
+        @descendent download {
+            margin-left: 10px;
+            }
+        @descendent text {
+            &_tablet,
+            &_desktop {
+                display: none;
+                }
+            }
+        }
+    }
+
+@media (max-width: 400px) {
+    @component header {
+        @descendent text {
+            display: none;
+        }
+    }
+}
