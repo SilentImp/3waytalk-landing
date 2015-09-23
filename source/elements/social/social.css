@@ -14,3 +14,14 @@
         background: url("../images/fb.svg") 50% 50% no-repeat;
         }
     }
+
+@media (max-width: 600px) {
+    html body {
+        @component social{
+            @descendent link{
+                right: 20px;
+                bottom: 20px;
+                }
+            }
+        }
+    }

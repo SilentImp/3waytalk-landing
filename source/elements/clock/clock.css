@@ -7,5 +7,142 @@
     right: 100%;
     top: 50%;
     margin: -318px 90px 0 0;
-    background: url("../images/clock.png") 50% 50% no-repeat;
+    background: url("../images/clock.jpg") 50% 50% no-repeat;
+    background-size: contain;
+    transform-origin: 0 0;
+    @modifier visible {
+        .clock {
+            &__glow {
+                transition: transform 1.5s .8s linear;
+                transform: rotate(120deg);
+                }
+            &__arrow {
+                &_long {
+                    transition: transform 1.5s .8s linear;
+                    transform: rotate(120deg);
+                    }
+                }
+            }
+        }
+    @descendent glow {
+        width: 225px;
+        height: 450px;
+        position: absolute;
+        left: -225px;
+        top: 0;
+
+        transform-origin: 100% 225px;
+        transform: rotate(120deg);
+        transform: rotate(0deg);
+        transition: transform 0s .5s linear;
+
+        background-color: transparent;
+        background-image: radial-gradient(at center, color($cyan a(80%)) 0, color($cyan a(0%)) 65%);
+        background-size: 440px 440px;
+        background-position: 0 50%;
+        background-repeat: no-repeat;
+        }
+    @descendent mask {
+        width: 225px;
+        height: 450px;
+
+        position: absolute;
+        left: 50%;
+        bottom: 96px;
+        overflow: hidden;
+        }
+    @descendent arrow {
+        &_short {
+            width: 1px;
+            height: 1px;
+
+            background: red;
+
+            font-size: 0;
+            line-height: 0;
+
+            position: absolute;
+            top: 253px;
+            left: 4px;
+            right: 0;
+
+            margin: auto;
+
+            transform: rotate(0deg);
+            animation: secondsarrow 60s linear infinite;
+            z-index: 2;
+
+            &:after{
+                position: absolute;
+                content: "";
+                top: -52px;
+                left: -11px;
+                background: url("../images/arrow-small.png") 50% 0 no-repeat;
+                width: 25px;
+                height: 70px;
+            }
+        }
+        &_long {
+            width: 1px;
+            height: 1px;
+
+            background: red;
+
+            font-size: 0;
+            line-height: 0;
+
+            position: absolute;
+            top: 380px;
+            left: 4px;
+            right: 0;
+
+            margin: auto;
+
+            transform: rotate(120deg);
+            transform: rotate(0deg);
+
+            transition: transform 0s .5s linear;
+
+            z-index: 2;
+
+            &:after{
+                position: absolute;
+                content: "";
+                top: -192px;
+                left: -16px;
+                background: url("../images/arrow-big.png") 50% 0 no-repeat;
+                width: 32px;
+                height: 250px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1200px) {
+    html body{
+        @component clock {
+            margin-right: 40px;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    html body{
+        @component clock {
+            margin: 0 0 0 -160px;
+            display: block;
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+        }
+    }
+}
+
+@keyframes secondsarrow {
+    to {
+        transform: rotate(360deg);
+    }
 }

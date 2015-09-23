@@ -180,20 +180,22 @@
     @modifier time {
         background-color: $grey;
         .slide__details {
-            padding: 60px 0 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
+            right: 40px;
             }
         .slide__header {
-            width: 600px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: 0;
             position: relative;
-            border-left: 595px solid transparent;
+            border-left: 50% solid transparent;
             }
         }
 
 
     }
-
-
 
 html.android body {
     @component slide {
@@ -251,8 +253,26 @@ html.ios body {
         }
     }
 
+@media (max-width: 1200px) {
+    html body {
+        @component slide {
+            @modifier time {
+                .slide__details {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    right: auto;
+                    bottom: auto;
+                    transform: none;
+                    margin: 0 40px 0 350px;
+                    }
+                }
+            }
+        }
+    }
 
-@media (max-width: 1080px) {
+
+@media (max-width: 960px) {
     html body {
         @component slide {
             @modifier service {
@@ -271,13 +291,6 @@ html.ios body {
 
                 }
             }
-        }
-    }
-}
-
-@media (max-width: 960px) {
-    html body {
-        @component slide {
             @modifier schema {
                 text-align: left;
                 .slide__footer {
@@ -303,13 +316,31 @@ html.ios body {
     }
 }
 
+@media (max-width: 750px) {
+    html body {
+        @component slide {
+            @modifier time {
+                .slide {
+                    &__details {
+                        margin: 80px 20px 0;
+                        }
+                    &__header {
+                        max-width: initial;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 @media (max-width: 600px) {
     html body {
         @component slide {
             @descendent warning {
                 width: 180px;
-                font-size: 14px;
-                line-height: 24px;
+                font-size: 11px;
+                line-height: 20px;
                 }
             @descendent download {
                 width: 120px;

@@ -88,3 +88,31 @@
         }
     }
 }
+
+@media (max-width: 600px) {
+    @component footer {
+        padding: 20px 80px 20px 20px;
+        height: auto;
+        line-height: 16px;
+        font-size: 12px;
+        @descendent link {
+            position: relative;
+            left: -10px;
+            font-size: 12px;
+            margin: 0 10px 0 11px;
+            &:after {
+                left: -10px;
+                }
+            }
+        @descendent navigation {
+            float: none;
+            overflow: hidden;
+            }
+        @descendent top {
+            display: none;
+            }
+        @descendent copyright {
+            display: block;
+        }
+    }
+}

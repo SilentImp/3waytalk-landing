@@ -189,9 +189,9 @@ gulp.task('build', function () {
   return gulp.src('build/**')
     .pipe(plumber())
     .pipe(build({
-      branch:     'master',
+      branch:     'gh-pages',
       cacheDir:   'gh-cache',
-      remoteUrl:  'https://github.com/SilentImp/3waytalk-landing.git'
+      remoteUrl:  'git@github.com:SilentImp/3waytalk-landing.git'
     }).on('error', function(){
       console.log('error', arguments);
     }));
