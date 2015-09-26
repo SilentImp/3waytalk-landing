@@ -13,8 +13,8 @@
     <header class="header">
       <div class="header__wrapper"><a href="#" class="header__logotype_link">
           <h1 class="header__logotype">3waytalk</h1></a>
-        <nav class="header__downloads"><span class="header__text header__text_desktop">Download 3waytalk today and receive $5 credit! Available for a limited time</span><span class="header__text header__text_tablet">Download today and get $5 bonus!</span><span class="header__text header__text_mobile">Get it now!</span><span class="header__links header__links_unknown-os"><a href="#" class="header__download header__download_apple">Apple App</a><a href="#" class="header__download header__download_android">Android App</a></span><span class="header__links header__links_appstore"><a href="#" class="header__download header__download_appstore">Apple App</a></span><span class="header__links header__links_googleplay"><a href="#" class="header__download header__download_googleplay">Android App</a></span></nav>
         <nav class="header__auth">Are you interprener? <a href="#" class="header__link">Register</a> or <a href="#" class="header__link">Log in</a></nav>
+        <nav class="header__downloads"><span class="header__text header__text_desktop">Download 3waytalk today and receive $5 credit! Available for a limited time</span><span class="header__text header__text_tablet">Download today and get $5 bonus!</span><span class="header__text header__text_mobile">Get it now!</span><span class="header__links header__links_unknown-os"><a href="#" class="header__download header__download_apple">Apple App</a><a href="#" class="header__download header__download_android">Android App</a></span><span class="header__links header__links_appstore"><a href="#" class="header__download header__download_appstore">Apple App</a></span><span class="header__links header__links_googleplay"><a href="#" class="header__download header__download_googleplay">Android App</a></span></nav>
       </div>
     </header>
     <div class="landing">
@@ -27,6 +27,20 @@
             <nav class="slide__downloads"><a href="#" class="slide__download slide__download_appstore">Download on the App Store</a><span class="slide__warning slide__warning_not-android">Want it for Android? Visit this website from your Android device</span><a href="#" class="slide__download slide__download_googleplay">Get it on Google play</a><span class="slide__warning slide__warning_not-ios">Want it for iOS? Visit this website from your Apple device</span></nav><img src="images/phones.png" alt="phones" class="slide__phones"/>
           </div>
           <p class="slide__scroll">Scroll to learn more</p>
+          <menu class="menu">
+            <button type="button" class="menu__login">Interpreter login</button>
+            <div class="menu__details">
+              <div class="menu__title">are you an<strong>Interpreter?</strong></div>
+              <button type="button" class="menu__register">Register
+                <div class="menu__container">
+                  <div class="menu__circle menu__circle_0"></div>
+                  <div class="menu__circle menu__circle_1"></div>
+                  <div class="menu__circle menu__circle_2"></div>
+                  <div class="menu__circle menu__circle_3"></div>
+                </div>
+              </button>
+            </div>
+          </menu>
         </div>
       </div>
       <div class="landing__section">
@@ -143,6 +157,97 @@
         </div>
       </div>
     </div><a href="#" class="social__link social__link_fb"></a>
+    <div class="login login_login">
+      <menu class="login__navigation">Don't have an account
+        <button type="button" class="login__register">Register</button>
+      </menu>
+      <form action="/login/" method="post" class="login__form">
+        <header class="login__header">
+          <h2 class="login__title">Interpreter log in</h2>
+        </header>
+        <fieldset>
+          <div class="login__line"> 
+            <input type="email" name="email" value="" required="required" placeholder="Email"/>
+          </div>
+          <div class="login__line">
+            <input type="password" name="password" value="" required="required" placeholder="Password"/>
+          </div>
+          <div class="login__line checkbox">
+            <input type="checkbox" name="remember" id="remember" class="checkbox__input"/>
+            <label for="remember" class="checkbox__label">Remember me</label>
+          </div>
+          <div class="login__line">
+            <button type="submit" class="login__submit">Log in</button>
+          </div>
+          <div class="login__line"><a href="#" class="login__password-recovery">Forgot your password?</a></div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="login login_email">
+      <menu class="login__navigation">
+        <button type="button" class="login__back">Back</button>
+      </menu>
+      <div class="login__alert">
+        <header class="login__header">
+          <h2 class="login__title">Please check your email</h2>
+          <p class="login__text">We have sent you reset instructions</p>
+        </header>
+      </div>
+    </div>
+    <div class="login login_password">
+      <menu class="login__navigation">
+        <button type="button" class="login__back">Back</button>
+      </menu>
+      <form action="/password/" method="post" class="login__form">
+        <header class="login__header">
+          <h2 class="login__title">Enter your new password</h2>
+        </header>
+        <fieldset>
+          <div class="login__line"> 
+            <input type="password" name="password" value="" required="required" placeholder="Password"/>
+          </div>
+          <div class="login__line"> 
+            <input type="password" name="password_confirmation" value="" required="required" placeholder="Repeat password"/>
+          </div>
+          <div class="login__line">
+            <button type="submit" class="login__submit">Confirm</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="login login_recovery">
+      <menu class="login__navigation">
+        <button type="button" class="login__back">Back</button>
+      </menu>
+      <form action="/recovery/" method="post" class="login__form">
+        <header class="login__header">
+          <h2 class="login__title">Password reset</h2>
+          <p class="login__text">Enter your email to receive password reset instructions</p>
+        </header>
+        <fieldset>
+          <div class="login__line"> 
+            <input type="email" name="email" value="" required="required" placeholder="Email"/>
+          </div>
+          <div class="login__line">
+            <button type="submit" class="login__submit">Send</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="login login_success">
+      <menu class="login__navigation">
+        <button type="button" class="login__back">Back</button>
+      </menu>
+      <div class="login__alert">
+        <header class="login__header">
+          <h2 class="login__title">Success!</h2>
+          <p class="login__text">Your password has been reset. You can now login with your new password</p>
+        </header>
+        <button type="button" class="login__submit">Log in</button>
+      </div>
+    </div>
+    <div class="lightbox"></div>
+    <script src="js/velocity/velocity.min.js"></script>
     <script src="js/jquery/dist/jquery.min.js"></script>
     <script src="js/fullpage.js/jquery.fullPage.min.js"></script>
     <script src="js/scripts.js" async="async" defer="defer"></script>
