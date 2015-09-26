@@ -8,4 +8,126 @@
     width: 300px;
     background: $white;
     z-index: 200;
+    @descendent login {
+        @mixin blue_button;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        }
+
+    @descendent circle {
+        position: absolute;
+        border-radius: 100%;
+        background: $cyan;
+        display: inline-block;
+        border: 1px solid $dark-cyan;
+        &_0 {
+            top: 50%;
+            right: 50%;
+            margin: -20px -20px 0 0;
+            width: 38px;
+            height: 38px;
+            background-image: url(../images/arrow-next.svg);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            z-index: 1;
+            }
+        &_1 {
+            opacity: .3;
+            top: 50%;
+            right: 50%;
+            margin: -20px -20px 0 0;
+            width: 38px;
+            height: 38px;
+            animation: pulse1 1s infinite linear;
+            animation-play-state: paused;
+            }
+        &_2 {
+            opacity: .2;
+            top: 50%;
+            right: 50%;
+            margin: -30px -30px 0 0;
+            width: 58px;
+            height: 58px;
+            animation: pulse2 1s infinite linear;
+            animation-play-state: paused;
+            }
+        &_3 {
+            opacity: .1;
+            top: 50%;
+            right: 50%;
+            margin: -40px -40px 0 0;
+            width: 78px;
+            height: 78px;
+            animation: pulse3 1s infinite linear;
+            animation-play-state: paused;
+            }
+        }
+
+    @descendent container {
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        display: inline-block;
+        margin: 0 0 0 30px;
+        position: relative;
+        }
+
+    @descendent register {
+        @mixin clear_button;
+        color: $cyan;
+        font-size: 22px;
+        line-height: 40px;
+        font-weight: 200;
+        cursor: pointer;
+        margin: 40px 0 0;
+        position: relative;
+        &:hover {
+            .menu__circle_1,
+            .menu__circle_2,
+            .menu__circle_3 {
+                animation-play-state: running;
+                }
+            }
+        }
+    @descendent details {
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        right: 30px;
+        }
+    @descendent title {
+        color: $text-grey;
+        font-size: 22px;
+        line-height: 28px;
+        strong {
+            display: block;
+            font-size: 35px;
+            line-height: 50px;
+            }
+        }
+    }
+
+
+@keyframes pulse1 {
+    100% {
+        transform: scale(1.5, 1.5);
+        opacity: .2;
+        }
+    }
+
+@keyframes pulse2 {
+    100% {
+        transform: scale(1.3, 1.3);
+        opacity: .1;
+        }
+    }
+
+@keyframes pulse3 {
+    100% {
+        transform: scale(1.25, 1.25);
+        opacity: 0;
+        }
     }

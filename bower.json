@@ -10,6 +10,8 @@
     "classList.js": "https://github.com/eligrey/classList.js.git",
     "es5-shim": "https://github.com/es-shims/es5-shim.git",
     "fullpage.js": "~2.7.1",
-    "promise-polyfill": "~2.1.0"
+    "promise-polyfill": "~2.1.0",
+    "select2": "~4.0.0",
+    "velocity": "~1.2.3"
   }
 }

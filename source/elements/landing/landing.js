@@ -51,14 +51,12 @@
                 , height = Math.min(clock_slide.offsetHeight - title.offsetHeight - text.offsetHeight + 90, 702)
                 , perc = height/702;
 
-                console.log(perc);
-
             if (clock_slide.offsetWidth <= 750) {
-                console.log('small enought');
                 clock.style[Modernizr.prefixed('transform')] = 'scale('+ perc +')';
-                console.log('marginRight', clock.style.marginRight, (clock.offsetWidth*perc)*0.33);
                 clock.style.margin = "0 0 0 -"+(clock.offsetWidth*perc)*0.33+"px";
                 // clock.style.background = 'red';
+            } else {
+                clock.removeAttribute('style');
             }
 
         }

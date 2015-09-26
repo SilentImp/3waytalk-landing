@@ -1,6 +1,5 @@
 @import "../../helpers/colors.css";
 
-
 @define-mixin icon $code: "\ea02" {
   speak: none;
   display: inline-block;
@@ -33,7 +32,7 @@
   margin: 0;
   overflow: visible;
   display: inline-block;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: left;
   vertical-align: middle;
   border-radius: 0;
@@ -42,3 +41,67 @@
     border: 0
     }
   }
+
+@define-mixin blue_button {
+    @mixin clear_button;
+    color: $white;
+    background-color: $cyan;
+    padding: 0 15px;
+    font-size: 16px;
+    line-height: 40px;
+    height: 40px;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    transition: background-color .25s;
+    &:hover {
+        background-color: color($cyan l(-5%))
+    }
+}
+
+@define-mixin blue_button_big {
+    @mixin clear_button;
+    color: $white;
+    background-color: $cyan;
+    width: 260px;
+    font-size: 18px;
+    line-height: 50px;
+    height: 50px;
+    white-space: nowrap;
+    display: block;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    transition: background-color .25s;
+    &:hover {
+        background-color: color($cyan l(-5%))
+    }
+}
+
+@define-mixin grey_input {
+    border-radius: 0;
+    border-style: none;
+    background: $input-grey;
+    padding: 0 20px;
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 50px;
+    height: 50px;
+    width: 260px;
+    display: block;
+    margin: 0 0 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    transition: background-color .25s;
+    &:hover {
+        background-color: color($input-grey l(-5%));
+    }
+    &:focus {
+        background-color: color($input-grey l(-5%));
+    }
+}

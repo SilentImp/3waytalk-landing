@@ -1,0 +1,41 @@
+@import "../../helpers/*.css";
+
+@component checkbox{
+    margin: 0 0 20px;
+    user-select: none;
+    @descendent input {
+        position: absolute;
+        left: -9999px;
+        &:checked + .checkbox__label:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin: -12px 0 0;
+            width: 24px;
+            height: 24px;
+            background: url(../images/checked.svg) 50% 50% no-repeat;
+            display: block;
+            overflow: hidden;
+        }
+    }
+    @descendent label {
+        user-select: none;
+        font-size: 16px;
+        line-height: 40px;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        position: relative;
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: $input-grey;
+            margin: 0 10px 0 0;
+            vertical-align: middle;
+        }
+    }
+}

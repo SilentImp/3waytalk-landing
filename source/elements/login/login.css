@@ -1,0 +1,79 @@
+@import "../../helpers/*.css";
+
+@component login {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -300px;
+    width: 300px;
+    background-color: $white;
+    z-index: 102;
+    @descendent back {
+        @mixin clear_button;
+        font-size: 16px;
+        line-height: 40px;
+        color: $cyan;
+        padding: 0 0 0 24px;
+        background: url(../images/back.svg) 0 50% no-repeat;
+        cursor: pointer;
+        }
+    @descendent text {
+        color: $text-grey;
+        font-size: 16px;
+        line-height: 24px;
+        }
+    @descendent password-recovery {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: bold;
+        color: $darker-cyan;
+        text-decoration: none;
+        border-bottom: 2px dashed $darker-cyan;
+        &:hover {
+            border-bottom-style: none;
+            }
+        }
+    @descendent header {
+        margin: 0 0 30px;
+        }
+    @descendent title {
+        font-size: 40px;
+        line-height: 48px;
+        color: $text-grey;
+        }
+    @descendent alert {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        right: 20px;
+        }
+    @descendent form {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        right: 20px;
+        input {
+            @mixin grey_input;
+            }
+        }
+    @descendent navigation {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        line-height: 40px;
+        font-size: 16px;
+        white-space: nowrap;
+        color: $text-grey;
+        }
+    @descendent register {
+        @mixin blue_button;
+        margin: 0 0 0 10px;
+        }
+    @descendent submit {
+        @mixin blue_button_big;
+        margin: 0 0 30px;
+        }
+    }

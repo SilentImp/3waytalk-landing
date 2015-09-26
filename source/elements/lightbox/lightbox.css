@@ -1,0 +1,13 @@
+@import "../../helpers/*.css";
+
+@component lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    background-color: color($black a(50%));
+    opacity: 0;
+    display: none;
+    }

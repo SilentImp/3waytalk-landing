@@ -1,0 +1,19 @@
+.login.login_login
+    menu.login__navigation Don't have an account
+        button.login__register(type="button") Register
+
+    form.login__form(action="/login/", method="post")
+        header.login__header
+            h2.login__title Interpreter log in
+        fieldset
+            .login__line 
+                input(type="email", name="email", value="", required="required", placeholder="Email")
+            .login__line
+                input(type="password", name="password", value="", required="required", placeholder="Password")
+            .login__line.checkbox
+                input.checkbox__input(type="checkbox", name="remember", id="remember")
+                label.checkbox__label(for="remember") Remember me
+            .login__line
+                button.login__submit(type="submit") Log in
+            .login__line
+                a.login__password-recovery(href="#") Forgot your password?
