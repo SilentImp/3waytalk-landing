@@ -1,0 +1,13 @@
+@import "../../helpers/*.css";
+
+.form-error{
+    font-size: 14px;
+    line-height: 18px;
+    background-color: $darkred;
+    color: $white;
+    padding: 5px 20px;
+    white-space: normal;
+    max-width: 100%;
+    display: block;
+    box-sizing: border-box;
+    }

@@ -1,0 +1,44 @@
+.login.login_register
+    menu.login__navigation 
+        button.login__back(type="button") Back
+        | Already have an account?
+        button.login__login-button(type="button") Interpreter log in
+
+    form.login__form(action="/password/", method="post", enctype="multipart/form-data", data-check=true)
+        header.login__header
+            h2.login__title Register as an interpreter
+            h3.login__subtitle and start earning money
+        fieldset
+            .login__line
+                .login__line.login__line_half 
+                    select(data-placeholder="Your native language", name="language", required="required")
+                        option
+                        option(value="ru") Russian
+                        option(value="en") English
+                .login__line.login__line_half
+                    select(data-placeholder="Your second language", name="second_language", required="required")
+                        option
+                        option(value="ru") Russian
+                        option(value="en") English
+            .login__line
+                select.login__select.login__select_wide(name="location", data-placeholder="Choose your location", required="required")
+                    option
+                    option(value="ua") Ukraine
+                    option(value="ru") Russia
+                    option(value="en") USA
+                    option(value="is") Island
+                    option(value="ch") China
+            .login__line
+                .login__line.login__line_half 
+                    input(type="text", name="name", value="", required="required", placeholder="First name")
+                .login__line.login__line_half
+                    input(type="text", name="surname", value="", required="required", placeholder="Surname")
+                p.login__warning Please enter your actual name. This information is used for payments
+            .login__line
+                .login__line.login__line_half 
+                    input(type="email", name="email", value="", required="required", placeholder="Email")
+                .login__line.login__line_half
+                    input(type="password", name="password", value="", required="required", placeholder="Password")
+            .login__line
+                button.login__submit(type="submit") Confirm
+                p.login__require We require you to use a dedicatedheadset and microphone to ensureoptimal sound quality
