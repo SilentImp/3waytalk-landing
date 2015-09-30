@@ -2,7 +2,7 @@
     menu.login__navigation
         button.login__back(type="button") Back
 
-    form.login__form(action="/recovery/", method="post")
+    form.login__form(action="/recovery/", method="post", enctype="multipart/form-data", data-check=true)
         header.login__header
             h2.login__title Password reset
             p.login__text Enter your email to receive password reset instructions

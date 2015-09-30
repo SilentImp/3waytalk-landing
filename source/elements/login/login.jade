@@ -1,12 +1,12 @@
 .login.login_login
     menu.login__navigation Don't have an account
-        button.login__register(type="button") Register
+        button.login__register-button(type="button") Register
 
-    form.login__form(action="/login/", method="post")
+    form.login__form(action="/login/", method="post", enctype="multipart/form-data", data-reload="true")
         header.login__header
             h2.login__title Interpreter log in
         fieldset
-            .login__line 
+            .login__line
                 input(type="email", name="email", value="", required="required", placeholder="Email")
             .login__line
                 input(type="password", name="password", value="", required="required", placeholder="Password")

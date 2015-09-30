@@ -38,7 +38,7 @@ var gulp = require('gulp')
         , 'page': './source/pages/*.jade'
         , 'list': './source/list/index.jade'
         , 'copy': './source/copy/**/*'
-        , 'js': ['./source/elements/**/*.js', './source/js/**/*.js']
+        , 'js': ['./source/elements/**/*.js', './source/js/*.js']
         , 'css': ['./source/elements/**/*.css', './source/css/**/*.css']
         , 'svg': './source/images/**/*.svg'
         , 'images': './source/images/**/*'

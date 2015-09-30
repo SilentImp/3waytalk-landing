@@ -8,6 +8,46 @@
     width: 300px;
     background-color: $white;
     z-index: 102;
+    @modifier register {
+        width: 580px;
+        right: -580px;
+        }
+    @modifier open.login {
+        right: 0;
+        }
+    @descendent warning {
+        font-size: 16px;
+        line-height: 24px;
+        color: $text-grey;
+        margin: 20px 0 0;
+        display: inline-block;
+        }
+    @descendent require {
+        display: inline-block;
+        vertical-align: middle;
+        width: 260px;
+        font-size: 16px;
+        line-height: 24px;
+        color: $text-grey;
+        margin: 0 0 0 20px;
+        }
+    @descendent line {
+        max-width: 100%;
+        box-sizing: border-box;
+        clear: both;
+        font-size: 0;
+        margin: 0 20px 40px 0;
+        &_half {
+            width: 260px;
+            clear: none;
+            float: left;
+            margin: 0;
+            &:first-child {
+                margin: 0 20px 0 0;
+                }
+            }
+        @mixin clear;
+        }
     @descendent back {
         @mixin clear_button;
         font-size: 16px;
@@ -16,6 +56,12 @@
         padding: 0 0 0 24px;
         background: url(../images/back.svg) 0 50% no-repeat;
         cursor: pointer;
+        float: left;
+        }
+    @descendent subtitle {
+        color: $text-grey;
+        font-size: 22px;
+        line-height: 28px;
         }
     @descendent text {
         color: $text-grey;
@@ -54,8 +100,13 @@
         transform: translateY(-50%);
         left: 20px;
         right: 20px;
+        select,
         input {
             @mixin grey_input;
+            }
+        select.login__select_wide{
+            width: 540px;
+            margin: 0;
             }
         }
     @descendent navigation {
@@ -67,6 +118,15 @@
         font-size: 16px;
         white-space: nowrap;
         color: $text-grey;
+        text-align: right;
+        }
+    @descendent login-button {
+        @mixin blue_button;
+        margin: 0 0 0 10px;
+        }
+    @descendent register-button {
+        @mixin blue_button;
+        margin: 0 0 0 10px;
         }
     @descendent register {
         @mixin blue_button;
@@ -74,6 +134,7 @@
         }
     @descendent submit {
         @mixin blue_button_big;
-        margin: 0 0 30px;
+        display: inline-block;
+        vertical-align: middle;
         }
     }

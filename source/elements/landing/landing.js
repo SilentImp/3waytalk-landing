@@ -23,6 +23,7 @@
             $(".landing").fullpage({
                 sectionSelector: ".landing__section"
                 , navigation: true
+                , afterLoad: this.hideLoader.bind(this)
                 , afterRender: this.recountSlides.bind(this)
                 , afterResize: this.recountSlides.bind(this)
                 , onLeave: ( index, nextIndex, direction) => {
@@ -40,6 +41,21 @@
                 }
             });
             document.querySelector(".footer__top").addEventListener("click", this.scrollToTop.bind(this));
+        }
+
+
+        hideLoader () {
+            let loader = document.querySelector('.loader__wrapper')
+                , props = {
+                    opacity: 0
+                }
+                , options = {
+                    duration: 500
+                    , complete: ()=> {
+                        loader.parentNode.removeChild(loader);
+                    }
+                }
+            Velocity(loader, props, options);
         }
 
 
