@@ -1,5 +1,17 @@
 menu.menu
+
+    .menu__wrapper
+        include ../popup/popup.jade
+        a.menu__logotype_link(href="#")
+            h1.menu__logotype 3waytalk
+        button.menu__interpreter(type="button") Are you an interprener?
+
     button.menu__login(type="button") Interpreter login
+    p.menu__warning The supported browsers for interpreters to log in aare 
+        a(href="http://www.google.com/chrome/", target="_blank") Google Chrome
+        |  and 
+        a(href="http://www.mozilla.org/firefox/new/", target="_blank") Mozilla Firefox
+        | . Please visit us again using one of thouse
     .menu__details
         .menu__title are you an
             strong Interpreter?

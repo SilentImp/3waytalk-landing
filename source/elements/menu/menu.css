@@ -1,20 +1,66 @@
 @import "../../helpers/*.css";
 
+html.no-peerconnection body {
+    .menu .menu__warning {
+        display: block;
+    }
+}
+
 @component menu {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 300px;
+    width: 230px;
     background: $white;
     z-index: 200;
+
+    @descendent wrapper {
+        display: none;
+        }
+
+    @descendent logotype {
+        width: 150px;
+        height: 60px;
+        background: url('../images/logotype.svg') 0 50% no-repeat;
+        background-size: contain;
+        overflow: hidden;
+        text-indent: -9999px;
+        text-align: left;
+        float: left;
+        }
+
+    @descendent interpreter {
+        @mixin blue_button;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        display: none;
+        }
+
     @descendent login {
         @mixin blue_button;
         position: absolute;
         top: 20px;
         right: 20px;
+        cursor: pointer;
         }
 
+    @descendent warning {
+        color: $text-grey;
+        padding: 20px;
+        font-size: 16px;
+        line-height: 24px;
+        display: none;
+
+        a {
+            color: $cyan;
+            &:hover {
+                text-decoration: none;
+                }
+            }
+        }
     @descendent circle {
         position: absolute;
         border-radius: 100%;
@@ -70,7 +116,7 @@
         height: 40px;
         vertical-align: middle;
         display: inline-block;
-        margin: 0 0 0 30px;
+        margin: 0 0 0 24px;
         position: relative;
         }
 
@@ -81,7 +127,7 @@
         line-height: 40px;
         font-weight: 200;
         cursor: pointer;
-        margin: 40px 0 0;
+        margin: 35px 0 0;
         position: relative;
         &:hover {
             .menu__circle_1,
@@ -106,6 +152,72 @@
             display: block;
             font-size: 35px;
             line-height: 50px;
+            }
+        }
+    }
+
+@media (max-width: 1200px) {
+    html body {
+        @component menu {
+            height: auto;
+            bottom: auto;
+            width: auto;
+            left: 0;
+            background-color: transparent;
+            @descendent wrapper {
+                display: block;
+                }
+            @descendent logotype {
+                position: absolute;
+                top: 10px;
+                left: 30px;
+                }
+            @descendent login {
+                display: none;
+                }
+            @descendent interpreter {
+                display: block;
+                }
+            @descendent details {
+                display: none;
+                }
+            }
+        }
+    }
+
+@media (max-width: 750px) {
+    html body {
+        @component menu {
+            height: auto;
+            left: 0;
+            width: auto;
+            bottom: auto;
+            background-color: $white;
+            @descendent logotype {
+                position: relative;
+                top: auto;
+                left: auto;
+                float: left;
+                margin: 10px 0 10px 30px;
+                }
+            @descendent wrapper {
+                display: block;
+                min-height: 80px;
+                position: relative;
+                background: $white;
+                @mixin clear;
+                }
+            @descendent login {
+                display: none;
+                }
+            @descendent interpreter {
+                display: block;
+                top: auto;
+                bottom: 20px;
+                }
+            @descendent details {
+                display: none;
+                }
             }
         }
     }

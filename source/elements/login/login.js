@@ -1,5 +1,5 @@
 "use strict";
-
+console.log('Menu');
 (function () {
     class Menu {
         /**
@@ -23,6 +23,13 @@
 
             this.login_button = document.querySelector('.menu__login');
             this.register_button = document.querySelector('.menu__register');
+            this.mobile_popup_button = document.querySelector('.menu__interpreter');
+            this.mobile_popup = document.querySelector('.popup_mobile');
+            this.mobile_popup_close = this.mobile_popup.querySelector('.popup__close');
+            this.wrapper = document.querySelector('.menu__wrapper');
+
+            this.header_register_button = document.querySelector('.header__link_register');
+            this.header_login_button = document.querySelector('.header__link_login');
 
             this.recovery_button = document.querySelector('.login__password-recovery');
             this.register_button_inner = document.querySelector('.login__register-button');
@@ -34,7 +41,6 @@
             this.password = document.querySelector('.login_password');
             this.register_back = this.register.querySelector('.login__back');
             this.recovery_form = this.recovery.querySelector('.login__form');
-            this.register_form = this.register.querySelector('.login__form');
             this.password_form = this.password.querySelector('.login__form');
             this.error_message = document.querySelector('.login_error');
             this.email = document.querySelector('.login_email');
@@ -52,20 +58,83 @@
             this.register_button_inner.addEventListener('click', this.openRegisterInner.bind(this));
 
             this.recovery_form.addEventListener('submit', this.sendData.bind(this));
-            this.register_form.addEventListener('submit', this.sendData.bind(this));
             this.password_form.addEventListener('submit', this.sendData.bind(this));
 
-            $('.login select').select2();
+            this.header_login_button.addEventListener('click', this.openLoginOuter.bind(this));
+            this.header_register_button.addEventListener('click', this.openLoginOuter.bind(this));
+            this.mobile_popup_button.addEventListener('click', this.openMobilePopup.bind(this));
+            this.mobile_popup_close.addEventListener('click', this.closeMobilePopup.bind(this));
 
+
+            $('.login select').select2();
 
             [].forEach.call(back_buttons, (button) => {
                 button.addEventListener('click', this.goback.bind(this));
             });
 
-            console.log(login_buttons);
             [].forEach.call(login_buttons, (button) => {
                 button.addEventListener('click', this.openLoginInner.bind(this));
             });
+
+            this.WebRTCSupport = !document.documentElement.classList.contains('no-peerconnection');
+
+
+            if(!this.WebRTCSupport) {
+
+                [].forEach.call(document.querySelectorAll('form.login__form input, form.login__form button, form.login__form select'), (element) => {
+                    element.setAttribute("disabled","disabled");
+                });
+
+                [].forEach.call(document.documentElement.querySelectorAll('form.login__form'), (form) => {
+                    form.addEventListener("click", (event)=>{
+                        form.closest('.login').querySelector('.popup_browser').open();
+                    });
+                });
+
+                [].forEach.call(document.querySelectorAll('.popup_browser'), (popup) => {
+                    this.showPopup(popup);
+                });
+            }
+        }
+
+        closeMobilePopup () {
+            Velocity(this.wrapper, "stop");
+            Velocity(this.wrapper, {top: 0}, 250);
+        }
+
+        openMobilePopup () {
+            Velocity(this.wrapper, "stop");
+            Velocity(this.wrapper, {top: this.mobile_popup.offsetHeight + "px"}, 250);
+        }
+
+        showPopup (popup) {
+            if (popup.show != undefined){
+                popup.show();
+            } else {
+                setTimeout(this.showPopup.bind(this, popup), 50);
+            }
+        }
+
+        /**
+         * @description Scroll to first slide and open login form
+         */
+        openLoginOuter (event) {
+            event.preventDefault();
+            $.fn.fullpage.moveTo(1, 0);
+            setTimeout(()=>{
+                this.login_button.click();
+            }, 800)
+        }
+
+        /**
+         * @description Scroll to first slide and open register form
+         */
+        openRegisterOuter (event) {
+            event.preventDefault();
+            $.fn.fullpage.moveTo(1, 0);
+            setTimeout(()=>{
+                this.register_button.click();
+            }, 800)
         }
 
         /**
@@ -204,7 +273,11 @@
         /**
          * @description Open recovery forms
          */
-        openRecovery () {
+        openRecovery (event) {
+            event.preventDefault();
+            if(!this.WebRTCSupport) {
+                return;
+            }
             this.openForm(this.recovery);
         }
 
@@ -312,5 +385,6 @@
             Velocity(this.lightbox, props, options);
         }
     }
-  new Menu;
+
+    new Menu;
 })();

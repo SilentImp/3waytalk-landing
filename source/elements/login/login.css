@@ -1,5 +1,11 @@
 @import "../../helpers/*.css";
 
+html.no-peerconnection body {
+    .slide_main .menu__login {
+        display: none;
+    }
+}
+
 @component login {
     position: absolute;
     top: 0;
@@ -8,9 +14,42 @@
     width: 300px;
     background-color: $white;
     z-index: 102;
+
+    perspective-origin: 50% 0;
+    perspective: 800;
+
     @modifier register {
-        width: 580px;
-        right: -580px;
+        width: 540px;
+        right: -540px;
+
+        .login__header {
+            margin: 0 0 55px;
+        }
+
+        .login__line {
+            margin: 0 20px 40px 0;
+            &_half {
+                margin: 0;
+                &:first-child {
+                    margin: 0 20px 0 0;
+                    }
+                }
+            &_navigation {
+                margin: -20px 20px 40px 0;
+                }
+            }
+        .login__submit {
+            width: 240px;
+            }
+        .login__form {
+            select,
+            input {
+                width: 240px;
+                }
+            select.login__select_wide{
+                width: 500px;
+                }
+            }
         }
     @modifier open.login {
         right: 0;
@@ -25,7 +64,7 @@
     @descendent require {
         display: inline-block;
         vertical-align: middle;
-        width: 260px;
+        width: 240px;
         font-size: 16px;
         line-height: 24px;
         color: $text-grey;
@@ -36,9 +75,9 @@
         box-sizing: border-box;
         clear: both;
         font-size: 0;
-        margin: 0 20px 40px 0;
+        margin: 0 20px 20px 0;
         &_half {
-            width: 260px;
+            width: 240px;
             clear: none;
             float: left;
             margin: 0;
@@ -67,8 +106,11 @@
         color: $text-grey;
         font-size: 16px;
         line-height: 24px;
+        margin: 10px 0 50px;
         }
     @descendent password-recovery {
+        margin: 10px 0 0;
+        display: inline-block;
         font-size: 16px;
         line-height: 24px;
         font-weight: bold;
@@ -76,11 +118,11 @@
         text-decoration: none;
         border-bottom: 2px dashed $darker-cyan;
         &:hover {
-            border-bottom-style: none;
+            border-bottom: 2px dashed $white;
             }
         }
     @descendent header {
-        margin: 0 0 30px;
+        margin: 0 0 40px;
         }
     @descendent title {
         font-size: 40px;
@@ -100,12 +142,18 @@
         transform: translateY(-50%);
         left: 20px;
         right: 20px;
+
+        max-height: calc(100vh - 200px);
+        overflow:auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+
         select,
         input {
             @mixin grey_input;
             }
         select.login__select_wide{
-            width: 540px;
+            width: 500px;
             margin: 0;
             }
         }

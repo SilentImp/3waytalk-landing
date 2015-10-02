@@ -1,20 +1,48 @@
 @import "../../helpers/*.css";
 
-@component popup{
+
+@component popup {
     background-color: $cyan;
     position: relative;
-    padding: 20px 90px 20px 20px;
+    padding: 20px 60px 20px 20px;
     text-align: left;
     margin-top: 0;
-    @descendent text{
+    z-index: 1000;
+
+    display: none;
+    transform-origin: 50% 0;
+    transform: rotateX(0);
+    transform-style: preserve-3d;
+
+    a {
+        color: $white;
+        &:hover {
+            text-decoration: none;
+            }
+        }
+
+    @modifier alert.popup {
+        background-color: $darkred;
+        }
+
+    @modifier mobile.popup {
+        display: block;
+        transform: none;
+        bottom: 100%;
+        top: auto;
+        position: absolute;
+        }
+
+    @descendent text {
         color: $white;
         line-height: 24px;
         font-size: 16px;
         }
-    @descendent close{
+
+    @descendent close {
         @mixin clear_button;
         position: absolute;
-        right: 35px;
+        right: 20px;
         top: 50%;
         width: 20px;
         height: 20px;
@@ -22,4 +50,5 @@
         background: url( ../images/close.svg ) 50% 50% no-repeat;
         cursor: pointer;
         }
+
     }

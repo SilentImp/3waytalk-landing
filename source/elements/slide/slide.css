@@ -11,6 +11,7 @@
         position: relative;
         left: -25px;
         }
+
     @descendent logotype {
         display: block;
         width: 150px;
@@ -22,6 +23,7 @@
         text-align: left;
         margin: 0 0 45px;
         }
+
     @descendent footer {
         position: absolute;
         bottom: 0;
@@ -37,12 +39,14 @@
             padding: 0 90px;
             }
         }
+
     @descendent text {
         font-size: 22px;
         line-height: 35px;
         font-weight: 200;
         margin: 0 0 35px;
         }
+
     @descendent warning {
         color: $warning-grey;
         font-size: 16px;
@@ -58,9 +62,11 @@
             display: none;
             }
         }
+
     @descendent downloads {
         white-space: nowrap;
         }
+
     @descendent download {
         background-color: $black;
         background-repeat: no-repeat;
@@ -99,7 +105,7 @@
                 margin: 70px 0 0;
                 }
             &__details {
-                padding: 0 360px 0 90px;
+                padding: 0 250px 0 90px;
                 }
             &__title {
                 margin-bottom: 0;
@@ -193,8 +199,6 @@
             border-left: 50% solid transparent;
             }
         }
-
-
     }
 
 html.android body {
@@ -256,6 +260,18 @@ html.ios body {
 @media (max-width: 1200px) {
     html body {
         @component slide {
+            @descendent logotype {
+                display: none;
+                }
+            @descendent scroll {
+                right: 90px;
+                bottom: 30px;
+                }
+            @modifier main {
+                .slide__details {
+                    padding: 0 30px;
+                    }
+                }
             @modifier time {
                 .slide__details {
                     position: relative;
@@ -319,6 +335,9 @@ html.ios body {
 @media (max-width: 750px) {
     html body {
         @component slide {
+            @descendent logotype {
+                display: none;
+                }
             @modifier time {
                 .slide {
                     &__details {

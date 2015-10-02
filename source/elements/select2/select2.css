@@ -31,19 +31,35 @@ html body {
         border-color: $darkgreen;
         }
 
-    .select2.select2-container.select2-container--open .select2-selection:hover,
-    .select2.select2-container.select2-container--open .select2-selection{
+    .select2-container--above.select2.select2-container.select2-container--open .select2-selection:hover,
+    .select2-container--above.select2.select2-container.select2-container--open .select2-selection{
+        background: $light-grey;
+        border-color: $light-grey $cyan $cyan;
+    }
+
+    .select2-container--above.select2-container--open[data-invalid] .select2-selection:hover,
+    .select2-container--above.select2-container--open[data-invalid] .select2-selection{
+        border-color: $light-grey $cyan $cyan;
+    }
+
+    .select2-container--above.select2-container--open[data-valid] .select2-selection:hover,
+    .select2-container--above.select2-container--open[data-valid] .select2-selection{
+        border-color: $light-grey $cyan $cyan;
+    }
+
+    .select2-container--below.select2.select2-container.select2-container--open .select2-selection:hover,
+    .select2-container--below.select2.select2-container.select2-container--open .select2-selection{
         background: $light-grey;
         border-color: $cyan $cyan $light-grey;
     }
 
-    .select2-container--open[data-invalid] .select2-selection:hover,
-    .select2-container--open[data-invalid] .select2-selection{
+    .select2-container--below.select2-container--open[data-invalid] .select2-selection:hover,
+    .select2-container--below.select2-container--open[data-invalid] .select2-selection{
         border-color: $cyan $cyan $light-grey;
     }
 
-    .select2-container--open[data-valid] .select2-selection:hover,
-    .select2-container--open[data-valid] .select2-selection{
+    .select2-container--below.select2-container--open[data-valid] .select2-selection:hover,
+    .select2-container--below.select2-container--open[data-valid] .select2-selection{
         border-color: $cyan $cyan $light-grey;
     }
 
@@ -51,6 +67,12 @@ html body {
         background: $light-grey;
         border-color: $cyan;
         border-radius: 0;
+        &.select2-dropdown--below{
+            margin-top: -1px;
+            }
+        &.select2-dropdown--above{
+            margin-bottom: -1px;
+            }
         }
 
     .select2-container--default .select2-results__option {
@@ -62,7 +84,7 @@ html body {
         }
 
     .select2-search--dropdown {
-        padding: 0 12px 12px;
+        padding: 12px;
     }
 
     .select2-container--default .select2-search--dropdown .select2-search__field {

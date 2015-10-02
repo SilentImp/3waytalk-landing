@@ -1,6 +1,6 @@
 "use strict";
-
-(function () {
+console.log('layout');
+(function() {
     window.mobileAndTabletcheck = function() {
         var check = false;
         (function(a) {
@@ -32,10 +32,10 @@
          * @description Start initialization on domload
          * @constructor
          */
-        constructor () {
-            let ready = new Promise((resolve, reject)=>{
+        constructor() {
+            let ready = new Promise((resolve, reject) => {
                 if (document.readyState != "loading") return resolve();
-                document.addEventListener("DOMContentLoaded", ()=> resolve());
+                document.addEventListener("DOMContentLoaded", () => resolve());
             });
             ready.then(this.init.bind(this));
         }
@@ -43,7 +43,7 @@
         /**
          * @description Adding events and properties
          */
-        init () {
+        init() {
             if (window.isMobile.Android()) {
                 document.body.parentNode.classList.add('android');
             } else if (window.isMobile.iOS()) {
@@ -56,5 +56,5 @@
             // document.body.parentNode.classList.add('android');
         }
     }
-  new Layout;
+    new Layout;
 })();

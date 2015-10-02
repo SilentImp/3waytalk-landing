@@ -31,6 +31,8 @@
         overflow: hidden;
         text-indent: -9999px;
         text-align: left;
+        z-index: 200;
+        position: relative;
         }
     @descendent auth {
         float: right;
