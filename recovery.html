@@ -14,7 +14,7 @@
     <header class="header">
       <div class="header__wrapper"><a href="#" class="header__logotype_link">
           <h1 class="header__logotype">3waytalk</h1></a>
-        <nav class="header__auth">Are you interprener? <a href="#" class="header__link">Register</a> or <a href="#" class="header__link">Log in</a></nav>
+        <nav class="header__auth">Are you interprener? <a href="#" class="header__link header__link_register">Register</a> or <a href="#" class="header__link header__link_login">Log in</a></nav>
         <nav class="header__downloads"><span class="header__text header__text_desktop">Download 3waytalk today and receive $5 credit! Available for a limited time</span><span class="header__text header__text_tablet">Download today and get $5 bonus!</span><span class="header__text header__text_mobile">Get it now!</span><span class="header__links header__links_unknown-os"><a href="#" class="header__download header__download_apple">Apple App</a><a href="#" class="header__download header__download_android">Android App</a></span><span class="header__links header__links_appstore"><a href="#" class="header__download header__download_appstore">Apple App</a></span><span class="header__links header__links_googleplay"><a href="#" class="header__download header__download_googleplay">Android App</a></span></nav>
       </div>
     </header>
@@ -29,7 +29,16 @@
           </div>
           <p class="slide__scroll">Scroll to learn more</p>
           <menu class="menu">
+            <div class="menu__wrapper">
+              <div class="popup popup_mobile">
+                <p class="popup__text">Are you an interpreter? Interpreters pages don't work on mobile devices. Please visit 3waytalk.com using desktop computer</p>
+                <button type="button" class="popup__close"></button>
+              </div><a href="#" class="menu__logotype_link">
+                <h1 class="menu__logotype">3waytalk</h1></a>
+              <button type="button" class="menu__interpreter">Are you an interprener?</button>
+            </div>
             <button type="button" class="menu__login">Interpreter login</button>
+            <p class="menu__warning">The supported browsers for interpreters to log in aare <a href="http://www.google.com/chrome/" target="_blank">Google Chrome</a> and <a href="http://www.mozilla.org/firefox/new/" target="_blank">Mozilla Firefox</a>. Please visit us again using one of thouse</p>
             <div class="menu__details">
               <div class="menu__title">are you an<strong>Interpreter?</strong></div>
               <button type="button" class="menu__register">Register
@@ -184,7 +193,11 @@
       <menu class="login__navigation">Don't have an account
         <button type="button" class="login__register-button">Register</button>
       </menu>
-      <form action="/login/" method="post" enctype="multipart/form-data" data-reload="true" class="login__form">
+      <div class="popup popup_alert popup_browser">
+        <button type="button" class="popup__close"></button>
+        <div class="popup__text">The supported browsers for interpreters to log in aare <a href="http://www.google.com/chrome/" target="_blank">Google Chrome</a> and <a href="http://www.mozilla.org/firefox/new/" target="_blank">Mozilla Firefox</a>. Please visit us again using one of thouse</div>
+      </div>
+      <form action="/login/" method="post" enctype="multipart/form-data" data-reload="data-reload" class="login__form">
         <header class="login__header">
           <h2 class="login__title">Interpreter log in</h2>
         </header>
@@ -250,7 +263,11 @@
         <button type="button" class="login__back">Back</button>Already have an account?
         <button type="button" class="login__login-button">Interpreter log in</button>
       </menu>
-      <form action="/password/" method="post" enctype="multipart/form-data" data-check="data-check" class="login__form">
+      <div class="popup popup_alert popup_browser">
+        <button type="button" class="popup__close"></button>
+        <div class="popup__text">The supported browsers for interpreters to log in aare <a href="http://www.google.com/chrome/" target="_blank">Google Chrome</a> and <a href="http://www.mozilla.org/firefox/new/" target="_blank">Mozilla Firefox</a>. Please visit us again using one of thouse</div>
+      </div>
+      <form action="/password/" method="post" enctype="multipart/form-data" data-reload="data-reload" class="login__form">
         <header class="login__header">
           <h2 class="login__title">Register as an interpreter</h2>
           <h3 class="login__subtitle">and start earning money</h3>
@@ -299,8 +316,8 @@
               <input type="password" name="password" value="" required="required" placeholder="Password"/>
             </div>
           </div>
-          <div class="login__line">
-            <button type="submit" class="login__submit">Confirm</button>
+          <div class="login__line login__line_navigation">
+            <button type="submit" class="login__submit">Take a test</button>
             <p class="login__require">We require you to use a dedicatedheadset and microphone to ensureoptimal sound quality</p>
           </div>
         </fieldset>
