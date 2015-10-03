@@ -12,6 +12,7 @@
     "fullpage.js": "~2.7.1",
     "promise-polyfill": "~2.1.0",
     "select2": "~4.0.0",
-    "velocity": "~1.2.3"
+    "velocity": "~1.2.3",
+    "form-attr-polyfill": "*"
   }
 }

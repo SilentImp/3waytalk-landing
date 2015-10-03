@@ -26,10 +26,12 @@
         }
 
     @modifier mobile.popup {
-        display: block;
+        display: none;
         transform: none;
         bottom: 100%;
         top: auto;
+        left: 0;
+        right: 0;
         position: absolute;
         }
 
@@ -51,4 +53,12 @@
         cursor: pointer;
         }
 
+    }
+
+@media (max-width: 1200px) {
+    @component popup {
+        @modifier mobile.popup {
+            display: block;
+            }
+        }
     }

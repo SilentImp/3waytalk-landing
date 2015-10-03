@@ -1,6 +1,7 @@
 @import "../../helpers/*.css";
 
 @component header {
+
     position: fixed;
     top: -200px;
     top: -100vh;
@@ -15,12 +16,15 @@
     font-size: 16px;
     transition: top .25s;
     overflow: hidden;
+
     @modifier open {
         top: 0;
         }
+
     @descendent wrapper {
         padding: 0 20px 0 90px;
         }
+
     @descendent logotype {
         display: inline-block;
         width: 130px;
@@ -34,25 +38,32 @@
         z-index: 200;
         position: relative;
         }
+
+    @descendent interpreter {
+        @mixin blue_button;
+        display: none;
+        }
+
     @descendent auth {
         float: right;
         text-align: left;
         a {
             color: $cyan;
             font-weight: bold;
-            text-decoration: none;
-            border-bottom: 2px dotted $cyan;
+            text-decoration: underline;
             &:hover {
-                border-style: none;
+                text-decoration: none;
                 }
             }
         }
+
     @descendent text {
         vertical-align: middle;
         &_tablet {
             display: none;
             }
         }
+
     @descendent downloads {
         display: inline-block;
         }
@@ -172,6 +183,19 @@ html body.fp-viewing-6 {
         }
     }
 
+@media (max-width: 1200px) {
+    @component header {
+        @descendent interpreter {
+            display: block;
+            margin: 10px 0 0 20px;
+            float: right;
+            }
+        @descendent auth {
+            display: none;
+            }
+        }
+}
+
 @media (max-width: 979px) {
     @component header {
         @descendent wrapper {
@@ -191,6 +215,14 @@ html body.fp-viewing-6 {
             &_desktop {
                 display: none;
                 }
+            }
+        }
+    }
+
+@media (max-width: 750px) {
+    @component header {
+        @descendent interpreter {
+            display: none;
             }
         }
     }

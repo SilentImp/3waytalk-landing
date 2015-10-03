@@ -86,7 +86,6 @@ html.no-peerconnection body {
             width: 38px;
             height: 38px;
             animation: pulse1 1s infinite linear;
-            animation-play-state: paused;
             }
         &_2 {
             opacity: .2;
@@ -96,7 +95,6 @@ html.no-peerconnection body {
             width: 58px;
             height: 58px;
             animation: pulse2 1s infinite linear;
-            animation-play-state: paused;
             }
         &_3 {
             opacity: .1;
@@ -106,7 +104,6 @@ html.no-peerconnection body {
             width: 78px;
             height: 78px;
             animation: pulse3 1s infinite linear;
-            animation-play-state: paused;
             }
         }
 
@@ -133,7 +130,7 @@ html.no-peerconnection body {
             .menu__circle_1,
             .menu__circle_2,
             .menu__circle_3 {
-                animation-play-state: running;
+                animation-duration: .5s;
                 }
             }
         }
@@ -166,9 +163,10 @@ html.no-peerconnection body {
             background-color: transparent;
             @descendent wrapper {
                 display: block;
+                position: relative;
                 }
             @descendent logotype {
-                position: absolute;
+                position: fixed;
                 top: 10px;
                 left: 30px;
                 }
@@ -177,6 +175,7 @@ html.no-peerconnection body {
                 }
             @descendent interpreter {
                 display: block;
+                position: fixed;
                 }
             @descendent details {
                 display: none;
@@ -211,6 +210,7 @@ html.no-peerconnection body {
                 display: none;
                 }
             @descendent interpreter {
+                position: absolute;
                 display: block;
                 top: auto;
                 bottom: 20px;

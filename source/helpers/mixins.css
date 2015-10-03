@@ -96,7 +96,6 @@
     box-sizing: border-box;
     font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 200;
-    transition: background-color .25s;
 
     &[data-invalid]:focus,
     &[data-invalid]:hover,
@@ -110,32 +109,9 @@
         border-color: $darkgreen;
         }
 
-    /*&:invalid {
-        border-color: $darkred;
-        }
-
-    &:-moz-submit-invalid {
-        border-color: $darkred;
-        }
-
-    &:-moz-ui-invalid {
-        border-color: $darkred;
-        }
-
-    &:valid {
-        border-color: $darkgreen;
-        }
-
-    &:-moz-submit-valid {
-        border-color: $darkgreen;
-        }
-
-    &:-moz-ui-valid {
-        border-color: $darkgreen;
-        }*/
-
     &:hover {
-        border-color: $cyan;
+        border-color: $light-grey;
+        background-color: $light-grey;
     }
     &:focus {
         border-color: $cyan;

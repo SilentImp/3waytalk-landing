@@ -1,6 +1,6 @@
 .login.login_login
-    menu.login__navigation Don't have an account
-        button.login__register-button(type="button") Register
+    menu.login__navigation 
+        button.login__back(type="button") Back
     include ../popup/browser.jade
     form.login__form(action="/login/", method="post", enctype="multipart/form-data", data-reload=true)
         header.login__header

@@ -269,7 +269,7 @@ html.ios body {
                 }
             @modifier main {
                 .slide__details {
-                    padding: 0 30px;
+                    padding: 90px 30px 90px;
                     }
                 }
             @modifier time {

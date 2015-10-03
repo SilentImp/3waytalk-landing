@@ -16,10 +16,9 @@ html body {
         box-sizing: border-box;
         font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 200;
-        transition: background-color .25s;
         &:hover {
             background: $light-grey;
-            border-color: $cyan;
+            border-color: $light-grey;
             }
         }
 

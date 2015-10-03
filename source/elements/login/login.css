@@ -21,23 +21,10 @@ html.no-peerconnection body {
     @modifier register {
         width: 540px;
         right: -540px;
+        .line {
 
-        .login__header {
-            margin: 0 0 55px;
-        }
-
-        .login__line {
-            margin: 0 20px 40px 0;
-            &_half {
-                margin: 0;
-                &:first-child {
-                    margin: 0 20px 0 0;
-                    }
-                }
-            &_navigation {
-                margin: -20px 20px 40px 0;
-                }
             }
+        .login__next,
         .login__submit {
             width: 240px;
             }
@@ -75,7 +62,7 @@ html.no-peerconnection body {
         box-sizing: border-box;
         clear: both;
         font-size: 0;
-        margin: 0 20px 20px 0;
+        margin: 0 0 20px 0;
         &_half {
             width: 240px;
             clear: none;
@@ -115,10 +102,9 @@ html.no-peerconnection body {
         line-height: 24px;
         font-weight: bold;
         color: $darker-cyan;
-        text-decoration: none;
-        border-bottom: 2px dashed $darker-cyan;
+        text-decoration: underline;
         &:hover {
-            border-bottom: 2px dashed $white;
+            text-decoration: none;
             }
         }
     @descendent header {
@@ -179,6 +165,12 @@ html.no-peerconnection body {
     @descendent register {
         @mixin blue_button;
         margin: 0 0 0 10px;
+        }
+    @descendent next {
+        @mixin blue_button_big;
+        display: inline-block;
+        vertical-align: middle;
+        width: 240px;
         }
     @descendent submit {
         @mixin blue_button_big;

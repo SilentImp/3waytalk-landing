@@ -13,6 +13,7 @@ html(lang="en")
         link(rel="stylesheet", href="js/select2/dist/css/select2.css")
         link(rel="stylesheet", href="css/styles.css")
     body
+        include ../popup/popup.jade
         include ../header/header.jade
         block content
 
@@ -22,6 +23,7 @@ html(lang="en")
         include ../login/login_recovery.jade
         include ../login/login_success.jade
         include ../login/login_register.jade
+        include ../login/login_register-final.jade
         include ../login/login_error.jade
         include ../loader/loader.jade
 

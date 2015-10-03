@@ -18,34 +18,36 @@ console.log('Menu');
          * @description Adding events and properties
          */
         init () {
-            let back_buttons = document.querySelectorAll('.login__back')
-                , login_buttons = document.querySelectorAll('.login__login-button, .login_success .login__submit');
+            let back_buttons =              document.querySelectorAll('.login__back')
+                , login_buttons =           document.querySelectorAll('.login__login-button, .login_success .login__submit')
+                , mobile_popup_buttons =    document.querySelectorAll('.menu__interpreter, .header__interpreter');
 
-            this.login_button = document.querySelector('.menu__login');
-            this.register_button = document.querySelector('.menu__register');
-            this.mobile_popup_button = document.querySelector('.menu__interpreter');
-            this.mobile_popup = document.querySelector('.popup_mobile');
-            this.mobile_popup_close = this.mobile_popup.querySelector('.popup__close');
-            this.wrapper = document.querySelector('.menu__wrapper');
+            this.menu_popup_open = false;
 
-            this.header_register_button = document.querySelector('.header__link_register');
-            this.header_login_button = document.querySelector('.header__link_login');
+            this.login_button =             document.querySelector('.menu__login');
+            this.register_button =          document.querySelector('.menu__register');
 
-            this.recovery_button = document.querySelector('.login__password-recovery');
-            this.register_button_inner = document.querySelector('.login__register-button');
+            this.step1 =                    document.querySelector('.login_register-step-1');
+            this.step1_form =               document.querySelector('.login_register-step-1 form.login__form');
+            this.step2 =                    document.querySelector('.login_register-step-2');
+            this.step2_form =               document.querySelector('.login_register-step-2 form.login__form');
 
-            this.lightbox =  document.querySelector('body>.lightbox');
-            this.login_popup = document.querySelector('.login_login');
-            this.recovery = document.querySelector('.login_recovery');
-            this.register = document.querySelector('.login_register');
-            this.password = document.querySelector('.login_password');
-            this.register_back = this.register.querySelector('.login__back');
-            this.recovery_form = this.recovery.querySelector('.login__form');
-            this.password_form = this.password.querySelector('.login__form');
-            this.error_message = document.querySelector('.login_error');
-            this.email = document.querySelector('.login_email');
-            this.success = document.querySelector('.login_success');
+            this.mobile_popup =             document.querySelector('.popup_mobile');
+            this.mobile_popup_close =       this.mobile_popup.querySelector('.popup__close');
 
+            this.wrapper =                  document.querySelector('.menu__wrapper');
+            this.header_register_button =   document.querySelector('.header__link_register');
+            this.header_login_button =      document.querySelector('.header__link_login');
+            this.recovery_button =          document.querySelector('.login__password-recovery');
+            this.lightbox =                 document.querySelector('body>.lightbox');
+            this.login_popup =              document.querySelector('.login_login');
+            this.recovery =                 document.querySelector('.login_recovery');
+            this.password =                 document.querySelector('.login_password');
+            this.recovery_form =            this.recovery.querySelector('.login__form');
+            this.password_form =            this.password.querySelector('.login__form');
+            this.error_message =            document.querySelector('.login_error');
+            this.email =                    document.querySelector('.login_email');
+            this.success =                  document.querySelector('.login_success');
 
             this.current = document.querySelector('.login_open');
             this.last = [];
@@ -53,20 +55,23 @@ console.log('Menu');
             this.login_button.addEventListener('click', this.openLoginForm.bind(this));
             this.recovery_button.addEventListener('click', this.openRecovery.bind(this));
             this.lightbox.addEventListener('click', this.closeAll.bind(this));
-
             this.register_button.addEventListener('click', this.openRegister.bind(this));
-            this.register_button_inner.addEventListener('click', this.openRegisterInner.bind(this));
+            this.header_login_button.addEventListener('click', this.openLoginOuter.bind(this));
+            this.header_register_button.addEventListener('click', this.openLoginOuter.bind(this));
+            this.mobile_popup_close.addEventListener('click', this.closeMobilePopup.bind(this));
 
             this.recovery_form.addEventListener('submit', this.sendData.bind(this));
             this.password_form.addEventListener('submit', this.sendData.bind(this));
+            this.step1_form.addEventListener('submit', this.openNext.bind(this));
+            this.step2_form.addEventListener('submit', this.sendData.bind(this));
 
-            this.header_login_button.addEventListener('click', this.openLoginOuter.bind(this));
-            this.header_register_button.addEventListener('click', this.openLoginOuter.bind(this));
-            this.mobile_popup_button.addEventListener('click', this.openMobilePopup.bind(this));
-            this.mobile_popup_close.addEventListener('click', this.closeMobilePopup.bind(this));
-
+            window.addEventListener('resize', this.reposPopup.bind(this));
 
             $('.login select').select2();
+
+            [].forEach.call(mobile_popup_buttons, (button) => {
+                button.addEventListener('click', this.openMobilePopup.bind(this));
+            });
 
             [].forEach.call(back_buttons, (button) => {
                 button.addEventListener('click', this.goback.bind(this));
@@ -97,14 +102,59 @@ console.log('Menu');
             }
         }
 
+        openNext (event) {
+            event.preventDefault();
+            if (this.step1_form.validate() == false) {
+                return;
+            }
+            this.openForm(this.step2);
+        }
+
+        reposPopup (event) {
+            if(!this.menu_popup_open){
+                return;
+            }
+            this.mobile_popup.style[Modernizr.prefixed('transform')] = "translateY(" + this.mobile_popup.offsetHeight + "px)";
+        }
+
         closeMobilePopup () {
-            Velocity(this.wrapper, "stop");
-            Velocity(this.wrapper, {top: 0}, 250);
+            if(!this.menu_popup_open){
+                return;
+            }
+            this.menu_popup_open = false;
+
+            Velocity(this.mobile_popup, "stop");
+            Velocity(this.mobile_popup, {translateY: 0}, 250);
+
+            Velocity(this.mobile_popup_button, "stop");
+            Velocity(this.mobile_popup_button, {
+                opacity: 1
+            }, {
+                duration: 250
+                , begin: ()=> {
+                    this.mobile_popup_button.style.display = "block";
+                }
+            });
         }
 
         openMobilePopup () {
-            Velocity(this.wrapper, "stop");
-            Velocity(this.wrapper, {top: this.mobile_popup.offsetHeight + "px"}, 250);
+            if(this.menu_popup_open){
+                return;
+            }
+            this.menu_popup_open = true;
+
+            Velocity(this.mobile_popup, "stop");
+            Velocity(this.mobile_popup, {translateY: this.mobile_popup.offsetHeight + "px"}, 250);
+
+            Velocity(this.mobile_popup_button, "stop");
+            Velocity(this.mobile_popup_button, {
+                opacity: 0
+            }, {
+                duration: 250
+                , complete: ()=> {
+                    this.mobile_popup_button.style.display = "none";
+                }
+            });
         }
 
         showPopup (popup) {
@@ -210,8 +260,9 @@ console.log('Menu');
          * @description Show message
          */
         showErrorMessage (reason) {
+            this.last = new Array();
             console.log(reason.code, 'Responce status code: ' + reason.code + '. ' + reason.message + '.');
-            this.openForm(this.error_message);
+            this.openForm(this.error_message, true);
         }
 
         /**
@@ -232,8 +283,7 @@ console.log('Menu');
          * @description Open register form
          */
         openRegisterInner () {
-            this.register_back.style.visibility = "visible";
-            this.openForm(this.register);
+            this.openForm(this.step1);
         }
 
         /**
@@ -245,8 +295,6 @@ console.log('Menu');
             $.fn.fullpage.setAllowScrolling(false);
             $.fn.fullpage.setKeyboardScrolling(false);
 
-            this.register_back.style.visibility = "hidden";
-
             let props = {
                     right: 0
                 },
@@ -254,8 +302,8 @@ console.log('Menu');
                     duration: 250
                 };
 
-            Velocity(this.register, props, options);
-            this.current = this.register;
+            Velocity(this.step1, props, options);
+            this.current = this.step1;
 
             props = {
                     opacity: 1
@@ -286,7 +334,7 @@ console.log('Menu');
          * @param form {node} Form you want to open
          * @param back {node} Form which you want to open when user press back, by default — last form opened
          */
-        openForm (popup) {
+        openForm (popup, dont_save) {
 
             $.fn.fullpage.setAllowScrolling(false);
             $.fn.fullpage.setKeyboardScrolling(false);
@@ -296,9 +344,12 @@ console.log('Menu');
                 setTimeout(()=>{form.clear();}, 250);
             }
 
-            if (typeof popup == "undefined") {
+            if (typeof popup == "undefined" && this.last.length > 0) {
                 popup = this.last.pop();
-            } else {
+            } else if (typeof popup == "undefined" && this.last.length == 0) {
+                this.closeAll();
+                return;
+            } else if (dont_save != true) {
                 this.last.push(this.current);
             }
 
@@ -351,6 +402,17 @@ console.log('Menu');
                 };
 
             Velocity(this.lightbox, props, options);
+
+            this.clearAll();
+        }
+
+        clearAll () {
+            [].forEach.call(document.querySelectorAll('form'), (form) => {
+                form.clear();
+            });
+
+            $('.login select').select2("destroy");
+            $('.login select').select2();
         }
 
         /**
