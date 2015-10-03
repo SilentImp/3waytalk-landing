@@ -1,0 +1,22 @@
+{
+  "name": "form-attr-polyfill",
+  "version": "0.0.2",
+  "authors": [
+    "jeferson.leao <jsanchesleao@gmail.com>"
+  ],
+  "description": "polyfill for the new form attribute",
+  "main": "dist/form-attr-polyfill.js",
+  "keywords": [
+    "html5",
+    "form",
+    "polyfill"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <script src="../dist/form-attr-polyfill.min.js"></script>
+</head>
+<body>
+
+  <form id="someform" action="./index.html" method="GET">
+    <input name="test"></input>
+  </form>
+
+  <button poly-form="someform">Submit</button>
+
+  <br>
+
+  <input name="outterinput" poly-form="someform"></input>
+
+  <br>
+
+  <select name="outterselect" poly-form="someform">
+    <option>bla</option>
+    <option>ble</option>
+    <option>bli</option>
+  </select>
+
+  <br>
+
+  <input type="radio" poly-form="someform" name="outterradio" value="one">one</input>
+  <input type="radio" poly-form="someform" name="outterradio" value="two">two</input>
+  <input type="radio" poly-form="someform" name="outterradio" value="three">three</input>
+
+  <br>
+
+  <input type="checkbox" poly-form="someform" name="outtercheck" value="one">one</input>
+  <input type="checkbox" poly-form="someform" name="outtercheck" value="two">two</input>
+  <input type="checkbox" poly-form="someform" name="outtercheck" value="three">three</input>
+
+  <br>
+
+  <input type="submit" poly-form="someform" name="outtersubmit" value="CLICK">
+
+  <br>
+
+  <textarea poly-form="someform" name="freetext"></textarea>
+
+  <br>
+
+  <input name="outterfile" type="file" poly-form="someform"></input>
+
+  <div id="wrapper">
+    
+  </div>
+
+  <script>
+    setTimeout(function() {
+      document.getElementById('wrapper').innerHTML = 'AJAX: <input name="ajax" poly-form="someform">';
+    }, 3000);
+  </script>
+</body>
+</html>
