@@ -158,15 +158,6 @@ html.ios body {
     }
 }
 
-html body.fp-viewing-6-0,
-html body.fp-viewing-6 {
-    @component header {
-        @descendent downloads {
-            display: none;
-        }
-    }
-}
-
 @media (max-width: 1260px) and (min-width: 980px) {
     @component header {
         @descendent wrapper {
