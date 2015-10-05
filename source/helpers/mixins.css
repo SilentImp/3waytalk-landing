@@ -84,7 +84,7 @@
 @define-mixin grey_input {
     border-radius: 0;
     border: 1px solid $input-grey;
-    background: $input-grey;
+    background: $lighter-grey;
     padding: 0 20px;
     font-size: 18px;
     line-height: 48px;
@@ -110,9 +110,9 @@
         }
 
     &:hover {
-        border-color: $light-grey;
-        background-color: $light-grey;
+        background-color: color($lighter-grey l(+5%));
     }
+
     &:focus {
         border-color: $cyan;
         color: $black;
