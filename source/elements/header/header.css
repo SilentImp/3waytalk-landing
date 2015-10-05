@@ -164,12 +164,7 @@ html.ios body {
             padding: 0 20px;
             }
         @descendent text {
-            &_desktop {
-                display: none;
-                }
-            &_tablet {
-                display: inline-block;
-                }
+            display: inline-block;
             }
         }
     }
@@ -202,10 +197,7 @@ html.ios body {
             margin-left: 10px;
             }
         @descendent text {
-            &_tablet,
-            &_desktop {
-                display: none;
-                }
+            display: none;
             }
         }
     }
