@@ -59,9 +59,6 @@
 
     @descendent text {
         vertical-align: middle;
-        &_tablet {
-            display: none;
-            }
         }
 
     @descendent downloads {
@@ -195,9 +192,6 @@ html.ios body {
             }
         @descendent download {
             margin-left: 10px;
-            }
-        @descendent text {
-            display: none;
             }
         }
     }
