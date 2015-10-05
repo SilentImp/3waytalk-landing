@@ -57,7 +57,7 @@ console.log('Menu');
             this.lightbox.addEventListener('click', this.closeAll.bind(this));
             this.register_button.addEventListener('click', this.openRegister.bind(this));
             this.header_login_button.addEventListener('click', this.openLoginOuter.bind(this));
-            this.header_register_button.addEventListener('click', this.openLoginOuter.bind(this));
+            this.header_register_button.addEventListener('click', this.openRegisterOuter.bind(this));
             this.mobile_popup_close.addEventListener('click', this.closeMobilePopup.bind(this));
 
             this.recovery_form.addEventListener('submit', this.sendData.bind(this));
