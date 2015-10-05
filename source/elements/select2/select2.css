@@ -5,7 +5,7 @@ html body {
     .select2-container .select2-selection{
         border-radius: 0;
         border: 1px solid $input-grey;
-        background: $input-grey;
+        background: $lighter-grey;
         padding: 0;
         margin: 0;
         font-size: 18px;
@@ -17,8 +17,8 @@ html body {
         font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 200;
         &:hover {
-            background: $light-grey;
-            border-color: $light-grey;
+            background: color($lighter-grey l(+5%));
+            border-color: $input-grey;
             }
         }
 
@@ -32,38 +32,38 @@ html body {
 
     .select2-container--above.select2.select2-container.select2-container--open .select2-selection:hover,
     .select2-container--above.select2.select2-container.select2-container--open .select2-selection{
-        background: $light-grey;
-        border-color: $light-grey $cyan $cyan;
+        background: color($lighter-grey l(+5%));
+        border-color: color($lighter-grey l(+5%)) $cyan $cyan;
     }
 
     .select2-container--above.select2-container--open[data-invalid] .select2-selection:hover,
     .select2-container--above.select2-container--open[data-invalid] .select2-selection{
-        border-color: $light-grey $cyan $cyan;
+        border-color: color($lighter-grey l(+5%)) $cyan $cyan;
     }
 
     .select2-container--above.select2-container--open[data-valid] .select2-selection:hover,
     .select2-container--above.select2-container--open[data-valid] .select2-selection{
-        border-color: $light-grey $cyan $cyan;
+        border-color: color($lighter-grey l(+5%)) $cyan $cyan;
     }
 
     .select2-container--below.select2.select2-container.select2-container--open .select2-selection:hover,
     .select2-container--below.select2.select2-container.select2-container--open .select2-selection{
-        background: $light-grey;
-        border-color: $cyan $cyan $light-grey;
+        background: color($lighter-grey l(+5%));
+        border-color: $cyan $cyan color($lighter-grey l(+5%));
     }
 
     .select2-container--below.select2-container--open[data-invalid] .select2-selection:hover,
     .select2-container--below.select2-container--open[data-invalid] .select2-selection{
-        border-color: $cyan $cyan $light-grey;
+        border-color: $cyan $cyan color($lighter-grey l(+5%));
     }
 
     .select2-container--below.select2-container--open[data-valid] .select2-selection:hover,
     .select2-container--below.select2-container--open[data-valid] .select2-selection{
-        border-color: $cyan $cyan $light-grey;
+        border-color: $cyan $cyan color($lighter-grey l(+5%));
     }
 
     .select2-dropdown {
-        background: $light-grey;
+        background: color($lighter-grey l(+5%));
         border-color: $cyan;
         border-radius: 0;
         &.select2-dropdown--below{
@@ -100,8 +100,6 @@ html body {
         background-color: $cyan;
         }
 
-
-
     .select2-container--default .select2-selection--single .select2-selection__arrow {
         width: 50px;
         height: 50px;
@@ -121,6 +119,10 @@ html body {
     .select2-container .select2-selection--single .select2-selection__rendered {
         line-height: 50px;
         padding: 0 50px 0 20px;
+    }
+
+    .select2-container--default .select2-results__option:nth-child(2n) {
+        background: color($lighter-grey l(-1%));
     }
 
 }

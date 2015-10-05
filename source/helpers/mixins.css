@@ -57,7 +57,7 @@
     position: relative;
     transition: background-color .25s;
     &:hover {
-        background-color: color($cyan l(-5%))
+        background-color: color($cyan l(-5%));
     }
 }
 
@@ -77,7 +77,7 @@
     text-align: center;
     transition: background-color .25s;
     &:hover {
-        background-color: color($cyan l(-5%))
+        background-color: color($cyan l(-5%));
     }
 }
 
