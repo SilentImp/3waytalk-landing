@@ -40,6 +40,12 @@
          */
         clear () {
             this.form.reset();
+            let selectors = $(this.form).find('select');
+            if (selectors.length > 0) {
+                selectors.select2("destroy");
+                selectors.select2();
+            }
+
             setTimeout(()=>{
                 let errors = document.querySelectorAll('.form-error'),
                     fields = document.querySelectorAll('[data-valid], [data-invalid]');
@@ -52,6 +58,7 @@
                     field.removeAttribute('data-invalid');
                     field.removeAttribute('data-valid');
                 });
+
             },100);
         }
 

@@ -335,7 +335,6 @@ console.log('Menu');
          * @param back {node} Form which you want to open when user press back, by default — last form opened
          */
         openForm (popup, dont_save) {
-
             $.fn.fullpage.setAllowScrolling(false);
             $.fn.fullpage.setKeyboardScrolling(false);
 
@@ -351,6 +350,12 @@ console.log('Menu');
                 return;
             } else if (dont_save != true) {
                 this.last.push(this.current);
+            }
+
+            form = popup.querySelector('form');
+            if (form != null) {
+                console.log('clearing');
+                setTimeout(()=>{form.clear();}, 250);
             }
 
             let props = {
@@ -370,7 +375,6 @@ console.log('Menu');
 
             Velocity(popup, props, options);
             this.current = popup;
-
         }
 
         /**
