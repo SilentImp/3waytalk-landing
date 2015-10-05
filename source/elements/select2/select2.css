@@ -87,7 +87,6 @@ html body {
     }
 
     .select2-container--default .select2-search--dropdown .select2-search__field {
-        border-color: $cyan;
         line-height: 43px;
         height: 43px;
     }
