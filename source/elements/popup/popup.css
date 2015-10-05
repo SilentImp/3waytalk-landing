@@ -1,6 +1,5 @@
 @import "../../helpers/*.css";
 
-
 @component popup {
     background-color: $cyan;
     position: relative;
@@ -62,3 +61,11 @@
             }
         }
     }
+
+html.on-peerconnection body {
+    @component popup {
+        @modifier browser.popup.popup {
+            display: none;
+        }
+    }
+}
