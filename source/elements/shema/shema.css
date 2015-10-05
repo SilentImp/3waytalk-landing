@@ -33,9 +33,10 @@
         font-weight: 200;
         }
     @descendent person-role{
-        font-size: 18px;
+        font-size: 16px;
         line-height: 26px;
         font-weight: 200;
+        color: $footer-grey;
         }
     @descendent message{
         display: inline-block;
