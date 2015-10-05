@@ -87,6 +87,9 @@ html body {
     }
 
     .select2-container--default .select2-search--dropdown .select2-search__field {
+        font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 200;
+        font-size: 18px;
         line-height: 43px;
         height: 43px;
     }
