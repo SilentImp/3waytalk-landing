@@ -1,12 +1,14 @@
 @import "../../helpers/*.css";
 
 @component slide {
+
     @descendent title {
         font-size: 38px;
         line-height: 42px;
         font-weight: 200;
         margin: 0 0 35px;
         }
+
     @descendent phones {
         position: relative;
         left: -25px;
