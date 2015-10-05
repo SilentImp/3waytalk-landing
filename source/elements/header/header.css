@@ -50,9 +50,9 @@
         a {
             color: $cyan;
             font-weight: bold;
-            text-decoration: underline;
+            text-decoration: none;
             &:hover {
-                text-decoration: none;
+                color: color($cyan l(+20%));
                 }
             }
         }

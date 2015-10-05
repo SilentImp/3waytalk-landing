@@ -56,7 +56,7 @@
         display: inline-block;
         position: relative;
         &:hover {
-            border-bottom-style: none;
+            color: color($cyan l(+20%));
             }
         }
     }

@@ -102,9 +102,9 @@ html.no-peerconnection body {
         line-height: 24px;
         font-weight: bold;
         color: $darker-cyan;
-        text-decoration: underline;
+        text-decoration: none;
         &:hover {
-            text-decoration: none;
+            color: color($cyan l(+20%));
             }
         }
     @descendent header {
