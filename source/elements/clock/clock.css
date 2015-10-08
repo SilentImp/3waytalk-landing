@@ -6,7 +6,7 @@
     position: absolute;
     right: 100%;
     top: 50%;
-    margin: -318px 90px 0 0;
+    margin: -288px 90px 0 0;
     background: url("../images/clock.jpg") 50% 50% no-repeat;
     background-size: contain;
     transform-origin: 0 0;
@@ -17,6 +17,7 @@
                 transform: rotate(120deg);
                 }
             &__arrow {
+                &_short,
                 &_long {
                     transition: transform 1.5s .8s linear;
                     transform: rotate(120deg);
@@ -62,23 +63,24 @@
             line-height: 0;
 
             position: absolute;
-            top: 253px;
-            left: 4px;
+            top: 250px;
+            left: 0;
             right: 0;
 
             margin: auto;
 
             transform: rotate(0deg);
-            animation: secondsarrow 60s linear infinite;
+            transition: transform 0s .5s linear;
             z-index: 2;
 
             &:after{
                 position: absolute;
                 content: "";
-                top: -52px;
-                left: -11px;
-                background: url("../images/arrow-small.png") 50% 0 no-repeat;
-                width: 25px;
+                top: -54px;
+                left: -5.5px;
+                background: url("../images/arrow-small.svg") 50% 0 no-repeat;
+                background-size: contain;
+                width: 11px;
                 height: 70px;
             }
         }
@@ -92,17 +94,14 @@
             line-height: 0;
 
             position: absolute;
-            top: 380px;
-            left: 4px;
+            top: 382px;
+            left: 0;
             right: 0;
 
             margin: auto;
 
-            transform: rotate(120deg);
             transform: rotate(0deg);
-
             transition: transform 0s .5s linear;
-
             z-index: 2;
 
             &:after{
@@ -110,14 +109,14 @@
                 content: "";
                 top: -192px;
                 left: -16px;
-                background: url("../images/arrow-big.png") 50% 0 no-repeat;
-                width: 32px;
+                background: url("../images/arrow-big.svg") 50% 0 no-repeat;
+                background-size: contain;
+                width: 31px;
                 height: 250px;
             }
         }
     }
 }
-
 
 @media (max-width: 1200px) {
     html body{
