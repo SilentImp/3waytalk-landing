@@ -2,6 +2,10 @@
 
 html body {
 
+    .select2-container.select2-container--default .select2-selection__placeholder {
+        color: $text-grey;
+    }
+
     .select2-container .select2-selection{
         border-radius: 0;
         border: 1px solid $input-grey;
@@ -123,6 +127,11 @@ html body {
 
     .select2-container--default .select2-results__option:nth-child(2n) {
         background: color($lighter-grey l(-1%));
+        color: $black;
+        &:hover {
+            color: $white;
+            background-color: $cyan;
+        }
     }
 
 }
