@@ -355,6 +355,10 @@
     @modifier time {
         background-color: $grey;
 
+        .slide__illustration {
+            display: none;
+        }
+
         .slide__resizable {
             width: 542px;
             height: 650px;
@@ -493,6 +497,29 @@ html.ios body {
 @media (max-width: 750px) {
     html body {
         @component slide {
+            @modifier service {
+                background: $grey;
+                .slide {
+                    &__illustration {
+                        display: block;
+                        width: auto;
+                        min-height: 300px;
+                        background: url(../images/girl.jpg) 50% 0 no-repeat;
+                        background-size: 120% auto;
+                        &_hidden {
+                            display: none;
+                            }
+                        }
+                    &__details {
+                        width: auto;
+                        padding: 0;
+                        margin: 0;
+                        }
+                    &__header {
+                        padding: 20px;
+                        }
+                    }
+                }
             @modifier interface {
                 .slide {
                     &__centred {

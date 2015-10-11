@@ -107,7 +107,10 @@ console.log('landing');
 
             let resizables = document.querySelectorAll('.slide__resizable')
                 , centreds = document.querySelectorAll('.slide__centred')
+                , service_slide = document.querySelector('.slide_service')
+                , service_illustration = document.querySelector('.slide__illustration')
                 , header_height = document.querySelector('.header').offsetHeight
+                , footer_height = document.querySelector('.footer').offsetHeight
                 , viewport_height
                 , viewport_width
                 , availabale_width
@@ -124,7 +127,36 @@ console.log('landing');
                 , tr_y
                 , tr_x
                 , element_width
-                , element_height;
+                , element_height
+                , illustration_height
+                , w_width
+                , w_height
+                , i_width
+                , i_height;
+
+
+            cell = service_slide.querySelector('.fp-tableCell');
+            viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
+            viewport_width = cell.offsetWidth;
+            header = service_slide.querySelector('.slide__header');
+            illustration_height = (Math.min(cell.offsetHeight, parseInt(cell.style.height, 10)) - header.offsetHeight - footer_height - header_height);
+            service_illustration.style.height = illustration_height + "px";
+
+            w_width = 700;
+            w_height = 570;
+            i_width = viewport_width*1.2;
+            i_height = w_height*i_width/w_width;
+
+            if (i_height < illustration_height) {
+                service_illustration.classList.toggle('slide__illustration_hidden', false);
+                service_illustration.style.backgroundPosition = "50% 100%";
+            } else if (illustration_height < 370) {
+                service_illustration.classList.toggle('slide__illustration_hidden', true);
+            } else {
+                service_illustration.classList.toggle('slide__illustration_hidden', false);
+                service_illustration.style.backgroundPosition = "50% 0";
+            }
+
 
             [].forEach.call(centreds, (centred) => {
                 slide = centred.closest('.slide');
