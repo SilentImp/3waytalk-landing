@@ -4,12 +4,13 @@
     width: 522px;
     height: 702px;
     position: absolute;
-    right: 100%;
+    left: 20px;
     top: 50%;
-    margin: -288px 90px 0 0;
+    margin: -331px auto auto;
     background: url("../images/clock.jpg") 50% 50% no-repeat;
     background-size: contain;
     transform-origin: 0 0;
+
     @modifier visible {
         .clock {
             &__glow {
@@ -25,6 +26,7 @@
                 }
             }
         }
+
     @descendent glow {
         width: 225px;
         height: 450px;
@@ -43,6 +45,7 @@
         background-position: 0 50%;
         background-repeat: no-repeat;
         }
+
     @descendent mask {
         width: 225px;
         height: 450px;
@@ -52,6 +55,7 @@
         bottom: 96px;
         overflow: hidden;
         }
+
     @descendent arrow {
         &_short {
             width: 1px;
@@ -118,25 +122,9 @@
     }
 }
 
-@media (max-width: 1200px) {
-    html body{
-        @component clock {
-            margin-right: 40px;
-        }
-    }
-}
-
 @media (max-width: 750px) {
-    html body{
-        @component clock {
-            margin: 0 0 0 -160px;
-            display: block;
-            position: relative;
-            top: auto;
-            left: auto;
-            right: auto;
-            bottom: auto;
-        }
+    @component clock {
+        left: 0;
     }
 }
 

@@ -172,6 +172,10 @@ console.log('landing');
                     tr_x = -(element_width - viewport_width)/2;
                 }
 
+                if ((viewport_width > 1221)) {
+                    tr_y = 0;
+                }
+
                 if( viewport_height < 580 ) {
                     slide.classList.add('slide_hide-centred');
                     centred.style[Modernizr.prefixed('transform')] = 'none';
@@ -249,9 +253,6 @@ console.log('landing');
                     // mobile resolution
                     availabale_height = viewport_height - header_height - header.offsetHeight - 90 - 20;
                     availabale_width = viewport_width - 40;
-
-                    console.log('ah: ', availabale_height);
-                    console.log('aw: ', availabale_width, element_width);
 
                     scale_x = availabale_height/element_height;
                     scale_y = availabale_width/element_width;

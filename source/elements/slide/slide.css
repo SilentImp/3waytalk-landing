@@ -132,7 +132,7 @@
             bottom: auto;
             text-align: center;
 
-            .step {
+            .steps__step {
                 padding: 0;
                 border-style: none;
                 width: auto;
@@ -142,14 +142,14 @@
                 right: auto;
                 bottom: auto;
                 margin: 0 0 20px;
+                }
 
-                &__number {
-                    top: 0;
-                    right: 100%;
-                    left: auto;
-                    bottom: auto;
-                    margin: -2px 10px 0 0;
-                    }
+            .steps__number {
+                top: 0;
+                right: 100%;
+                left: auto;
+                bottom: auto;
+                margin: -2px 10px 0 0;
                 }
 
             .slide__phone_left{
@@ -354,18 +354,27 @@
 
     @modifier time {
         background-color: $grey;
-        .slide__details {
+
+        .slide__resizable {
+            width: 542px;
+            height: 650px;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateY(-50%);
-            right: 40px;
+            right: 50%;
+            top: 60px;
+            bottom: 0;
+            margin: auto 40px auto auto;
+            transform-origin: 0 50%;
             }
+
+        .slide__details {
+            padding: 60px 0 0;
+            }
+
         .slide__header {
-            max-width: 600px;
-            margin: 0;
+            width: 562px;
+            margin: 0 auto;
             position: relative;
-            border-left: 50% solid transparent;
+            border-left: 582px solid transparent;
             }
         }
     }
@@ -455,6 +464,17 @@ html.ios body {
                     transform-origin: 0 50%;
                 }
             }
+            @modifier time {
+                .slide__header{
+                    width: auto;
+                    margin: 0 20px;
+                }
+                .slide__resizable {
+                    left: 0;
+                    right: auto;
+                    transform-origin: 0 50%;
+                }
+            }
             @modifier interpreter {
                 .slide__header{
                     width: auto;
@@ -502,6 +522,23 @@ html.ios body {
                     display: none;
                     }
                 }
+            @modifier time {
+                .slide__header {
+                    border-style: none;
+                    width: auto;
+                    margin: 0 20px;
+                }
+                .slide__resizable {
+                    display: block;
+                    margin: 20px auto 0;
+                    position: relative;
+                    top: auto;
+                    right: auto;
+                    bottom: auto;
+                    left: auto;
+                    transform-origin: 50% 0;
+                }
+            }
             @modifier conference {
                 .slide__header {
                     border-style: none;
