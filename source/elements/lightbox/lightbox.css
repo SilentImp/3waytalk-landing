@@ -15,3 +15,9 @@
         display: block;
         }
     }
+
+@media (max-height: 560px) {
+    @component lightbox {
+            display: none;
+        }
+    }

@@ -62,6 +62,14 @@
         }
     }
 
+@media (max-height: 560px) {
+    @component popup {
+        @modifier mobile.popup {
+            display: block;
+            }
+        }
+    }
+
 html.on-peerconnection body {
     @component popup {
         @modifier browser.popup.popup {

@@ -1,13 +1,23 @@
 @import "../../helpers/*.css";
 
-@component step {
-    position: absolute;
-    bottom: 50%;
-    right: 50%;
-    margin: 0 395px 0 0;
-    border-bottom: 1px solid $cyan;
-    width: 230px;
-    padding: 0 70px 10px 0;
+@component steps {
+
+    @descendent step {
+        position: absolute;
+        bottom: 312px;
+        right: 455px;
+        margin: 0;
+        border-bottom: 1px solid $cyan;
+        width: 230px;
+        padding: 0 70px 10px 0;
+        &_two.steps__step {
+            bottom: 465px;
+            }
+        &_three.steps__step {
+            bottom: 690px;
+            }
+        }
+
     @descendent number {
         position: absolute;
         top: 100%;
@@ -43,10 +53,119 @@
         line-height: 26px;
         color: $footer-grey;
         }
-    @modifier two.step {
-        margin-bottom: -225px;
-        }
-    @modifier three.step {
-        margin-bottom: -380px;
+    }
+
+@media (max-width: 750px) {
+    html body {
+        @component steps {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: -48px;
+
+            @mixin clear;
+
+            @descendent title {
+                font-size: 18px;
+                line-height: 26px;
+                }
+
+            @descendent abstract {
+                font-size: 14px;
+                line-height: 26px;
+                }
+
+            @descendent step {
+                position: static;
+                width: auto;
+                padding: 0 10px;
+                margin: 0 40px 15px;
+                border-style: none;
+
+                float: left;
+                clear: left;
+
+                &_one.steps__step {
+                    .steps__number {
+                        left: 50%;
+                        right: 0;
+                        margin: 0 0 0 -88px;
+                        top: -397px;
+                        &:after {
+                            content: "";
+                            width: 0;
+                            height: 360px;
+                            overflow: hidden;
+                            top: 100%;
+                            z-index: -1;
+                            position: absolute;
+                            top: 100%;
+                            left: 13px;
+                            border-left: 1px solid $cyan;
+                            }
+                        }
+                    }
+                &_two.steps__step {
+                    background: $grey;
+                    .steps__number {
+                        left: auto;
+                        right: 50%;
+                        margin: 0 -125px 0 0;
+                        top: -280px;
+                        &:before {
+                            content: "";
+                            width: 200px;
+                            height: 370px;
+                            overflow: hidden;
+                            margin: -1px -28px 0 0;
+                            top: 50%;
+                            right: 100%;
+                            z-index: -1;
+                            position: absolute;
+                            border: solid $cyan;
+                            border-width: 0 0 1px 0;
+                            }
+                        &:after {
+                            content: "";
+                            width: 55px;
+                            height: 370px;
+                            overflow: hidden;
+                            margin: -2px 0 0;
+                            top: 50%;
+                            left: 100%;
+                            z-index: -1;
+                            position: absolute;
+                            border: solid $cyan;
+                            border-width: 1px 1px 1px 0;
+                            border-radius: 0 30px 30px 0;
+                            }
+                        }
+                    }
+                &_three.steps__step {
+                    background: $grey;
+                    .steps__number {
+                        left: auto;
+                        right: 50%;
+                        margin: 0 100px 0 0;
+                        top: -190px;
+                        &:after {
+                            content: "";
+                            width: 55px;
+                            height: 333px;
+                            overflow: hidden;
+                            margin: -2px 0 0;
+                            top: 50%;
+                            right: 100%;
+                            z-index: -1;
+                            position: absolute;
+                            border: solid $cyan;
+                            border-width: 1px 0 1px 1px;
+                            border-radius: 30px 0 0 30px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }

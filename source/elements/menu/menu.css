@@ -149,6 +149,7 @@
                 position: fixed;
                 top: 10px;
                 left: 30px;
+                display: none;
                 }
             @descendent login {
                 display: none;
@@ -165,6 +166,47 @@
     }
 
 @media (max-width: 750px) {
+    html body {
+        @component menu {
+            height: auto;
+            left: 0;
+            width: auto;
+            bottom: auto;
+            background-color: $white;
+            @descendent logotype {
+                position: relative;
+                top: auto;
+                left: auto;
+                float: left;
+                margin: 10px 0 10px 30px;
+                }
+            @descendent wrapper {
+                display: block;
+                min-height: 80px;
+                position: relative;
+                background: $white;
+                @mixin clear;
+                }
+            @descendent logotype {
+                position: fixed;
+                top: 10px;
+                left: 30px;
+                display: block;
+                }
+            @descendent interpreter {
+                position: absolute;
+                display: block;
+                top: auto;
+                bottom: 20px;
+                }
+            @descendent details {
+                display: none;
+                }
+            }
+        }
+    }
+
+@media (max-height: 560px) {
     html body {
         @component menu {
             height: auto;

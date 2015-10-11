@@ -124,7 +124,7 @@
         left: 20px;
         right: 20px;
 
-        max-height: calc(100vh - 200px);
+        max-height: calc(100vh - 100px);
         overflow:auto;
         overflow-x: hidden;
         overflow-y: auto;
@@ -171,5 +171,12 @@
         @mixin blue_button_big;
         display: inline-block;
         vertical-align: middle;
+        }
+    }
+
+
+@media (max-height: 560px) {
+    @component login {
+            display: none;
         }
     }
