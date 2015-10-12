@@ -109,6 +109,11 @@ console.log('landing');
                 , centreds = document.querySelectorAll('.slide__centred')
                 , service_slide = document.querySelector('.slide_service')
                 , service_illustration = document.querySelector('.slide__illustration')
+                , main = document.querySelector('.slide_main')
+                , shema = document.querySelector('.shema')
+                , shema_details = shema.closest('.slide__details')
+                , phones = main.querySelector('.slide__phones')
+                , phone = main.querySelector('.slide__phone')
                 , header_height = document.querySelector('.header').offsetHeight
                 , footer_height = document.querySelector('.footer').offsetHeight
                 , viewport_height
@@ -133,6 +138,87 @@ console.log('landing');
                 , w_height
                 , i_width
                 , i_height;
+
+            console.log(shema.offsetHeight);
+
+            cell = main.querySelector('.fp-tableCell');
+            viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
+            viewport_width = cell.offsetWidth;
+
+            if ((viewport_height < 710) && (viewport_width<750)) {
+                shema.style.display = "none";
+                shema_details.style.display = "block";
+                shema_details.style.height = "auto";
+            } else {
+                shema.removeAttribute('style');
+                shema_details.removeAttribute('style');
+            }
+
+            header = main.querySelector('.slide__header');
+            main.style.backgroundSize = "auto " + viewport_height + "px";
+            availabale_height = viewport_height - header_height - delta - header.offsetHeight;
+
+            if ((availabale_height < 500)&&(availabale_height >= 280)) {
+                phones.style.height = availabale_height + "px";
+                phones.style.visibility = "visible";
+            } else if (availabale_height < 280 ) {
+                phones.style.visibility = "hidden";
+            } else {
+                phones.removeAttribute('style');
+            }
+
+            if (viewport_width < 750) {
+                if ((viewport_height < 790) && (viewport_height > 480)) {
+                    scale = viewport_height/790;
+
+                    if (scale < 1) {
+
+                        phone.style[Modernizr.prefixed('transform')] = 'scale(' + scale + ')';
+
+                    } else {
+                        console.log('res');
+                        phone.removeAttribute('style');
+                        header.removeAttribute('style');
+
+                    }
+
+                } else if (viewport_height < 481){
+                    header.removeAttribute('style');
+                } else {
+                    phone.removeAttribute('style');
+                    header.removeAttribute('style');
+                }
+
+                if ((viewport_width > 500) && (scale < 1)) {
+                    i_width = ((scale*440)/3)*2;
+                    phone.style[Modernizr.prefixed('transform-origin')] = "66.666% 66.666%";
+                    phone.style.right = -(i_width/2)+"px";
+                    header.style.borderRightWidth = i_width - 20 + "px"
+                } else if ((viewport_width < 501) && (viewport_width > 420) && (scale < 1)) {
+                    i_width = (scale*440)/2;
+                    phone.style[Modernizr.prefixed('transform-origin')] = "50% 66.666%";
+                    phone.style.right = -i_width+"px";
+                    header.style.borderRightWidth = i_width - 20 + "px"
+                } else if (scale < 1) {
+                    i_width = (scale*440)/3;
+                    phone.style[Modernizr.prefixed('transform-origin')] = "33.333% 66.666%";
+                    phone.style.right = -(i_width*2)+"px";
+                    header.style.borderRightWidth = i_width - 20 + "px"
+                }
+
+                if ((viewport_width > 500) && (scale>=1)) {
+                    phone.style.right = "-145px";
+                    header.style.borderRightWidth =  "270px";
+                } else if ((viewport_width < 501) && (viewport_width > 420) && (scale>=1)) {
+                    phone.style.right = "-220px";
+                    header.style.borderRightWidth = "200px"
+                } else if (scale>=1) {
+                    phone.style.right = "-290px";
+                    header.style.borderRightWidth = "125px"
+                }
+
+
+            }
 
 
             cell = service_slide.querySelector('.fp-tableCell');
@@ -313,21 +399,6 @@ console.log('landing');
                 }
 
             });
-
-            // let clock = document.querySelector('.clock'),
-            //     clock_slide = document.querySelector('.fp-slidesContainer'),
-            //     title = clock_slide.querySelector('.slide__title'),
-            //     text = clock_slide.querySelector('.slide__text'),
-            //     height = Math.min(clock_slide.offsetHeight - title.offsetHeight - text.offsetHeight + 90, 702),
-            //     perc = height / 702;
-            //
-            // if (clock_slide.offsetWidth <= 750) {
-            //     clock.style[Modernizr.prefixed('transform')] = 'scale(' + perc + ')';
-            //     clock.style.margin = "0 0 0 -" + (clock.offsetWidth * perc) * 0.33 + "px";
-            //     // clock.style.background = 'red';
-            // } else {
-            //     clock.removeAttribute('style');
-            // }
 
         }
 

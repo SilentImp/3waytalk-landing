@@ -2,12 +2,10 @@
 
 @component shema{
     white-space: nowrap;
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    right: 20px;
-    margin: -100px auto 0;
+    position: relative;
+    width: 100%;
     z-index: 1;
+    flex-grow: 0;
     &:after{
         content: "";
         position: absolute;
@@ -81,7 +79,7 @@
     }
 
 
-@media (max-width: 1160px) and (min-width: 960px) {
+@media (max-width: 1200px) and (min-width: 961px) {
     @component shema{
         @descendent message{
             width: 80px;
@@ -95,7 +93,48 @@
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 960px) and (min-width: 751px) {
+    @component shema {
+        width: auto;
+        &:after {
+            top: 50px;
+            }
+        @descendent message{
+            top: 28px;
+            width: 80px;
+            z-index: 1;
+            &_first {
+                margin-right: -40px;
+                }
+            &_second {
+                margin-left: -40px;
+                }
+            }
+        @descendent person-name{
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 200;
+            }
+        @descendent person-role{
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 200;
+            }
+        @descendent person-avatar {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px 0 0;
+        }
+        @descendent person {
+            width: 250px;
+            position: relative;
+        }
+    }
+}
+
+@media (max-width: 750px) {
     @component shema {
         width: 320px;
         white-space: normal;
@@ -146,6 +185,13 @@
             line-height: 20px;
             font-weight: 200;
             }
+        @descendent person-avatar {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px 0 0;
+        }
         @descendent person {
             width: 250px;
             display: block;
@@ -154,6 +200,44 @@
             margin: 0 0 0 70px;
             white-space: nowrap;
         }
+        @descendent person-details {
+            display: inline-block;
+            vertical-align: middle;
+            width: 140px;
+            white-space: normal;
+        }
+    }
+}
+
+
+
+@media (max-height: 600px) {
+    @component shema{
+        width: auto;
+        &:after {
+            top: 50px;
+            }
+        @descendent message{
+            top: 28px;
+            width: 80px;
+            z-index: 1;
+            &_first {
+                margin-right: -40px;
+                }
+            &_second {
+                margin-left: -40px;
+                }
+            }
+        @descendent person-name{
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 200;
+            }
+        @descendent person-role{
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 200;
+            }
         @descendent person-avatar {
             width: 100px;
             height: 100px;
@@ -161,11 +245,15 @@
             vertical-align: middle;
             margin: 0 10px 0 0;
         }
-        @descendent person-details {
-            display: inline-block;
-            vertical-align: middle;
-            width: 140px;
-            white-space: normal;
+        @descendent person {
+            width: 250px;
+            position: relative;
         }
+    }
+}
+
+@media (max-height: 500px) {
+    @component shema{
+        display: none;
     }
 }

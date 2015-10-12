@@ -15,11 +15,6 @@
         box-sizing: border-box;
     }
 
-    @descendent phones {
-        position: relative;
-        left: -25px;
-        }
-
     @descendent logotype {
         display: block;
         width: 150px;
@@ -33,18 +28,15 @@
         }
 
     @descendent footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
         font-size: 16px;
         color: $footer-grey;
-        padding: 0 0 33px;
+        padding: 0 60px 0 20px;
+        text-align: center;
         p{
             line-height: 33px;
             display: inline-block;
             vertical-align: middle;
-            padding: 0 90px;
+            padding: 0 20px;
             }
         }
 
@@ -53,6 +45,10 @@
         line-height: 35px;
         font-weight: 200;
         margin: 0 0 35px;
+        }
+
+    @descendent dummy {
+        height: 20px;
         }
 
     @descendent warning {
@@ -97,7 +93,7 @@
     @descendent scroll {
         position: absolute;
         bottom: 20px;
-        right: 360px;
+        right: 290px;
         padding: 0 0 0 25px;
         background: url("../images/scroll.svg") 0 50% no-repeat;
         display: inline-block;
@@ -180,11 +176,12 @@
         }
 
     @modifier main {
-        background: url("../images/slide-1.jpg") 50% 100% no-repeat;
-        background-size: cover;
+        background: url("../images/slide-1.jpg") 50% 0 no-repeat,
+                    url("../images/grad.png") 50% 0 repeat-x;
+        background-size: auto 100%;
         .slide{
             &__phones {
-                margin: 70px 0 0;
+                margin: 35px 0 0;
                 }
             &__details {
                 padding: 0 250px 0 90px;
@@ -208,10 +205,25 @@
     @modifier schema {
         background-color: $grey;
         text-align: center;
-        .slide__details {
-            padding: 80px 20px 0;
-            height: 100%;
-            position: relative;
+        .slide {
+            &__details {
+                padding: 60px 20px 0;
+                height: 100%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                }
+            &__dummy {
+                flex-grow: 0;
+                }
+            &__header {
+                flex-grow: 0;
+                }
+            &__footer {
+                flex-grow: 0;
+                }
             }
         }
 
@@ -249,7 +261,7 @@
             width: 295px;
             height: 650px;
             position: absolute;
-            right: 0;
+            right: 20px;
             top: 0;
             bottom: 0;
             margin: auto;
@@ -438,6 +450,18 @@ html.ios body {
 @media (min-width: 751px) and (max-width: 1200px) {
     html body {
         @component slide {
+            @descendent scroll {
+                display: none;
+            }
+            @modifier main {
+                background-position: 0 0;
+                .slide {
+                    &__details {
+                        padding: 0;
+                        margin: 0 20px;
+                        }
+                    }
+                }
             @modifier interface {
                 .slide {
                     &__centred {
@@ -497,6 +521,91 @@ html.ios body {
 @media (max-width: 750px) {
     html body {
         @component slide {
+            @descendent scroll {
+                display: none;
+            }
+            @descendent title {
+                font-size: 28px;
+                line-height: 32px;
+                }
+            @descendent text {
+                font-size: 14px;
+                line-height: 20px;
+                }
+
+            @descendent downloads {
+                white-space: normal;
+                }
+            @descendent slide__warning {
+                margin: 0 15px 20px 0;
+                }
+            @descendent download {
+                margin: 0 15px 20px 0;
+                }
+            @modifier schema {
+                text-align: left;
+                .slide {
+                    &__details {
+                        padding: 40px 20px 0;
+                        }
+                    &__title {
+                        text-align: left;
+                        margin: 0 0 10px;
+                        }
+                    &__footer {
+                        text-align: left;
+                        padding-left: 0;
+                        p {
+                            padding: 0;
+                            }
+                        }
+                    }
+                }
+
+            @modifier main {
+                background: $grey;
+                .slide {
+                    &__phone {
+                        width: 440px;
+                        height: 790px;
+
+                        background: url(../images/iphone.jpg) 50% 90px no-repeat;
+
+                        position: absolute;
+                        right: -145px;
+                        top: 50%;
+
+                        margin: -395px 0 0;
+                        z-index: 1;
+
+                        transform-origin: 66.666% 66.666%;
+                        }
+                    &__downloads {
+                        white-space: normal;
+                        }
+                    &__download {
+                        margin: 0 15px 20px 0;
+                        }
+                    &__warning {
+                        margin: 0 15px 20px 0;
+                        }
+                    &__details {
+                        padding: 0;
+                        }
+                    &__phones {
+                        display: none;
+                        }
+                    &__logotype {
+                        display: none;
+                        }
+                    &__header {
+                        margin: 0 20px;
+                        z-index: 2;
+                        position: relative;
+                        border-right: 253px transparent solid;
+                        }
+                    }
+                }
             @modifier service {
                 background: $grey;
                 .slide {
@@ -516,10 +625,11 @@ html.ios body {
                         margin: 0;
                         }
                     &__header {
-                        padding: 20px;
+                        padding: 0 20px 20px;
                         }
                     }
                 }
+
             @modifier interface {
                 .slide {
                     &__centred {
@@ -616,7 +726,7 @@ html.ios body {
                     right: 100%;
                     left: auto;
                     bottom: auto;
-                    margin: auto;
+                    margin: auto 10px auto auto;
                     &:after,
                     &:before {
                         display: none;
@@ -628,13 +738,118 @@ html.ios body {
                 width: auto;
                 height: auto;
                 padding: 60px 0 0;
-                margin: auto 20px;
+                margin: auto 20px auto 44px;
                 position: relative;
                 top: auto;
                 left: auto;
                 right: auto;
                 bottom: auto;
                 text-align: center;
+            }
+        }
+    }
+    html.android body {
+        @component slide {
+            @modifier main {
+                .slide {
+                    &__phone {
+                        background-image: url(../images/android.jpg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-height: 560px) {
+    html body {
+        @component slide {
+            @modifier main {
+                background: $grey;
+                .slide {
+                    &__phone {
+                        display: none;
+                        }
+                    &__header {
+                        border-style: none;
+                        padding: 60px 0 0;
+                        }
+                    &__details {
+                        float: none;
+                        max-width: 600px;
+                        margin: auto;
+                        padding: 0;
+                        }
+                    }
+                }
+            @modifier service {
+                background: $grey;
+                .slide {
+                    &__details {
+                        float: none;
+                        max-width: 600px;
+                        margin: auto;
+                        }
+                    &__header {
+                        padding: 0;
+                        margin: 0 20px;
+                        }
+                    }
+                }
+            @descendent logotype {
+                display: none;
+                }
+            @descendent phones {
+                display: none;
+                }
+            @descendent scroll {
+                right: 90px;
+                bottom: 30px;
+            }
+        }
+    }
+}
+
+@media (max-height: 500px) {
+    html body {
+        @component slide {
+            @descendent header {
+                max-width: 600px;
+                margin: auto;
+                }
+            @descendent title {
+                margin: 0;
+                }
+            @descendent text {
+                margin: 0 0 15px;
+                }
+            @modifier schema {
+                .slide {
+                    &__dummy {
+                        display: none;
+                        }
+                    &__title {
+                        margin: 0;
+                        text-align: left;
+                        }
+                    &__footer {
+                        font-size: 22px;
+                        line-height: 35px;
+                        max-width: 600px;
+                        font-weight: 200;
+                        margin: 0 auto;
+                        padding: 0;
+                        text-align: left;
+                        p {
+                            padding: 0;
+                            }
+                        }
+                    &__details {
+                        height: auto;
+                        display: block;
+                    }
+                }
             }
         }
     }
