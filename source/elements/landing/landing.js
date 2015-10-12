@@ -139,8 +139,6 @@ console.log('landing');
                 , i_width
                 , i_height;
 
-            console.log(shema.offsetHeight);
-
             cell = main.querySelector('.fp-tableCell');
             viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
             viewport_width = cell.offsetWidth;
@@ -156,12 +154,12 @@ console.log('landing');
 
             header = main.querySelector('.slide__header');
             main.style.backgroundSize = "auto " + viewport_height + "px";
-            availabale_height = viewport_height - header_height - delta - header.offsetHeight;
+            availabale_height = viewport_height - delta - header.offsetHeight;
 
-            if ((availabale_height < 500)&&(availabale_height >= 280)) {
+            if ((availabale_height < 500)&&(availabale_height >= 200)) {
                 phones.style.height = availabale_height + "px";
                 phones.style.visibility = "visible";
-            } else if (availabale_height < 280 ) {
+            } else if (availabale_height < 200 ) {
                 phones.style.visibility = "hidden";
             } else {
                 phones.removeAttribute('style');
@@ -294,7 +292,7 @@ console.log('landing');
                     tr_y = 0;
                 }
 
-                if( viewport_height < 580 ) {
+                if( viewport_height < 400 ) {
                     slide.classList.add('slide_hide-centred');
                     centred.style[Modernizr.prefixed('transform')] = 'none';
                 } else if ( scale < 1 ) {

@@ -6,17 +6,21 @@
         font-size: 38px;
         line-height: 42px;
         font-weight: 200;
-        margin: 0 0 35px;
+        margin: 0 0 20px;
         }
 
     @descendent details {
         max-height: 100%;
         overflow: hidden;
         box-sizing: border-box;
+        position: relative;
     }
 
     @descendent logotype {
-        display: block;
+        position: absolute;
+        top: 10px;
+        left: 90px;
+
         width: 150px;
         height: 60px;
         background: url('../images/logotype.svg') 0 50% no-repeat;
@@ -24,7 +28,6 @@
         overflow: hidden;
         text-indent: -9999px;
         text-align: left;
-        margin: 0 0 45px;
         }
 
     @descendent footer {
@@ -44,7 +47,7 @@
         font-size: 22px;
         line-height: 35px;
         font-weight: 200;
-        margin: 0 0 35px;
+        margin: 0 0 20px;
         }
 
     @descendent dummy {
@@ -186,6 +189,9 @@
             &__details {
                 padding: 0 250px 0 90px;
                 }
+            &__header {
+                padding: 90px 0 0;
+                }
             &__title {
                 margin-bottom: 0;
                 }
@@ -199,6 +205,7 @@
             width: 50%;
             float: right;
             margin: 0 90px 0 0;
+            padding: 60px 0 0;
             }
         }
 
@@ -214,6 +221,9 @@
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
+                }
+            &__title {
+                margin: 0 0 40px;
                 }
             &__dummy {
                 flex-grow: 0;
@@ -452,6 +462,9 @@ html.ios body {
         @component slide {
             @descendent scroll {
                 display: none;
+            }
+            @descendent logotype {
+                left: 0;
             }
             @modifier main {
                 background-position: 0 0;
