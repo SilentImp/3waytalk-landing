@@ -223,7 +223,7 @@
             &__title {
                 margin: 0 0 20px;
                 position: relative;
-                top: -10px;
+                top: -15px;
                 }
             &__dummy {
                 flex-grow: 0;
@@ -243,8 +243,9 @@
             padding: 60px 0 0;
             }
         .slide__header {
-            width: 560px;
+            width: 525px;
             margin: 0 auto;
+            padding: 0 40px 0 0;
             position: relative;
             border-right: 565px solid transparent;
             }
@@ -255,7 +256,7 @@
             left: 50%;
             top: 60px;
             bottom: 0;
-            margin: auto auto auto 40px;
+            margin: auto;
             .interpreter {
                 left: 0;
                 right: auto;
@@ -300,7 +301,7 @@
             right: 50%;
             top: 60px;
             bottom: 0;
-            margin: auto 40px auto auto;
+            margin: auto;
             }
 
         .slide__phone {
@@ -318,10 +319,11 @@
             }
 
         .slide__header {
-            width: 560px;
-            margin: 0 auto;
+            width: 520px;
+            margin: auto;
+            padding: 0 0 0 40px;
             position: relative;
-            border-left: 545px solid transparent;
+            border-left: 560px solid transparent;
             }
         }
 
@@ -465,7 +467,9 @@ html.ios body {
                 left: 20px;
             }
             @modifier main {
-                background-position: 0 0;
+                background: url("../images/slide-1.jpg") 50% 0 no-repeat,
+                            url("../images/grad.png") 50% 0 repeat-x;
+                background-size: auto 100%;
                 .slide {
                     &__details {
                         padding: 0;

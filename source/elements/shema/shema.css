@@ -4,6 +4,7 @@
     white-space: nowrap;
     position: relative;
     width: 100%;
+    max-width: 1200px;
     z-index: 1;
     flex-grow: 0;
     &:after{

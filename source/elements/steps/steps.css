@@ -10,10 +10,11 @@
         border-bottom: 1px solid $cyan;
         width: 230px;
         padding: 0 70px 10px 0;
+        transform-origin: 100% 100%;
         &_two.steps__step {
             bottom: 465px;
             }
-        &_three.steps__step {
+        &_one.steps__step {
             bottom: 690px;
             }
         }

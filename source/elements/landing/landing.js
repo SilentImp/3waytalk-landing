@@ -25,29 +25,6 @@
             let header = document.querySelector('.header')
                 , clock = document.querySelector('.clock');
 
-            // fullpage.initialize(document.querySelector('.landing'), {
-            //     sectionSelector: ".landing__section",
-            //     navigation: true,
-            //     afterLoad: this.hideLoader.bind(this),
-            //     afterRender: this.recountSlides.bind(this),
-            //     afterResize: this.recountSlides.bind(this),
-            //     onLeave: (index, nextIndex, direction) => {
-            //         if (nextIndex == 1) {
-            //             header.classList.toggle('header_open', false);
-            //             this.hideNav();
-            //         } else {
-            //             header.classList.toggle('header_open', true);
-            //             this.showNav();
-            //         }
-            //
-            //         if (nextIndex == 6) {
-            //             clock.classList.toggle('clock_visible', true);
-            //         } else {
-            //             clock.classList.toggle('clock_visible', false);
-            //         }
-            //     }
-            // });
-
             window.requestAnimFrame = window.requestAnimationFrame;
             $(".landing").fullpage({
                 sectionSelector: ".landing__section",
@@ -289,10 +266,6 @@
                 tr_y = 0;
                 tr_x = 0;
 
-                if ((availabale_height < element_height )) {
-                    tr_y = -(element_height - viewport_height - header_height)/2;
-                }
-
                 if (
                     (availabale_width < element_width )
                     && (
@@ -300,23 +273,31 @@
                         && (viewport_width > 750)
                     )
                 ) {
-                    tr_y = 0;
                     tr_x = -(element_width - viewport_width)/2;
-                }
-
-                if ((viewport_width > 1221)) {
-                    tr_y = 0;
                 }
 
                 if( viewport_height < 300 ) {
                     slide.classList.add('slide_hide-centred');
                     centred.style[Modernizr.prefixed('transform')] = 'none';
+                    [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
+                        step.removeAttribute('style');
+                    });
+
                 } else if ( scale < 1 ) {
                     slide.classList.remove('slide_hide-centred');
-                    centred.style[Modernizr.prefixed('transform')] = 'translateX('+tr_x+'px) translateY('+tr_y+'px) scale(' + scale + ')';
+                    centred.style[Modernizr.prefixed('transform')] = 'translateX('+tr_x+'px) scale(' + scale + ')';
+
+                    [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
+                        step.style[Modernizr.prefixed('transform')] = 'scale(' + (1 + (1-scale)) + ')';
+                    });
+
+
                 } else {
                     slide.classList.remove('slide_hide-centred');
-                    centred.style[Modernizr.prefixed('transform')] = 'translateX('+tr_x+'px) translateY('+tr_y+'px)';
+                    centred.style[Modernizr.prefixed('transform')] = 'translateX('+tr_x+'px)';
+                    [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
+                        step.removeAttribute('style');
+                    });
                 }
             });
 
@@ -357,21 +338,21 @@
                         resizable.style[Modernizr.prefixed('transform')] = 'scale(' + scale + ')';
 
                         if (slide.classList.contains('slide_right')){
-                            border_width = (parseInt(resizable.getAttribute('data-width'),10)+20)*scale;
+                            border_width = (parseInt(resizable.getAttribute('data-width'),10))*scale;
                             header.style.borderLeftWidth = border_width + 'px';
 
                             if (viewport_width > this.tablet ) {
                                 // tablet resolution
-                                resizable.style.marginRight = (20 + header.offsetWidth/2 - border_width) + 'px';
+                                resizable.style.marginRight = (header.offsetWidth/2 - border_width) + 'px';
                             }
 
                         } else {
-                            border_width = (parseInt(resizable.getAttribute('data-width'),10)+20)*scale;
+                            border_width = (parseInt(resizable.getAttribute('data-width'),10))*scale;
                             header.style.borderRightWidth = border_width + 'px';
 
                             if (viewport_width > this.tablet ) {
                                 // tablet resolution
-                                resizable.style.marginLeft = (20 + header.offsetWidth/2 - border_width) + 'px';
+                                resizable.style.marginLeft = (header.offsetWidth/2 - border_width) + 'px';
                             }
                         }
 
