@@ -199,11 +199,15 @@
     @modifier service {
         background: url("../images/slide-7.jpg") 50% 100% no-repeat;
         background-size: cover;
-        .slide__details {
-            width: 50%;
-            float: right;
-            margin: 0 90px 0 0;
-            padding: 60px 0 0;
+        .slide__illustration {
+            display: none;
+            }
+        .slide__header {
+            width: 560px;
+            margin: 0 auto;
+            padding: 0 40px 0 0;
+            position: relative;
+            border-left: 600px solid transparent;
             }
         }
 
@@ -304,6 +308,14 @@
             margin: auto;
             }
 
+        .slide__header {
+            width: 520px;
+            margin: auto;
+            padding: 0 0 0 40px;
+            position: relative;
+            border-left: 560px solid transparent;
+            }
+
         .slide__phone {
             width: 295px;
             height: 650px;
@@ -316,14 +328,6 @@
 
         .slide__details {
             padding: 60px 0 0;
-            }
-
-        .slide__header {
-            width: 520px;
-            margin: auto;
-            padding: 0 0 0 40px;
-            position: relative;
-            border-left: 560px solid transparent;
             }
         }
 
@@ -388,7 +392,7 @@
             right: 50%;
             top: 60px;
             bottom: 0;
-            margin: auto 40px auto auto;
+            margin: auto;
             transform-origin: 0 50%;
             }
 
@@ -397,10 +401,11 @@
             }
 
         .slide__header {
-            width: 562px;
-            margin: 0 auto;
+            width: 522px;
+            margin: auto;
+            padding: 0 0 0 40px;
             position: relative;
-            border-left: 582px solid transparent;
+            border-left: 562px solid transparent;
             }
         }
     }
