@@ -37,7 +37,8 @@ html body {
     .select2-container--above.select2.select2-container.select2-container--open .select2-selection:hover,
     .select2-container--above.select2.select2-container.select2-container--open .select2-selection{
         background: color($lighter-grey l(+5%));
-        border-color: color($lighter-grey l(+5%)) $cyan $cyan;
+        border-color: $cyan;
+
     }
 
     .select2-container--above.select2-container--open[data-invalid] .select2-selection:hover,
