@@ -1,5 +1,4 @@
 "use strict";
-console.log('landing');
 (function() {
     class Landging {
         /**
@@ -21,11 +20,35 @@ console.log('landing');
             this.fired = false;
             this.tablet = 1200;
             this.mobile = 750;
-            this.min_height = 450;
+            this.min_height = 300;
 
             let header = document.querySelector('.header')
                 , clock = document.querySelector('.clock');
 
+            // fullpage.initialize(document.querySelector('.landing'), {
+            //     sectionSelector: ".landing__section",
+            //     navigation: true,
+            //     afterLoad: this.hideLoader.bind(this),
+            //     afterRender: this.recountSlides.bind(this),
+            //     afterResize: this.recountSlides.bind(this),
+            //     onLeave: (index, nextIndex, direction) => {
+            //         if (nextIndex == 1) {
+            //             header.classList.toggle('header_open', false);
+            //             this.hideNav();
+            //         } else {
+            //             header.classList.toggle('header_open', true);
+            //             this.showNav();
+            //         }
+            //
+            //         if (nextIndex == 6) {
+            //             clock.classList.toggle('clock_visible', true);
+            //         } else {
+            //             clock.classList.toggle('clock_visible', false);
+            //         }
+            //     }
+            // });
+
+            window.requestAnimFrame = window.requestAnimationFrame;
             $(".landing").fullpage({
                 sectionSelector: ".landing__section",
                 navigation: true,
@@ -86,7 +109,6 @@ console.log('landing');
             [].forEach.call(document.querySelectorAll('.slide__resizable, .slide__centred'), (resizable) => {
                 resizable.setAttribute('data-height', resizable.offsetHeight);
                 resizable.setAttribute('data-width', resizable.offsetWidth);
-                console.log('initial size: ', [resizable.offsetHeight, resizable.offsetWidth]);
             });
 
             let loader = document.querySelector('.loader__wrapper'),
@@ -111,11 +133,11 @@ console.log('landing');
                 , service_illustration = document.querySelector('.slide__illustration')
                 , main = document.querySelector('.slide_main')
                 , shema = document.querySelector('.shema')
+                , header_height = document.querySelector('.header').offsetHeight
+                , footer_height = document.querySelector('.footer').offsetHeight
                 , shema_details = shema.closest('.slide__details')
                 , phones = main.querySelector('.slide__phones')
                 , phone = main.querySelector('.slide__phone')
-                , header_height = document.querySelector('.header').offsetHeight
-                , footer_height = document.querySelector('.footer').offsetHeight
                 , viewport_height
                 , viewport_width
                 , availabale_width
@@ -174,10 +196,8 @@ console.log('landing');
                         phone.style[Modernizr.prefixed('transform')] = 'scale(' + scale + ')';
 
                     } else {
-                        console.log('res');
                         phone.removeAttribute('style');
                         header.removeAttribute('style');
-
                     }
 
                 } else if (viewport_height < 481){
@@ -214,10 +234,7 @@ console.log('landing');
                     phone.style.right = "-290px";
                     header.style.borderRightWidth = "125px"
                 }
-
-
             }
-
 
             cell = service_slide.querySelector('.fp-tableCell');
             viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
@@ -240,7 +257,6 @@ console.log('landing');
                 service_illustration.classList.toggle('slide__illustration_hidden', false);
                 service_illustration.style.backgroundPosition = "50% 0";
             }
-
 
             [].forEach.call(centreds, (centred) => {
                 slide = centred.closest('.slide');
@@ -292,7 +308,7 @@ console.log('landing');
                     tr_y = 0;
                 }
 
-                if( viewport_height < 400 ) {
+                if( viewport_height < 300 ) {
                     slide.classList.add('slide_hide-centred');
                     centred.style[Modernizr.prefixed('transform')] = 'none';
                 } else if ( scale < 1 ) {
@@ -367,7 +383,7 @@ console.log('landing');
 
                 } else {
                     // mobile resolution
-                    availabale_height = viewport_height - header_height - header.offsetHeight - 90 - 20;
+                    availabale_height = viewport_height - header_height - header.offsetHeight - 60;
                     availabale_width = viewport_width - 40;
 
                     scale_x = availabale_height/element_height;
@@ -380,7 +396,7 @@ console.log('landing');
                         resizable.style.marginLeft = 'auto';
                     }
 
-                    if( availabale_height < this.min_height ) {
+                    if( availabale_height < 200 ) {
                         console.log('hidding');
                         slide.classList.add('slide_hide-resizable');
 

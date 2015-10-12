@@ -1,5 +1,4 @@
 "use strict";
-console.log('layout');
 (function() {
     window.mobileAndTabletcheck = function() {
         var check = false;

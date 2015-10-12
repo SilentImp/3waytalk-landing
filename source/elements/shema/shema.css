@@ -252,7 +252,7 @@
     }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 400px) {
     @component shema{
         display: none;
     }

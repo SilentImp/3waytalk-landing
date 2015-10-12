@@ -27,8 +27,16 @@ html(lang="en")
         include ../login/login_error.jade
         include ../loader/loader.jade
 
+        script(src="js/classList.js/classList.min.js")
+        script(src="js/Element.closest/closest.legacy.js")
+        script(src="js/promise-polyfill/Promise.min.js")
+        script(src="js/es5-shim/es5-shim.min.js")
+        script(src="js/es5-shim/es5-sham.min.js")
+        script(src="js/requestAnimationFrame/app/requestAnimationFrame.js")
+
         script(src="js/velocity/velocity.min.js")
         script(src="js/jquery/dist/jquery.min.js")
         script(src="js/fullpage.js/jquery.fullPage.min.js")
         script(src="js/select2/dist/js/select2.min.js")
+
         script(src="js/scripts.js", async, defer)

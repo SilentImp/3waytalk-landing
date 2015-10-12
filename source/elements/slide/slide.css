@@ -11,9 +11,7 @@
 
     @descendent details {
         max-height: 100%;
-        overflow: hidden;
         box-sizing: border-box;
-        position: relative;
     }
 
     @descendent logotype {
@@ -223,7 +221,9 @@
                 align-items: center;
                 }
             &__title {
-                margin: 0 0 40px;
+                margin: 0 0 20px;
+                position: relative;
+                top: -10px;
                 }
             &__dummy {
                 flex-grow: 0;
@@ -272,9 +272,8 @@
             height: 650px;
             position: absolute;
             right: 20px;
-            top: 0;
-            bottom: 0;
-            margin: auto;
+            top: 50%;
+            margin: -325px auto auto;
             background: url("../images/phone-1.png") 50% 50% no-repeat;
             }
         }
@@ -309,9 +308,8 @@
             height: 650px;
             position: absolute;
             left: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
+            top: 50%;
+            margin: -325px auto auto;
             background: url("../images/phone-3.png") 50% 50% no-repeat;
             }
 
@@ -464,7 +462,7 @@ html.ios body {
                 display: none;
             }
             @descendent logotype {
-                left: 0;
+                left: 20px;
             }
             @modifier main {
                 background-position: 0 0;
@@ -775,7 +773,7 @@ html.ios body {
 }
 
 
-@media (max-height: 560px) {
+@media (max-height: 460px) {
     html body {
         @component slide {
             @modifier main {
@@ -824,7 +822,7 @@ html.ios body {
     }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 400px) {
     html body {
         @component slide {
             @descendent header {

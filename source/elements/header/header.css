@@ -59,6 +59,9 @@
 
     @descendent text {
         vertical-align: middle;
+        &_mobile {
+            display: none;
+            }
         }
 
     @descendent downloads {
@@ -160,9 +163,6 @@ html.ios body {
         @descendent wrapper {
             padding: 0 20px;
             }
-        @descendent text {
-            display: inline-block;
-            }
         }
     }
 
@@ -192,6 +192,28 @@ html.ios body {
             }
         @descendent download {
             margin-left: 10px;
+            }
+        }
+    }
+
+@media (max-width: 850px) {
+    @component header {
+        @descendent text {
+            display: none;
+            &_mobile {
+                display: inline-block;
+                }
+            }
+        }
+    }
+
+@media (max-width: 475px) {
+    @component header {
+        @descendent text {
+            display: none;
+            &_mobile {
+                display: none;
+                }
             }
         }
     }
