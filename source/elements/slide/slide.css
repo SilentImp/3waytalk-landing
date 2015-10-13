@@ -504,6 +504,7 @@ html.ios body {
                 .slide {
                     &__centred {
                         width: 1050px;
+                        left: 40px;
                         }
                     &__phone {
                         &_left {
