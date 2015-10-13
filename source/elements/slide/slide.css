@@ -17,7 +17,7 @@
     @descendent logotype {
         position: absolute;
         top: 10px;
-        left: 90px;
+        left: 0;
 
         width: 150px;
         height: 60px;
@@ -186,12 +186,16 @@
                 }
             &__details {
                 padding: 0 250px 0 90px;
+                margin: auto;
+                max-width: 1200px;
                 }
             &__header {
                 padding: 90px 0 0;
+                position: relative;
                 }
             &__title {
                 margin-bottom: 0;
+                max-width: 650px;
                 }
             }
         }
@@ -203,11 +207,11 @@
             display: none;
             }
         .slide__header {
-            width: 560px;
+            width: 460px;
             margin: 0 auto;
             padding: 0 40px 0 0;
             position: relative;
-            border-left: 600px solid transparent;
+            border-left: 500px solid transparent;
             }
         }
 
@@ -462,14 +466,12 @@ html.ios body {
         }
     }
 
+
 @media (min-width: 751px) and (max-width: 1200px) {
     html body {
         @component slide {
             @descendent scroll {
                 display: none;
-            }
-            @descendent logotype {
-                left: 20px;
             }
             @modifier main {
                 background: url("../images/slide-1.jpg") 50% 0 no-repeat,
@@ -513,7 +515,7 @@ html.ios body {
                 }
             }
             @modifier time {
-                .slide__header{
+                .slide__header {
                     width: auto;
                     margin: 0 20px;
                 }
@@ -523,6 +525,15 @@ html.ios body {
                     transform-origin: 0 50%;
                 }
             }
+            @modifier service {
+                .slide__header {
+                    width: 50%;
+                    margin: 0 20px;
+                    border-style: none;
+                    padding: 0;
+                    margin: 0 0 0 50%;
+                    }
+                }
             @modifier interpreter {
                 .slide__header{
                     width: auto;
@@ -534,6 +545,21 @@ html.ios body {
                     transform-origin: 100% 50%;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    html body {
+        @component slide {
+            @modifier service {
+                .slide__header {
+                    width: auto;
+                    border-style: none;
+                    padding: 0;
+                    margin: 0 0 0 400px;
+                    }
+                }
         }
     }
 }
@@ -645,6 +671,8 @@ html.ios body {
                         margin: 0;
                         }
                     &__header {
+                        width: auto;
+                        margin: 0;
                         padding: 0 20px 20px;
                         }
                     }
