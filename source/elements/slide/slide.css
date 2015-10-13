@@ -187,7 +187,7 @@
             &__details {
                 padding: 0 250px 0 90px;
                 margin: auto;
-                max-width: 1200px;
+                max-width: 1300px;
                 }
             &__header {
                 padding: 90px 0 0;
@@ -195,7 +195,6 @@
                 }
             &__title {
                 margin-bottom: 0;
-                max-width: 650px;
                 }
             }
         }
@@ -458,9 +457,19 @@ html.ios body {
                 display: none;
                 }
             }
-        @modifier interpreter {
-            .slide__phone{
-                background-image: url("../images/phone-4.png");
+        }
+    }
+
+
+@media (min-width: 1500px) {
+    html body {
+        @component slide {
+            @modifier main {
+                .slide {
+                    &__title {
+                        max-width: 650px;
+                        }
+                    }
                 }
             }
         }
