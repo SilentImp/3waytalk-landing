@@ -142,15 +142,6 @@
             viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
             viewport_width = cell.offsetWidth;
 
-            if ((viewport_height < 710) && (viewport_width<750)) {
-                shema.style.display = "none";
-                shema_details.style.display = "block";
-                shema_details.style.height = "auto";
-            } else {
-                shema.removeAttribute('style');
-                shema_details.removeAttribute('style');
-            }
-
             header = main.querySelector('.slide__header');
             main.style.backgroundSize = "auto " + viewport_height + "px";
             availabale_height = viewport_height - delta - header.offsetHeight;
@@ -187,17 +178,17 @@
                 if ((viewport_width > 500) && (scale < 1)) {
                     i_width = ((scale*440)/3)*2;
                     phone.style[Modernizr.prefixed('transform-origin')] = "66.666% 66.666%";
-                    phone.style.right = -(i_width/2)+"px";
+                    phone.style.right = (-(i_width/2) - 20) + "px";
                     header.style.borderRightWidth = i_width - 20 + "px"
                 } else if ((viewport_width < 501) && (viewport_width > 420) && (scale < 1)) {
                     i_width = (scale*440)/2;
                     phone.style[Modernizr.prefixed('transform-origin')] = "50% 66.666%";
-                    phone.style.right = -i_width+"px";
+                    phone.style.right = (-i_width - 20) + "px";
                     header.style.borderRightWidth = i_width - 20 + "px"
                 } else if (scale < 1) {
                     i_width = (scale*440)/3;
                     phone.style[Modernizr.prefixed('transform-origin')] = "33.333% 66.666%";
-                    phone.style.right = -(i_width*2)+"px";
+                    phone.style.right = (-(i_width*2) - 20) + "px";
                     header.style.borderRightWidth = i_width - 20 + "px"
                 }
 
@@ -273,7 +264,11 @@
                         && (viewport_width > 750)
                     )
                 ) {
+                    tr_y = -50;
                     tr_x = -(element_width - viewport_width)/2;
+                } else if (viewport_width < 750) {
+                    tr_x = -20;
+                    tr_y = -90;
                 }
 
                 if( viewport_height < 300 ) {
@@ -285,16 +280,22 @@
 
                 } else if ( scale < 1 ) {
                     slide.classList.remove('slide_hide-centred');
-                    centred.style[Modernizr.prefixed('transform')] = 'translateY(-50px) translateX('+tr_x+'px) scale(' + scale + ')';
+                    centred.style[Modernizr.prefixed('transform')] = 'translateY(' + tr_y + 'px) translateX(' + tr_x + 'px) scale(' + scale + ')';
 
-                    [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
-                        step.style[Modernizr.prefixed('transform')] = 'scale(' + (1 + (1-scale)) + ')';
-                    });
+                    if (viewport_width > 750) {
+                        [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
+                            step.style[Modernizr.prefixed('transform')] = 'scale(' + (1 + (1-scale)) + ')';
+                        });
+                    } else {
+                        [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
+                            step.removeAttribute('style');
+                        });
+                    }
 
 
                 } else {
                     slide.classList.remove('slide_hide-centred');
-                    centred.style[Modernizr.prefixed('transform')] = 'translateY(-50px) translateX('+tr_x+'px)';
+                    centred.style[Modernizr.prefixed('transform')] = 'translateY(' + tr_y + 'px) translateX('+tr_x+'px)';
                     [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
                         step.removeAttribute('style');
                     });

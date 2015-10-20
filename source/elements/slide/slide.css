@@ -595,7 +595,6 @@ html.ios body {
                 font-size: 14px;
                 line-height: 20px;
                 }
-
             @descendent downloads {
                 white-space: normal;
                 }
@@ -620,6 +619,8 @@ html.ios body {
                         padding-left: 0;
                         p {
                             padding: 0;
+                            font-size: 14px;
+                            line-height: 16px;
                             }
                         }
                     }
@@ -729,6 +730,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
+                    padding: 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -746,6 +748,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
+                    padding: 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -763,6 +766,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
+                    padding: 0;
                 }
                 .slide__resizable {
                     display: block;
