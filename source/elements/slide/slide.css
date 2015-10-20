@@ -17,7 +17,7 @@
     @descendent logotype {
         position: absolute;
         top: 10px;
-        left: 0;
+        left: 90px;
 
         width: 150px;
         height: 60px;
@@ -121,7 +121,6 @@
             height: auto;
             padding: 60px 0 0;
             margin: auto 20px;
-
             position: relative;
             top: auto;
             left: auto;
@@ -154,16 +153,15 @@
                 height: auto;
                 background: none;
                 text-align: left;
-
                 position: relative;
                 top: auto;
                 left: auto;
                 right: auto;
                 bottom: auto;
-
                 display: inline-block;
                 margin: auto;
                 }
+
             .slide__phone_right{
                 display: none;
             }
@@ -191,7 +189,6 @@
                 }
             &__header {
                 padding: 90px 0 0;
-                position: relative;
                 }
             &__title {
                 margin-bottom: 0;
@@ -486,6 +483,9 @@ html.ios body {
 @media (min-width: 751px) and (max-width: 1200px) {
     html body {
         @component slide {
+            @descendent logotype {
+                left: 20px;
+                }
             @descendent scroll {
                 display: none;
             }
