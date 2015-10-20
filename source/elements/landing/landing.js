@@ -285,7 +285,7 @@
 
                 } else if ( scale < 1 ) {
                     slide.classList.remove('slide_hide-centred');
-                    centred.style[Modernizr.prefixed('transform')] = 'translateX('+tr_x+'px) scale(' + scale + ')';
+                    centred.style[Modernizr.prefixed('transform')] = 'translateY(-50px) translateX('+tr_x+'px) scale(' + scale + ')';
 
                     [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
                         step.style[Modernizr.prefixed('transform')] = 'scale(' + (1 + (1-scale)) + ')';
@@ -294,7 +294,7 @@
 
                 } else {
                     slide.classList.remove('slide_hide-centred');
-                    centred.style[Modernizr.prefixed('transform')] = 'translateX('+tr_x+'px)';
+                    centred.style[Modernizr.prefixed('transform')] = 'translateY(-50px) translateX('+tr_x+'px)';
                     [].forEach.call(centred.querySelectorAll('.steps__step'), (step) => {
                         step.removeAttribute('style');
                     });
