@@ -583,10 +583,13 @@ html.ios body {
 
 @media (max-width: 750px) {
     html body {
+        .social__link.social__link_fb {
+            display: none;
+            }
         @component slide {
             @descendent scroll {
                 display: none;
-            }
+                }
             @descendent title {
                 font-size: 28px;
                 line-height: 32px;
@@ -721,9 +724,6 @@ html.ios body {
                     }
                 }
             @modifier hide-resizable {
-                .slide__resizable{
-                    display: none;
-                    }
                 }
             @modifier time {
                 .slide__header {
@@ -831,7 +831,7 @@ html.ios body {
 }
 
 
-@media (max-height: 460px) {
+@media (max-height: 460px) and (min-height: 751px) {
     html body {
         @component slide {
             @modifier main {
@@ -880,7 +880,7 @@ html.ios body {
     }
 }
 
-@media (max-height: 400px) {
+@media (max-height: 400px) and (min-height: 751px) {
     html body {
         @component slide {
             @descendent header {

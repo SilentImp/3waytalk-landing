@@ -20,7 +20,10 @@
             this.fired = false;
             this.tablet = 1200;
             this.mobile = 750;
-            this.min_height = 300;
+            this.min_height = 250;
+            this.meta = document.querySelector("meta[name='viewport']");
+
+            this.onResize();
 
             let header = document.querySelector('.header')
                 , clock = document.querySelector('.clock');
@@ -49,6 +52,16 @@
                 }
             });
             document.querySelector(".footer__top").addEventListener("click", this.scrollToTop.bind(this));
+
+            window.addEventListener('resize', this.onResize.bind(this));
+        }
+
+        onResize () {
+            if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) < 750) {
+                this.meta.setAttribute("content", "width=400");
+            } else {
+                this.meta.setAttribute("content", "width=device-width, initial-scale=1.0");
+            }
         }
 
         hideNav () {
@@ -76,6 +89,8 @@
         }
 
         hideLoader() {
+            this.onResize();
+
             if (this.fired) {
                 return;
             }
@@ -103,6 +118,8 @@
 
 
         recountSlides() {
+
+            this.onResize();
 
             let resizables = document.querySelectorAll('.slide__resizable')
                 , centreds = document.querySelectorAll('.slide__centred')
@@ -395,6 +412,8 @@
                 }
 
             });
+
+            this.onResize();
 
         }
 
