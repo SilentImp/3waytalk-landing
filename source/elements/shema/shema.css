@@ -212,7 +212,7 @@
 
 
 
-@media (max-height: 600px) {
+@media (max-height: 600px) and (min-width: 750px) {
     @component shema{
         width: auto;
         &:after {

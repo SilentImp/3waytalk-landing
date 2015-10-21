@@ -220,6 +220,7 @@ html.ios body {
 
 @media (max-width: 750px) {
     @component header {
+        top: 0;
         @descendent interpreter {
             display: none;
             }

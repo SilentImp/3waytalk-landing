@@ -18,7 +18,7 @@
         position: absolute;
         top: 10px;
         left: 90px;
-
+        z-index: 400;
         width: 150px;
         height: 60px;
         background: url('../images/logotype.svg') 0 50% no-repeat;
@@ -583,10 +583,15 @@ html.ios body {
 
 @media (max-width: 750px) {
     html body {
+
         .social__link.social__link_fb {
             display: none;
             }
+
         @component slide {
+            @descendent logotype {
+                display: none;
+                }
             @descendent scroll {
                 display: none;
                 }
@@ -595,8 +600,11 @@ html.ios body {
                 line-height: 32px;
                 }
             @descendent text {
-                font-size: 14px;
-                line-height: 20px;
+                font-size: 18px;
+                line-height: 22px;
+                }
+            @descendent header {
+                padding: 30px 20px 20px;
                 }
             @descendent downloads {
                 white-space: normal;
@@ -607,17 +615,22 @@ html.ios body {
             @descendent download {
                 margin: 0 15px 20px 0;
                 }
+
             @modifier schema {
                 text-align: left;
                 .slide {
+                    &__header {
+                        padding: 0;
+                        }
                     &__details {
-                        padding: 40px 20px 0;
+                        padding: 50px 20px 0;
                         }
                     &__title {
                         text-align: left;
                         margin: 0 0 10px;
                         }
                     &__footer {
+                        display: none;
                         text-align: left;
                         padding-left: 0;
                         p {
@@ -632,59 +645,46 @@ html.ios body {
             @modifier main {
                 background: $grey;
                 .slide {
-                    &__phone {
-                        width: 440px;
-                        height: 790px;
-
-                        background: url(../images/iphone.jpg) 50% 90px no-repeat;
-
-                        position: absolute;
-                        right: -145px;
-                        top: 50%;
-
-                        margin: -395px 0 0;
-                        z-index: 1;
-
-                        transform-origin: 66.666% 66.666%;
-                        }
-                    &__downloads {
-                        white-space: normal;
-                        }
-                    &__download {
-                        margin: 0 15px 20px 0;
-                        }
-                    &__warning {
-                        margin: 0 15px 20px 0;
+                    &__title {
+                        margin: 0 0 20px;
                         }
                     &__details {
-                        padding: 0;
+                        padding: 0 20px;
+                        }
+                    &__warning {
+                        display: none;
+                        }
+                    &__downloads {
+                        display: none;
+                        }
+                    &__text {
+                        display: none;
+                        }
+                    &__phone {
+                        background: url(../images/phones.png) 50% 50% no-repeat;
+                        background-size: contain;
                         }
                     &__phones {
                         display: none;
                         }
-                    &__logotype {
-                        display: none;
-                        }
                     &__header {
-                        margin: 0 20px;
-                        z-index: 2;
-                        position: relative;
-                        border-right: 253px transparent solid;
+                        padding: 80px 0 0;
                         }
                     }
                 }
+
             @modifier service {
                 background: $grey;
                 .slide {
+                    &__downloads {
+                        display: none;
+                        }
                     &__illustration {
                         display: block;
                         width: auto;
                         min-height: 300px;
                         background: url(../images/girl.jpg) 50% 0 no-repeat;
                         background-size: 120% auto;
-                        &_hidden {
-                            display: none;
-                            }
                         }
                     &__details {
                         width: auto;
@@ -694,7 +694,7 @@ html.ios body {
                     &__header {
                         width: auto;
                         margin: 0;
-                        padding: 0 20px 20px;
+                        padding: 30px 20px 20px;
                         }
                     }
                 }
@@ -704,7 +704,11 @@ html.ios body {
                     &__centred {
                         width: 400px;
                         height: 900px;
-                        position: static;
+                        top: 50%;
+                        left: 50%;
+                        bottom: auto;
+                        right: auto;
+                        margin: 30px auto auto;
                         }
                     &__phone {
                         &_left {
@@ -723,14 +727,12 @@ html.ios body {
                         }
                     }
                 }
-            @modifier hide-resizable {
-                }
             @modifier time {
                 .slide__header {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 0;
+                    padding: 30px 0 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -748,7 +750,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 0;
+                    padding: 30px 0 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -766,7 +768,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 0;
+                    padding: 30px 0 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -814,17 +816,6 @@ html.ios body {
                 right: auto;
                 bottom: auto;
                 text-align: center;
-            }
-        }
-    }
-    html.android body {
-        @component slide {
-            @modifier main {
-                .slide {
-                    &__phone {
-                        background-image: url(../images/android.jpg);
-                    }
-                }
             }
         }
     }

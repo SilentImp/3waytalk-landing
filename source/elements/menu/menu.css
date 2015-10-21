@@ -173,25 +173,11 @@
             width: auto;
             bottom: auto;
             background-color: $white;
-            @descendent logotype {
-                position: relative;
-                top: auto;
-                left: auto;
-                float: left;
-                margin: 10px 0 10px 30px;
-                }
             @descendent wrapper {
-                display: block;
-                min-height: 80px;
-                position: relative;
-                background: $white;
-                @mixin clear;
+                display: none;
                 }
             @descendent logotype {
-                position: fixed;
-                top: 10px;
-                left: 30px;
-                display: block;
+                display: none;
                 }
             @descendent interpreter {
                 position: absolute;
