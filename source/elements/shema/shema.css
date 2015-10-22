@@ -1,5 +1,50 @@
 @import "../../helpers/*.css";
 
+.landing__section.active {
+    .shema {
+        &__person {
+            opacity: 1;
+            transform: scale(1);
+            &:nth-child(1) {
+                transition: opacity .5s .75s, transform 1s .75s;
+                }
+            &:nth-child(3) {
+                transition: opacity .5s 2.2s, transform 1s 2.2s;
+                }
+            &:nth-child(5) {
+                transition: opacity .5s 3.3s, transform 1s 3.3s;
+                }
+            }
+        &__message {
+            opacity: 1;
+            transform: scale(1);
+            &_first {
+                transition: opacity .5s 1.75s, transform .75s 1.75s;
+                }
+            &_second {
+                transition: opacity .5s 2.75s, transform .75s 2.75s;
+                }
+            }
+        &__connection {
+            right: 12%;
+            transition: right 3s 1s linear;
+            }
+        }
+    }
+
+@media (max-width: 750px) {
+    .landing__section.active {
+        .shema {
+            &__connection {
+                right: auto;
+                bottom: 50px;
+                transition: bottom 3s 1s linear;
+                }
+            }
+        }
+    }
+
+
 @component shema{
     white-space: nowrap;
     position: relative;
@@ -7,12 +52,15 @@
     max-width: 1200px;
     z-index: 1;
     flex-grow: 0;
-    &:after{
-        content: "";
+    @descendent connection {
         position: absolute;
         top: 100px;
         left: 12%;
         right: 12%;
+
+        right: 88%;
+        transition: right 0s .75s;
+
         height: 1px;
         overflow: hidden;
         font-size: 0;
@@ -20,33 +68,37 @@
         background: $border-grey;
         z-index: -1;
         }
-    @descendent person-avatar{
+    @descendent person-avatar {
         width: 200px;
         height: 200px;
         border-radius: 100%;
         margin: 0 auto 20px;
         }
-    @descendent person-name{
+    @descendent person-name {
         font-size: 22px;
         line-height: 26px;
         font-weight: 200;
         }
-    @descendent person-role{
+    @descendent person-role {
         font-size: 16px;
         line-height: 26px;
         font-weight: 200;
         color: $footer-grey;
         }
-    @descendent message{
+    @descendent message {
         display: inline-block;
         vertical-align: middle;
         width: 120px;
         height: 45px;
-
         line-height: 45px;
         background: $white;
         position: absolute;
         top: 77px;
+
+        transition: opacity 0s .75s, transform 0s .75s;
+        opacity: 0;
+        transform: scale(.5);
+
         &_first {
             right: 66.5%;
             margin-right: -60px;
@@ -70,19 +122,25 @@
             font-size: 0;
             }
         }
-    @descendent person{
+    @descendent person {
         display: inline-block;
         vertical-align: top;
         text-align: center;
         width: 33%;
         white-space: normal;
+
+        transition: opacity 0s .75s, transform 0s .75s;
+        opacity: 0;
+        transform: scale(.5);
+
+        transform-origin: 50% 100px;
         }
     }
 
 
 @media (max-width: 1200px) and (min-width: 961px) {
-    @component shema{
-        @descendent message{
+    @component shema {
+        @descendent message {
             width: 80px;
             &_first {
                 margin-right: -40px;
@@ -97,7 +155,7 @@
 @media (max-width: 960px) and (min-width: 751px) {
     @component shema {
         width: auto;
-        &:after {
+        @descendent connection {
             top: 50px;
             }
         @descendent message{
@@ -131,6 +189,7 @@
         @descendent person {
             width: 250px;
             position: relative;
+            transform-origin: 50% 50px;
         }
     }
 }
@@ -148,12 +207,18 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        &:after {
+        @descendent connection {
             width: 1px;
             height: auto;
             left: 120px;
             top: 50px;
+            right: auto;
+
             bottom: 50px;
+
+            bottom: calc(100% - 50px);
+            transition: bottom 0s .75s;
+
             }
         @descendent message{
             left: 0;
@@ -200,6 +265,8 @@
             text-align: left;
             margin: 0 0 0 70px;
             white-space: nowrap;
+
+            transform-origin: 50px 50px;
         }
         @descendent person-details {
             display: inline-block;
@@ -215,7 +282,7 @@
 @media (max-height: 600px) and (min-width: 750px) {
     @component shema{
         width: auto;
-        &:after {
+        @descendent connection {
             top: 50px;
             }
         @descendent message{

@@ -11,6 +11,10 @@
         width: 230px;
         padding: 0 70px 10px 0;
         transform-origin: 100% 100%;
+
+        opacity: 0;
+        transition: opacity 0s .75s;
+
         &_two.steps__step {
             bottom: 465px;
             }
@@ -33,10 +37,16 @@
         background-color: color($cyan a(50%));
         margin: -15px 0 0;
         span {
-            display: inline-block;
-            vertical-align: middle;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+
             width: 22px;
             height: 22px;
+
             border-radius: 100%;
             background-color: $cyan;
             color: $white;
@@ -68,13 +78,15 @@
             @mixin clear;
 
             @descendent title {
-                font-size: 18px;
+                font-size: 23px;
                 line-height: 26px;
+                white-space: nowrap;
                 }
 
             @descendent abstract {
-                font-size: 14px;
+                font-size: 17px;
                 line-height: 26px;
+                white-space: nowrap;
                 }
 
             @descendent step {

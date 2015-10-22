@@ -3,9 +3,136 @@
 @component wave{
     position: absolute;
     bottom: 50%;
-    left: 100%;
-    margin: 0 0 0 100px;
+    left: 0;
+    margin: 0;
     width: 137px;
     height: 285px;
-    background: url("../images/wave.png") 0px 0px no-repeat;
+
+    transition: opacity 0s .75s;
+    opacity: 0;
+
+    &_4 {
+        position: absolute;
+        left: auto;
+        right: -20px;
+        top: 0;
+        bottom: 0;
+
+        margin: auto;
+
+        height: 180px;
+        width: 60px;
+
+        transition: none;
+
+        opacity: 0;
+
+        background: url("../images/wave.svg") 50% 50% no-repeat;
+        background-size: contain;
+
+        transform: scale(.6, .6) translateX(30px);
+
+        animation: wave4 1s infinite linear;
+        }
+
+    &_1 {
+        position: absolute;
+        left: auto;
+        right: -20px;
+        top: 0;
+        bottom: 0;
+
+        margin: auto;
+
+        height: 180px;
+        width: 60px;
+
+        opacity: .3;
+
+        transition: none;
+
+        background: url("../images/wave.svg") 50% 50% no-repeat;
+        background-size: contain;
+
+        transform: scale(1, 1) translateX(0);
+
+        animation: wave1 1s infinite linear;
+        }
+
+    &_2 {
+        position: absolute;
+        left: auto;
+        right: -20px;
+        top: 0;
+        bottom: 0;
+
+        margin: auto;
+
+        height: 180px;
+        width: 60px;
+
+        transition: none;
+
+        opacity: .6;
+
+        background: url("../images/wave.svg") 50% 50% no-repeat;
+        background-size: contain;
+
+        transform: scale(1.6, 1.6) translateX(-20px);
+
+        animation: wave2 1s infinite linear;
+        }
+
+    &_3 {
+        position: absolute;
+        left: auto;
+        right: -20px;
+        top: 0;
+        bottom: 0;
+
+        margin: auto;
+
+        height: 180px;
+        width: 60px;
+
+        transition: none;
+
+        opacity: 1;
+
+        background: url("../images/wave.svg") 50% 50% no-repeat;
+        background-size: contain;
+
+        transform: scale(2, 2) translateX(-35px);
+
+        animation: wave3 1s infinite linear;
+        }
+    }
+
+
+@keyframes wave4 {
+    100% {
+        transform: scale(1, 1) translateX(0);
+        opacity: .3;
+        }
+    }
+
+@keyframes wave1 {
+    100% {
+        transform: scale(1.6, 1.6) translateX(-20px);
+        opacity: .6;
+        }
+    }
+
+@keyframes wave2 {
+    100% {
+        transform: scale(2, 2) translateX(-35px);
+        opacity: 1;
+        }
+    }
+
+@keyframes wave3 {
+    100% {
+        transform: scale(2.4, 2.4) translateX(-45px);
+        opacity: 0;
+        }
     }

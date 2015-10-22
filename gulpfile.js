@@ -103,7 +103,6 @@ gulp.task('fonts', function () {
 gulp.task('images', ['svg'], function () {
   return gulp.src(dirs.source.images)
     .pipe(plumber())
-    .pipe(gulpif(/[.](svg)$/, svg2png()))
     .pipe(gulpif(/[.](png|jpeg|jpg|svg)$/, imagemin({
         progressive: true,
         svgoPlugins: [{removeViewBox: false}],

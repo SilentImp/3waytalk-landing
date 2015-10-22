@@ -1,5 +1,135 @@
 @import "../../helpers/*.css";
 
+html body .landing__section.active_moment {
+    * {
+        transition: none!important;
+    }
+}
+
+.landing__section.active {
+    .slide {
+        &__title {
+            opacity: 1;
+            transition: opacity 1s .75s;
+        }
+
+        &__text {
+            opacity: 1;
+            transition: opacity 1s .75s;
+        }
+
+        &__downloads {
+            opacity: 1;
+            transition: opacity 1s 1s;
+        }
+
+        &__footer {
+            opacity: 1;
+            transition: opacity 1s 1s;
+        }
+
+        &_interpreter.slide {
+            .interpreter {
+                left: 0;
+                opacity: 1;
+                transition: opacity 1s 1.25s, left 1s 1.25s;
+            }
+            .slide__resizable>.wave {
+                opacity: 1;
+                transition: opacity 1s 2.25s;
+                }
+            .slide {
+                &__phone {
+                    opacity: 1;
+                    transition: opacity 1s .75s;
+                    &_on {
+                        opacity: 1;
+                        transition: opacity 1s 1.75s;
+                    }
+                }
+            }
+        }
+
+        &_interface.slide {
+            .slide {
+                &__phone {
+                    &_left {
+                        bottom: 0;
+                        opacity: 1;
+                        transition: opacity 1s .75s, bottom 1s .75s;
+
+                        .steps__step.steps__step_one {
+                            opacity: 1;
+                            transition: opacity 1.5s 1.5s;
+                            }
+
+                        .steps__step.steps__step_two {
+                            opacity: 1;
+                            transition: opacity 1.5s 1.75s;
+                            }
+
+                        .steps__step.steps__step_three {
+                            opacity: 1;
+                            transition: opacity 1.5s 2s;
+                            }
+                    }
+                    &_right {
+                        top: 0;
+                        opacity: 1;
+                        transition: opacity 1s .75s, top 1s .75s;
+                    }
+                }
+            }
+        }
+
+        &_conference.slide {
+            .interpreter.interpreter_bottom {
+                right: 0;
+                opacity: 1;
+                transition: opacity 1s 1.75s, right 1s 1.75s;
+            }
+            .interpreter.interpreter_top {
+                right: 0;
+                opacity: 1;
+                transition: opacity 1s 2.25s, right 1s 2.25s;
+            }
+            .slide {
+                &__phone {
+                    opacity: 1;
+                    transition: opacity 1s 1.25s;
+                }
+            }
+        }
+
+        &_main {
+            .slide {
+                &__phone,
+                &__phones {
+                    opacity: 1;
+                    transition: opacity 1s 1s;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .landing__section.active {
+        .slide {
+            &_interface.slide {
+                .slide {
+                    &__phone_left {
+                        top: 0;
+                        bottom: auto;
+                        transition: opacity 1s .75s, top 1s .75s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 @component slide {
 
     @descendent title {
@@ -7,6 +137,19 @@
         line-height: 42px;
         font-weight: 200;
         margin: 0 0 20px;
+
+        transition: opacity 0s .75s;
+        opacity: 0;
+        }
+
+    @descendent text {
+        transition: opacity 0s .75s;
+        opacity: 0;
+        }
+
+    @descendent downloads {
+        transition: opacity 0s .75s;
+        opacity: 0;
         }
 
     @descendent details {
@@ -33,6 +176,8 @@
         color: $footer-grey;
         padding: 0 60px 0 20px;
         text-align: center;
+        transition: opacity 0s .75s;
+        opacity: 0;
         p{
             line-height: 33px;
             display: inline-block;
@@ -180,7 +325,13 @@
         background-size: auto 100%;
         .slide{
             &__phones {
-                margin: 35px 0 0;
+                margin: 10px 0 0;
+                transition: opacity 0s .75s;
+                opacity: 0;
+                }
+            &__phone {
+                transition: opacity 0s .75s;
+                opacity: 0;
                 }
             &__details {
                 padding: 0 250px 0 90px;
@@ -253,6 +404,7 @@
             position: relative;
             border-right: 565px solid transparent;
             }
+
         .slide__resizable {
             width: 525px;
             height: 650px;
@@ -262,14 +414,12 @@
             bottom: 0;
             margin: auto;
             .interpreter {
-                left: 0;
+                left: 50px;
                 right: auto;
                 margin: 30px 0 0 0;
-                }
-            .wave {
-                left: 0;
-                right: auto;
-                margin: 0;
+
+                transition: opacity 0s .75s, left 0s .75s;
+                opacity: 0;
                 }
             }
         .slide__phone {
@@ -280,6 +430,20 @@
             top: 50%;
             margin: -325px auto auto;
             background: url("../images/phone-1.png") 50% 50% no-repeat;
+            background-size: contain;
+
+            transition: opacity 0s .75s;
+            opacity: 0;
+
+            &_on {
+                width: 295px;
+                height: 650px;
+                background: url("../images/phone-1-on.png") 50% 50% no-repeat;
+                background-size: contain;
+
+                transition: opacity 0s .75s;
+                opacity: 0;
+                }
             }
         }
 
@@ -290,12 +454,20 @@
             margin: 55px 0 0;
             right: 0;
             left: auto;
+
+            right: 75px;
+            transition: opacity 0s .75s, right 0s .75s;
+            opacity: 0;
             }
 
         .interpreter_top.interpreter {
             margin: 0 0 55px;
             right: 0;
             left: auto;
+
+            right: 75px;
+            transition: opacity 0s .75s, right 0s .75s;
+            opacity: 0;
             }
 
         .slide__resizable {
@@ -324,6 +496,10 @@
             top: 50%;
             margin: -325px auto auto;
             background: url("../images/phone-3.png") 50% 50% no-repeat;
+            background-size: contain;
+
+            transition: opacity 0s .75s;
+            opacity: 0;
             }
 
         .slide__details {
@@ -362,6 +538,12 @@
                     right: 50%;
                     margin: 0 -37px 0 0;
                     z-index: 2;
+
+
+                    transition: opacity 0s .75s, bottom 0s .75s;
+                    opacity: 0;
+                    bottom: -200px;
+
                     }
 
                 &_right {
@@ -373,6 +555,11 @@
                     left: 50%;
                     margin: 0 0 0 -37px;
                     z-index: 1;
+
+                    transition: opacity 0s .75s, top 0s .75s;
+                    opacity: 0;
+                    top: -200px;
+
                     }
                 }
             }
@@ -598,6 +785,7 @@ html.ios body {
             @descendent title {
                 font-size: 28px;
                 line-height: 32px;
+                margin-bottom: 10px;
                 }
             @descendent text {
                 font-size: 18px;
@@ -646,7 +834,7 @@ html.ios body {
                 background: $grey;
                 .slide {
                     &__title {
-                        margin: 0 0 20px;
+                        margin: 0 0 10px;
                         }
                     &__details {
                         padding: 0 20px;
@@ -655,9 +843,6 @@ html.ios body {
                         display: none;
                         }
                     &__downloads {
-                        display: none;
-                        }
-                    &__text {
                         display: none;
                         }
                     &__phone {
@@ -704,11 +889,12 @@ html.ios body {
                     &__centred {
                         width: 400px;
                         height: 900px;
-                        top: 50%;
                         left: 50%;
-                        bottom: auto;
+                        bottom: 0;
                         right: auto;
-                        margin: 30px auto auto;
+                        top: auto;
+                        margin: auto;
+                        transform-origin: 50% 100%;
                         }
                     &__phone {
                         &_left {
@@ -720,6 +906,10 @@ html.ios body {
                             top: auto;
                             width: 400px;
                             height: 720px;
+
+                            transition: opacity 0s .75s, top 0s .75s;
+                            opacity: 0;
+                            top: -200px;
                             }
                         &_right {
                             display: none;
@@ -732,7 +922,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 30px 0 0;
+                    padding: 20px 0 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -750,7 +940,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 30px 0 0;
+                    padding: 20px 0 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -768,7 +958,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 30px 0 0;
+                    padding: 20px 0 0;
                 }
                 .slide__resizable {
                     display: block;
