@@ -9,6 +9,9 @@
     background: $white;
     z-index: 200;
 
+    transition: right 0s .75s;
+    right: -230px;
+
     @descendent wrapper {
         display: none;
         }

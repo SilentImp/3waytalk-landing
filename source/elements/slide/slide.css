@@ -14,13 +14,6 @@ html body .landing__section:first-child {
 html body .landing__section:last-child {
     opacity: 0;
     transition: opacity 0s .75s;
-
-    .slide {
-        &__downloads {
-            opacity: 1;
-            transition: opacity 1s .75s;
-            }
-        }
     }
 
 .landing__section.active {
@@ -32,6 +25,12 @@ html body .landing__section:last-child {
     &:first-child {
         opacity: 1;
         transition: opacity 1s .75s;
+        .slide{
+            &__downloads {
+                opacity: 1;
+                transition: opacity 1s 1.75s;
+                }
+            }
         }
 
     .slide {
@@ -129,11 +128,23 @@ html body .landing__section:last-child {
         }
 
         &_main {
+            .slide__scroll {
+                bottom: 20px;
+                transition: bottom .5s 3s;
+                }
+            .menu {
+                right: 0;
+                transition: right .5s 2.5s;
+                }
             .slide {
+                &__downloads {
+                    opacity: 1;
+                    transition: opacity 1s 1.5s;
+                    }
                 &__phone,
                 &__phones {
                     opacity: 1;
-                    transition: opacity 1s 1s;
+                    transition: opacity 1s 1.5s;
                 }
             }
         }
@@ -272,6 +283,9 @@ html body .landing__section:last-child {
         display: inline-block;
         line-height: 30px;
         font-size: 16px;
+
+        bottom: -60px;
+        transition: bottom 0s .75s;
         }
 
     @descendent resizable {
