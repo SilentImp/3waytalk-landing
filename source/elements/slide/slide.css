@@ -32,11 +32,11 @@ html body .landing__section.active_moment {
             .interpreter {
                 left: 0;
                 opacity: 1;
-                transition: opacity 1s 1.25s, left 1s 1.25s;
+                transition: opacity 1s 1.75s, left 1s 1.75s;
             }
             .slide__resizable>.wave {
                 opacity: 1;
-                transition: opacity 1s 2.25s;
+                transition: opacity 1s 3.75s;
                 }
             .slide {
                 &__phone {
@@ -44,7 +44,7 @@ html body .landing__section.active_moment {
                     transition: opacity 1s .75s;
                     &_on {
                         opacity: 1;
-                        transition: opacity 1s 1.75s;
+                        transition: opacity 1s 2.75s;
                     }
                 }
             }
