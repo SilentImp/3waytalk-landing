@@ -11,16 +11,20 @@
     background-size: contain;
     transform-origin: 0 0;
 
+    opacity: 0;
+    transition: opacity 0s .75s;
+
     @modifier visible {
+        opacity: 1;
+        transition: opacity 1s .75s;
         .clock {
             &__glow {
-                transition: transform 1.5s .8s linear;
+                transition: transform 1.5s 1.75s linear;
                 transform: rotate(120deg);
                 }
             &__arrow {
-                &_short,
                 &_long {
-                    transition: transform 1.5s .8s linear;
+                    transition: transform 1.5s 1.75s linear;
                     transform: rotate(120deg);
                     }
                 }
