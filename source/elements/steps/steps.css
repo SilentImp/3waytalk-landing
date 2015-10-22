@@ -128,7 +128,7 @@
                         top: -280px;
                         &:before {
                             content: "";
-                            width: 200px;
+                            width: 30px;
                             height: 370px;
                             overflow: hidden;
                             margin: -1px -28px 0 0;
