@@ -10,5 +10,6 @@ html{
         overflow-x: hidden;
         font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, sans-serif;
         position: relative;
+        background-color: $grey;
         }
     }

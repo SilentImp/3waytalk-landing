@@ -1,6 +1,7 @@
 @import "../../helpers/*.css";
 
 @component landing{
+    background-color: $grey;
     @descendent section{
         height: 100vh;
         position: relative;
