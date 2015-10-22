@@ -86,12 +86,12 @@ html body .landing__section.active_moment {
             .interpreter.interpreter_bottom {
                 right: 0;
                 opacity: 1;
-                transition: opacity 1s .75s, right 1s .75s;
+                transition: opacity 1s 1.5s, right 1s 1.5s;
             }
             .interpreter.interpreter_top {
                 right: 0;
                 opacity: 1;
-                transition: opacity 1s 2s, right 1s 2s;
+                transition: opacity 1s 2.75s, right 1s 2.75s;
             }
             .slide {
                 &__phone {
