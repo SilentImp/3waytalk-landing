@@ -9,25 +9,25 @@
                 transition: opacity .5s .75s, transform 1s .75s;
                 }
             &:nth-child(3) {
-                transition: opacity .5s 2.2s, transform 1s 2.2s;
+                transition: opacity .5s 1.5s, transform 1s 1.5s;
                 }
             &:nth-child(5) {
-                transition: opacity .5s 3.3s, transform 1s 3.3s;
+                transition: opacity .5s 2.25s, transform 1s 2.25s;
                 }
             }
         &__message {
             opacity: 1;
             transform: scale(1);
             &_first {
-                transition: opacity .5s 1.75s, transform .75s 1.75s;
+                transition: opacity .5s 3.75s, transform .75s 3.75s;
                 }
             &_second {
-                transition: opacity .5s 2.75s, transform .75s 2.75s;
+                transition: opacity .5s 4.75s, transform .75s 4.75s;
                 }
             }
         &__connection {
             right: 12%;
-            transition: right 3s 1s linear;
+            transition: right 3s 2.25s linear;
             }
         }
     }
