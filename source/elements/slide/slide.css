@@ -6,6 +6,11 @@ html body .landing__section.active_moment {
     }
 }
 
+html body .landing__section:first-child {
+    opacity: 0;
+    transition: opacity 0s .75s;
+    }
+
 html body .landing__section:last-child {
     opacity: 0;
     transition: opacity 0s .75s;
@@ -20,6 +25,11 @@ html body .landing__section:last-child {
 
 .landing__section.active {
     &:last-child {
+        opacity: 1;
+        transition: opacity 1s .75s;
+        }
+
+    &:first-child {
         opacity: 1;
         transition: opacity 1s .75s;
         }
