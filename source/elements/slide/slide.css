@@ -618,6 +618,9 @@ html.android body {
         @modifier interpreter {
             .slide__phone{
                 background-image: url("../images/phone-2.png");
+                &_on {
+                    background-image: url("../images/phone-2-on.png");
+                    }
                 }
             }
         }
