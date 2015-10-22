@@ -9,7 +9,7 @@
                 transition: opacity .5s 1.5s, transform 1s 1.5s;
                 }
             &:nth-child(3) {
-                transition: opacity .5s 2.5s, transform 1s 2.5s;
+                transition: opacity .5s 3s, transform 1s 3s;
                 }
             &:nth-child(5) {
                 transition: opacity .5s 1.5s, transform 1s 1.5s;
@@ -19,15 +19,15 @@
             opacity: 1;
             transform: scale(1);
             &_first {
-                transition: opacity .3s 4s, transform .5s 4s;
+                transition: opacity .3s 4.5s, transform .5s 4.5s;
                 }
             &_second {
-                transition: opacity .3s 4.5s, transform .5s 4.5s;
+                transition: opacity .3s 5s, transform .5s 5s;
                 }
             }
         &__connection {
             right: 12%;
-            transition: right 1.5s 3.5s linear;
+            transition: right 1.5s 4s linear;
             }
         }
     }
