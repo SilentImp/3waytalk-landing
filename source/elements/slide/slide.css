@@ -25,7 +25,7 @@ html body .landing__section.active_moment {
 
         &__footer {
             opacity: 1;
-            transition: opacity 1s 1s;
+            transition: opacity 1s 4.75s;
         }
 
         &_interpreter.slide {
