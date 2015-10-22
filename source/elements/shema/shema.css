@@ -217,7 +217,7 @@
             bottom: 50px;
 
             bottom: calc(100% - 50px);
-            transition: bottom 0s .75s;
+            transition: bottom 0s .5s;
 
             }
         @descendent message{

@@ -91,12 +91,12 @@ html body .landing__section:last-child {
 
                         .steps__step.steps__step_two {
                             opacity: 1;
-                            transition: opacity 1.5s 1.75s;
+                            transition: opacity 1.5s 2s;
                             }
 
                         .steps__step.steps__step_three {
                             opacity: 1;
-                            transition: opacity 1.5s 2s;
+                            transition: opacity 1.5s 2.5s;
                             }
                     }
                     &_right {
