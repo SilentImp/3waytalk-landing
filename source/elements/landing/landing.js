@@ -170,6 +170,7 @@
                 , w_width
                 , w_height
                 , i_width
+                , del
                 , i_height;
 
             cell = main.querySelector('.fp-tableCell');
@@ -178,7 +179,12 @@
 
             header = main.querySelector('.slide__header');
             main.style.backgroundSize = "auto " + viewport_height + "px";
-            availabale_height = viewport_height - 100 - header.offsetHeight;
+            if (viewport_width > 750) {
+                del = 0;
+            } else {
+                del = 100;
+            }
+            availabale_height = viewport_height - del - header.offsetHeight;
 
             if (
                 (availabale_height >= 200)
