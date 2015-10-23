@@ -337,7 +337,7 @@
                 // upscale text
                 if (scale<1) {
                     [].forEach.call(steps, (step) => {
-                        step.style[Modernizr.prefixed('transform')] = 'scale(' + Math.min(1/scale, 2.2) + ')';
+                        step.style[Modernizr.prefixed('transform')] = 'scale(' + Math.min((1/scale)*0.8, 2) + ')';
                     });
                     tr_x += 30;
                 }
