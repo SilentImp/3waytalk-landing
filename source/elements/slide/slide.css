@@ -1080,10 +1080,10 @@ html.ios body {
         .fp-tableCell {
             vertical-align: middle;
             }
+        .slide__logotype,
         .shema {
             display: none;
             }
-
         .slide {
 
             * {

@@ -34,7 +34,7 @@
             }
         }
 
-    @modifier open {
+    @modifier open.header {
         top: 0;
         }
 
