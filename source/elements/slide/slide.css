@@ -812,7 +812,7 @@ html.ios body {
 }
 
 @media (max-width: 750px) {
-    html body {
+    html body .landing .landing__section {
 
         .social__link.social__link_fb {
             display: none;
@@ -834,8 +834,11 @@ html.ios body {
                 font-size: 18px;
                 line-height: 22px;
                 }
+            @descendent details {
+                padding: 80px 0 0;
+                }
             @descendent header {
-                padding: 30px 20px 20px;
+                padding: 0 20px 20px;
                 }
             @descendent downloads {
                 white-space: normal;
@@ -854,7 +857,7 @@ html.ios body {
                         padding: 0;
                         }
                     &__details {
-                        padding: 50px 20px 0;
+                        padding: 80px 20px 0;
                         }
                     &__title {
                         text-align: left;
@@ -880,7 +883,7 @@ html.ios body {
                         margin: 0 0 10px;
                         }
                     &__details {
-                        padding: 0 20px;
+                        padding: 80px 20px 0;
                         }
                     &__warning {
                         display: none;
@@ -889,14 +892,14 @@ html.ios body {
                         display: none;
                         }
                     &__phone {
-                        background: url(../images/phones.png) 50% 50% no-repeat;
+                        background: url(../images/phones.png) 50% 0 no-repeat;
                         background-size: contain;
                         }
                     &__phones {
                         display: none;
                         }
                     &__header {
-                        padding: 80px 0 0;
+                        padding: 0;
                         }
                     }
                 }
@@ -916,13 +919,13 @@ html.ios body {
                         }
                     &__details {
                         width: auto;
-                        padding: 0;
+                        padding: 80px 0 0;
                         margin: 0;
                         }
                     &__header {
                         width: auto;
                         margin: 0;
-                        padding: 30px 20px 20px;
+                        padding: 0 20px 20px;
                         }
                     }
                 }
@@ -965,7 +968,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 20px 0 0;
+                    padding: 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -983,7 +986,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 20px 0 0;
+                    padding: 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -1001,7 +1004,7 @@ html.ios body {
                     border-style: none;
                     width: auto;
                     margin: 0 20px;
-                    padding: 20px 0 0;
+                    padding: 0;
                 }
                 .slide__resizable {
                     display: block;
@@ -1015,6 +1018,7 @@ html.ios body {
                 }
             }
         }
+
         .slide.slide_hide-centred.slide_interface {
             .steps {
                 position: static;
@@ -1104,9 +1108,13 @@ html.ios body {
     }
 }
 
-@media (max-height: 400px) and (min-height: 751px) {
+@media (max-height: 416px) {
     html body {
         @component slide {
+            .slide__centred,
+            .slide__resizable {
+                display: none;
+            }
             @descendent header {
                 max-width: 600px;
                 margin: auto;

@@ -10,6 +10,12 @@
         }
     }
 
+@media (max-width: 750px) {
+    html body .fp-tableCell{
+        vertical-align: top;
+    }
+}
+
 html body #fp-nav{
     display: none;
     }

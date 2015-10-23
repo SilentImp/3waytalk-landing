@@ -81,12 +81,14 @@
                 font-size: 23px;
                 line-height: 26px;
                 white-space: nowrap;
+                transform: translateZ(0);
                 }
 
             @descendent abstract {
                 font-size: 17px;
                 line-height: 26px;
                 white-space: nowrap;
+                transform: translateZ(0);
                 }
 
             @descendent step {
@@ -106,6 +108,7 @@
                         margin: 0 0 0 -88px;
                         top: -397px;
                         &:after {
+                            opacity: inherit;
                             content: "";
                             width: 0;
                             height: 360px;
@@ -127,6 +130,7 @@
                         margin: 0 -125px 0 0;
                         top: -280px;
                         &:before {
+                            opacity: inherit;
                             content: "";
                             width: 30px;
                             height: 370px;
@@ -140,6 +144,7 @@
                             border-width: 0 0 1px 0;
                             }
                         &:after {
+                            opacity: inherit;
                             content: "";
                             width: 55px;
                             height: 370px;
@@ -163,6 +168,7 @@
                         margin: 0 100px 0 0;
                         top: -190px;
                         &:after {
+                            opacity: inherit;
                             content: "";
                             width: 55px;
                             height: 333px;
