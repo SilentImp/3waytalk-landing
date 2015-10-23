@@ -180,8 +180,8 @@
                 (availabale_height >= 200)
                 && (viewport_width > 750)
             ) {
-                phones.style.height = availabale_height + "px";
-                phones.style.marginLeft = -availabale_height*0.1 + "px";
+                phones.style.height = Math.min(availabale_height, 480) + "px";
+                phones.style.marginLeft = -Math.min(availabale_height, 480)*0.1 + "px";
                 phones.style.visibility = "visible";
             } else if (availabale_height < 200 ) {
                 phones.style.visibility = "hidden";
