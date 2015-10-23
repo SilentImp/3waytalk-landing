@@ -88,6 +88,8 @@
     font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 200;
 
+    box-shadow: none;
+
     &[data-invalid]:focus,
     &[data-invalid]:hover,
     &[data-invalid]{
@@ -114,8 +116,8 @@
 
 @define-mixin dark_grey_input {
     border-radius: 0;
-    border: 1px solid $dark-grey;
-    background: $dark-grey;
+    border: 1px solid $darkest-grey;
+    background: $darkest-grey;
     padding: 0 20px;
     font-size: 18px;
     line-height: 48px;
@@ -127,6 +129,8 @@
     box-sizing: border-box;
     font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 200;
+
+    box-shadow: none;
 
     &[data-invalid]:focus,
     &[data-invalid]:hover,
@@ -141,7 +145,7 @@
         }
 
     &:hover {
-        background-color: color($dark-grey l(+5%));
+        background-color: color($darkest-grey l(+5%));
     }
 
     &:focus {

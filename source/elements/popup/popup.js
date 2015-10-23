@@ -113,6 +113,13 @@
         [].forEach.call(document.querySelectorAll('.popup_browser'), (popup) => {
             new Popup(popup);
         });
+
+        [].forEach.call(document.querySelectorAll('.popup_common'), (popup) => {
+            new Popup(popup);
+            if (popup.classList.contains('popup_open')){
+                popup.open();
+            }
+        });
     });
 
 })();

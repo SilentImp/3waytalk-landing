@@ -1,0 +1,47 @@
+@import "../../helpers/*.css";
+
+@component alert {
+    background-color: $darkred;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+
+    padding: 20px 60px 20px 20px;
+    text-align: left;
+    z-index: 1000;
+
+    a {
+        color: $white;
+        &:hover {
+            text-decoration: none;
+            }
+        }
+
+    @modifier fail.alert {
+        background-color: $darkred;
+        }
+
+    @modifier success.alert {
+        background-color: $cyan;
+        }
+
+    @descendent text {
+        color: $white;
+        line-height: 24px;
+        font-size: 16px;
+        }
+
+    @descendent close {
+        @mixin clear_button;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0;
+        background: url( ../images/close.svg ) 50% 50% no-repeat;
+        cursor: pointer;
+        }
+
+    }
