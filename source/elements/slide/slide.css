@@ -865,6 +865,9 @@ html.ios body {
             @modifier schema {
                 text-align: left;
                 .slide {
+                    &__dummy {
+                        display: none;
+                        }
                     &__header {
                         padding: 0;
                         }

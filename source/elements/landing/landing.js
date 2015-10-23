@@ -178,7 +178,7 @@
 
             header = main.querySelector('.slide__header');
             main.style.backgroundSize = "auto " + viewport_height + "px";
-            availabale_height = viewport_height - delta - header.offsetHeight;
+            availabale_height = viewport_height - 100 - header.offsetHeight;
 
             if (
                 (availabale_height >= 200)
