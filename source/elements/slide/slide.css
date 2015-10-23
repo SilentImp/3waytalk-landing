@@ -1081,12 +1081,12 @@ html.ios body {
             display: none;
             }
 
-        * {
-            animation: none !important;
-            transition: none !important;
-            }
-
         .slide {
+
+            * {
+                animation: none !important;
+                transition-delay: .75s !important;
+                }
 
             &__title {
                 font-size: 28px;

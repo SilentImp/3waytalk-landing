@@ -1,0 +1,68 @@
+@import "../../helpers/*.css";
+
+.content {
+    max-width: 960px;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    h1 {
+        margin: 78px 0 26px;
+        font-size: 48px;
+        line-height: 52px;
+        font-weight: 200;
+        }
+
+    h2 {
+        font-size: 22px;
+        line-height: 26px;
+        font-weight: bold;
+        margin: 52px 0 26px;
+        }
+
+    h3 {
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: bold;
+        margin: 26px 0;
+        }
+
+    li, p {
+        font-size: 16px;
+        line-height: 26px;
+        margin: 26px 0;
+        }
+
+    ol {
+        list-style: decimal;
+        margin: 0 0 0 30px;
+        }
+
+    ul {
+        list-style: disc;
+        margin: 0 0 0 30px;
+        }
+
+    a {
+        color: $cyan;
+        &:hover {
+            text-decoration: none;
+            }
+        }
+
+    strong, b {
+        font-weight: bold;
+        }
+
+    i, em {
+        font-style: italic;
+        }
+
+    sup {
+        vertical-align: super;
+        }
+
+    sub {
+        vertical-align: sub;
+        }
+    }

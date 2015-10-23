@@ -1,0 +1,18 @@
+@import "../../helpers/*.css";
+
+@component user {
+    float: right;
+    @descendent name {
+        font-size: 16px;
+        line-height: 60px;
+        color: $text-grey;
+        }
+    @descendent logout {
+        color: $cyan;
+        font-size: 16px;
+        line-height: 60px;
+        &:hover {
+            text-decoration: none;
+            }
+        }
+    }

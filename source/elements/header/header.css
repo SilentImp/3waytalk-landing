@@ -17,6 +17,23 @@
     transition: top .25s;
     overflow: hidden;
 
+    @modifier static {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        text-align: left;
+        .header {
+            &__wrapper {
+                margin: 0 auto;
+                max-width: 1060px;
+                padding: 0 20px;
+
+                }
+            }
+        }
+
     @modifier open {
         top: 0;
         }
