@@ -858,6 +858,8 @@ html.ios body {
                         }
                     &__details {
                         padding: 80px 20px 0;
+                        max-height: none;
+                        height: 100vh;
                         }
                     &__title {
                         text-align: left;
