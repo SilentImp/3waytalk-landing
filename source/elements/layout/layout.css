@@ -20,3 +20,10 @@ html{
             }
         }
     }
+
+
+@media (max-width: 750px) {
+    html body .page{
+        padding: 0;
+    }
+}

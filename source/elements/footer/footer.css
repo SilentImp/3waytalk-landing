@@ -115,3 +115,12 @@
         }
     }
 }
+
+@media (max-width: 750px) {
+    html body .page {
+        .footer {
+            position: static;
+            box-shadow: 0 5000px 0 5000px #fff;
+        }
+    }
+}
