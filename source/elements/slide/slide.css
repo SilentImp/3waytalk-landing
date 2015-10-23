@@ -472,7 +472,6 @@ html body .landing__section:last-child {
             margin: -325px auto auto;
             background: url("../images/phone-1.png") 50% 50% no-repeat;
             background-size: contain;
-
             transition: opacity 0s .75s;
             opacity: 0;
 
