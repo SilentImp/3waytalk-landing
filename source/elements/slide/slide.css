@@ -695,7 +695,7 @@ html.ios body {
     }
 
 
-@media (min-width: 1500px) and (min-height: 481px) {
+@media (min-width: 1200px) and (min-height: 481px) {
     html body {
         @component slide {
             @modifier main {
