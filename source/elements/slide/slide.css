@@ -695,7 +695,7 @@ html.ios body {
     }
 
 
-@media (min-width: 1500px) {
+@media (min-width: 1500px) and (min-height: 481px) {
     html body {
         @component slide {
             @modifier main {
@@ -710,7 +710,7 @@ html.ios body {
     }
 
 
-@media (min-width: 751px) and (max-width: 1200px) {
+@media (min-width: 751px) and (max-width: 1200px) and (min-height: 481px) {
     html body {
         @component slide {
             @descendent logotype {
@@ -796,7 +796,7 @@ html.ios body {
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 960px) and (min-height: 481px) {
     html body {
         @component slide {
             @modifier service {
@@ -811,7 +811,19 @@ html.ios body {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 750px) and (min-height: 481px) {
+    html.android body  .landing .landing__section{
+        @component slide {
+            @modifier schema {
+                .slide {
+                    &__details {
+                        height: 100vh;
+                    }
+                }
+            }
+        }
+    }
+
     html body .landing .landing__section {
 
         .social__link.social__link_fb {
@@ -859,7 +871,6 @@ html.ios body {
                     &__details {
                         padding: 80px 20px 0;
                         max-height: none;
-                        height: 100vh;
                         }
                     &__title {
                         text-align: left;
@@ -1061,96 +1072,148 @@ html.ios body {
 }
 
 
-@media (max-height: 460px) and (min-height: 751px) {
-    html body {
-        @component slide {
-            @modifier main {
-                background: $grey;
-                .slide {
-                    &__phone {
-                        display: none;
-                        }
-                    &__header {
-                        border-style: none;
-                        padding: 60px 0 0;
-                        }
-                    &__details {
-                        float: none;
-                        max-width: 600px;
-                        margin: auto;
-                        padding: 0;
-                        }
-                    }
-                }
-            @modifier service {
-                background: $grey;
-                .slide {
-                    &__details {
-                        float: none;
-                        max-width: 600px;
-                        margin: auto;
-                        }
-                    &__header {
-                        padding: 0;
-                        margin: 0 20px;
-                        }
-                    }
-                }
-            @descendent logotype {
-                display: none;
-                }
-            @descendent phones {
-                display: none;
-                }
-            @descendent scroll {
-                right: 90px;
-                bottom: 30px;
+@media (max-height: 480px) {
+    html body .landing .landing__section {
+        .fp-tableCell {
+            vertical-align: middle;
             }
-        }
-    }
-}
+        .shema {
+            display: none;
+            }
 
-@media (max-height: 416px) {
-    html body {
-        @component slide {
-            .slide__centred,
-            .slide__resizable {
-                display: none;
+        * {
+            animation: none !important;
+            transition: none !important;
             }
-            @descendent header {
-                max-width: 600px;
-                margin: auto;
+
+        .slide {
+
+            &__title {
+                font-size: 28px;
+                line-height: 32px;
+                margin-bottom: 10px;
+                text-align: left;
+                position: static;
+                top: auto;
+                margin: 0 0 10px;
+                padding: 0;
                 }
-            @descendent title {
+
+            &__text {
+                font-size: 18px;
+                line-height: 22px;
+                text-align: left;
+                position: static;
+                top: auto;
                 margin: 0;
+                padding: 0;
                 }
-            @descendent text {
-                margin: 0 0 15px;
+
+            &__social,
+            &__downloads,
+            &__scroll,
+            &__resizable {
+                display: none;
                 }
-            @modifier schema {
+
+            &__header {
+                padding: 0;
+                border-style: none;
+                height: auto;
+                width: auto;
+                }
+
+            &__details {
+                padding: 0 20px;
+                border-style: none;
+                height: auto;
+                width: auto;
+                text-align: left;
+                }
+
+            &_main {
+                background: none;
                 .slide {
+                    &__phone,
+                    &__phones {
+                        display: none;
+                    }
+                }
+            }
+
+            &_interface {
+                .slide {
+                    &__centred {
+                        width: auto;
+                        height: auto;
+                        position: static;
+                        }
+                    &__phone {
+                        &_right {
+                            display: none;
+                            }
+                        &_left {
+                            width: auto;
+                            height: auto;
+                            background: none;
+                            position: static;
+                            margin: 0;
+                            padding: 0;
+
+                            .steps {
+
+                                position: static;
+                                margin: 0 0 0 30px;
+                                display: block;
+                                list-style: decimal;
+
+                                &__number {
+                                    display: none;
+                                    }
+
+                                &__step {
+                                    display: list-item;
+                                    position: static;
+                                    border-style: none;
+                                    width: auto;
+                                    margin: 0 0 10px;
+                                    padding: 0;
+
+                                    &:before,
+                                    &:after {
+                                        display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            &_service {
+                background: none;
+                }
+
+            &_schema {
+                .slide {
+                    &__footer {
+                        position: static;
+                        padding: 0;
+                        font-size: 18px;
+                        line-height: 22px;
+                        text-align: left;
+                        margin: 0;
+                        p {
+                            padding: 0;
+                            margin: 0;
+                            }
+                        }
+
                     &__dummy {
                         display: none;
                         }
-                    &__title {
-                        margin: 0;
-                        text-align: left;
-                        }
-                    &__footer {
-                        font-size: 22px;
-                        line-height: 35px;
-                        max-width: 600px;
-                        font-weight: 200;
-                        margin: 0 auto;
-                        padding: 0;
-                        text-align: left;
-                        p {
-                            padding: 0;
-                            }
-                        }
                     &__details {
-                        height: auto;
-                        display: block;
+                        display: inline-block;
                     }
                 }
             }

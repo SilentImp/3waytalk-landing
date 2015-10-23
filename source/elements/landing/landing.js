@@ -70,7 +70,11 @@
         }
 
         onResize () {
-            if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) < 500) {
+            console.log(Math.max(document.documentElement.clientWidth, window.innerWidth || 0), ' x ' ,Math.max(document.documentElement.clientHeight, window.innerHeight || 0));
+            if (
+                (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) > 480 )
+                && (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) < 500)
+            ){
                 this.meta.setAttribute("content", "width=400");
             } else {
                 this.meta.setAttribute("content", "width=device-width, initial-scale=1.0");
@@ -225,60 +229,64 @@
                 step.removeAttribute('style');
             });
 
-            slide = centred.closest('.slide');
-            cell = centred.closest('.fp-tableCell');
-            viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
-            viewport_width = cell.offsetWidth;
+            if (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) > 480 ) {
 
-            element_height = parseInt(centred.getAttribute('data-height'),10);
+                slide = centred.closest('.slide');
+                cell = centred.closest('.fp-tableCell');
+                viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
+                viewport_width = cell.offsetWidth;
 
-            if (viewport_width > 1220){
-                // desktop
-                element_width = 1230;
-                delta_y = 170;
-            } else if ((viewport_width > 750) && (viewport_width <= 1220)) {
-                // tablet
-                element_width = 1050;
-                delta_y = 170;
-            } else {
-                // mobile
-                element_width = 400;
-                element_height = 900;
-                delta_y = 0;
-            }
+                element_height = parseInt(centred.getAttribute('data-height'),10);
 
-            availabale_height = viewport_height - header_height;
-            availabale_width = viewport_width - 40;
-
-            scale_x = availabale_height/element_height;
-            scale_y = availabale_width/element_width;
-            scale = Math.min(Math.min(scale_x, scale_y),1);
-
-            tr_y = 0;
-            tr_x = 0;
-
-            if (viewport_width < 750) {
-                // mobile
-                scale = availabale_height/620;
-                centred.style[Modernizr.prefixed('transform')] = 'translateX(-50%) scale(' + scale + ')';
-
-            } else {
-                // not mobile
-
-                if (availabale_width < element_width ) {
-                    tr_x = -(element_width - viewport_width)/2 ;
+                if (viewport_width > 1220){
+                    // desktop
+                    element_width = 1230;
+                    delta_y = 170;
+                } else if ((viewport_width > 750) && (viewport_width <= 1220)) {
+                    // tablet
+                    element_width = 1050;
+                    delta_y = 170;
+                } else {
+                    // mobile
+                    element_width = 400;
+                    element_height = 900;
+                    delta_y = 0;
                 }
 
-                // upscale text
-                if (scale<1) {
-                    [].forEach.call(steps, (step) => {
-                        step.style[Modernizr.prefixed('transform')] = 'scale(' + Math.min((1/scale)*0.8, 2) + ')';
-                    });
-                    tr_x += 30;
+                availabale_height = viewport_height - header_height;
+                availabale_width = viewport_width - 40;
+
+                scale_x = availabale_height/element_height;
+                scale_y = availabale_width/element_width;
+                scale = Math.min(Math.min(scale_x, scale_y),1);
+
+                tr_y = 0;
+                tr_x = 0;
+
+                if (viewport_width < 750) {
+                    // mobile
+                    scale = availabale_height/620;
+                    centred.style[Modernizr.prefixed('transform')] = 'translateX(-50%) scale(' + scale + ')';
+
+                } else {
+                    // not mobile
+
+                    if (availabale_width < element_width ) {
+                        tr_x = -(element_width - viewport_width)/2 ;
+                    }
+
+                    // upscale text
+                    if (scale<1) {
+                        [].forEach.call(steps, (step) => {
+                            step.style[Modernizr.prefixed('transform')] = 'scale(' + Math.min((1/scale)*0.8, 2) + ')';
+                        });
+                        tr_x += 30;
+                    }
+
+                    tr_x += 'px';
+                    centred.style[Modernizr.prefixed('transform')] = 'translateX(' + tr_x + ') translateY(' + tr_y + ') scale(' + scale + ')';
                 }
 
-                tr_x += 'px';
-                centred.style[Modernizr.prefixed('transform')] = 'translateX(' + tr_x + ') translateY(' + tr_y + ') scale(' + scale + ')';
             }
 
 
