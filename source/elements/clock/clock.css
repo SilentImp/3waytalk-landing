@@ -35,12 +35,12 @@
         width: 225px;
         height: 450px;
         position: absolute;
-        left: -225px;
+        left: -225.4px;
         top: 0;
 
         transform-origin: 100% 225px;
         transform: rotate(120deg);
-        transform: rotate(0deg);
+        transform: rotate(.5deg);
         transition: transform 0s .5s linear;
 
         background-color: transparent;
@@ -93,8 +93,8 @@
             }
         }
         &_long {
-            width: 1px;
-            height: 1px;
+            width: 0px;
+            height: 0px;
 
             background: red;
 
@@ -102,7 +102,7 @@
             line-height: 0;
 
             position: absolute;
-            top: 382px;
+            top: 380px;
             left: 0;
             right: 0;
 
@@ -115,11 +115,11 @@
             &:after{
                 position: absolute;
                 content: "";
-                top: -192px;
-                left: -16px;
+                top: -190px;
+                left: -15px;
                 background: url("../images/arrow-big.svg") 50% 0 no-repeat;
                 background-size: contain;
-                width: 31px;
+                width: 30px;
                 height: 250px;
             }
         }
