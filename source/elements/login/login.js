@@ -49,7 +49,9 @@
             this.password =                 document.querySelector('.login_password');
             this.recovery_form =            this.recovery.querySelector('.login__form');
             this.password_form =            this.password.querySelector('.login__form');
-            this.error_message =            document.querySelector('.login_error');
+
+            this.error_message =            document.querySelector('.alert_form-send-fail');
+
             this.email =                    document.querySelector('.login_email');
             this.success =                  document.querySelector('.login_success');
 
@@ -266,7 +268,8 @@
         showErrorMessage (reason) {
             this.last = new Array();
             console.log(reason.code, 'Responce status code: ' + reason.code + '. ' + reason.message + '.');
-            this.openForm(this.error_message, true);
+            // this.openForm(this.error_message, true);
+            this.error_message.open();
         }
 
         /**
