@@ -67,6 +67,9 @@
     &:hover {
         background-color: color($cyan l(-5%));
     }
+    &:active {
+        background-color: color($cyan l(-10%));
+    }
 }
 
 @define-mixin grey_input {
@@ -99,6 +102,46 @@
 
     &:hover {
         background-color: color($lighter-grey l(+5%));
+    }
+
+    &:focus {
+        border-color: $cyan;
+        color: $black;
+        background-color: $white;
+    }
+}
+
+
+@define-mixin dark_grey_input {
+    border-radius: 0;
+    border: 1px solid $dark-grey;
+    background: $dark-grey;
+    padding: 0 20px;
+    font-size: 18px;
+    line-height: 48px;
+    height: 50px;
+    width: 260px;
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+
+    &[data-invalid]:focus,
+    &[data-invalid]:hover,
+    &[data-invalid]{
+        border-color: $darkred;
+        }
+
+    &[data-valid]:focus,
+    &[data-valid]:hover,
+    &[data-valid]{
+        border-color: $darkgreen;
+        }
+
+    &:hover {
+        background-color: color($dark-grey l(+5%));
     }
 
     &:focus {
