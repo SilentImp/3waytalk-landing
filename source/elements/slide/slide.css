@@ -1197,6 +1197,7 @@ html.ios body {
             &_schema {
                 .slide {
                     &__footer {
+                        display: none;
                         position: static;
                         padding: 0;
                         font-size: 18px;
