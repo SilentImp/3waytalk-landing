@@ -38,7 +38,8 @@
             &__connection {
                 right: auto;
                 bottom: 50px;
-                transition: bottom 1.5s 3.5s linear;
+                opacity: 1;
+                transition: bottom 1.5s 3.5s linear, opacity 0s 3.5s;
                 }
             }
         }
@@ -198,7 +199,7 @@
 
     html.ios body .landing {
         .shema .shema__connection {
-            margin: 0 auto -30px;
+            margin: 0 auto -20px;
             }
         }
 
@@ -214,6 +215,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+
         @descendent connection {
             width: 1px;
             height: auto;
@@ -222,9 +224,10 @@
             right: auto;
 
             bottom: 50px;
+            opacity: 0;
 
             bottom: calc(100% - 50px);
-            transition: bottom 0s .5s;
+            transition: bottom 0s .5s, opacity 0s .5s;
 
             }
         @descendent message{

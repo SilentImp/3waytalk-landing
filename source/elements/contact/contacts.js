@@ -19,14 +19,14 @@
         init() {
             this.map = document.querySelector('.contact__map');
             if(this.map != null) {
-                this.map.style.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - document.querySelector('.contact__wrapper').offsetHeight - 150 - 52 + "px";
+                this.map.style.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - document.querySelector('.contact__wrapper').offsetHeight - document.querySelector('.footer').offsetHeight - document.querySelector('.header').offsetHeight - 52 + "px";
                 window.addEventListener('resize', this.resize.bind(this));
             }
         }
 
         resize () {
             if(this.map != null) {
-                this.map.style.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - document.querySelector('.contact__wrapper').offsetHeight - 150 - 52 + "px";
+                this.map.style.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - document.querySelector('.contact__wrapper').offsetHeight - document.querySelector('.footer').offsetHeight - document.querySelector('.header').offsetHeight - 52 + "px";
             }
         }
     }
