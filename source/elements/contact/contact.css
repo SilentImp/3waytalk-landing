@@ -1,0 +1,40 @@
+@import "../../helpers/*.css";
+
+@component contact {
+    margin: 26px 0 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $text-grey;
+    @descendent wrapper {
+        max-width: 960px;
+        padding: 0 20px;
+        margin: 0 auto;
+        @mixin clear;
+        }
+    @descendent address {
+        width: 50%;
+        float: left;
+        }
+    @descendent details {
+        width: 50%;
+        float: left;
+        }
+    @descendent map {
+        margin: 26px 0 0;
+        clear: both;
+        width: 100%;
+        min-height: 200px;
+        height: calc(100vh - 168px - 60px - 26px - 26px);
+        }
+
+    p {
+        font-size: 18px;
+        line-height: 28px;
+        }
+
+    a {
+        color: $cyan;
+        &:hover {
+            text-decoration: none;
+            }
+        }
+    }
