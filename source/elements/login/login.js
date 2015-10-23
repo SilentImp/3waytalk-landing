@@ -252,6 +252,7 @@
          * @description Show success message
          */
         showSuccessMessage () {
+            this.last = new Array();
             this.openForm(this.success);
         }
 
@@ -268,7 +269,6 @@
         showErrorMessage (reason) {
             this.last = new Array();
             console.log(reason.code, 'Responce status code: ' + reason.code + '. ' + reason.message + '.');
-            // this.openForm(this.error_message, true);
             this.error_message.open();
         }
 
@@ -283,6 +283,7 @@
          * @description Show email sent warning
          */
         emailHaveSend () {
+            this.last = new Array();
             this.openForm(this.email);
         }
 
@@ -343,9 +344,13 @@
             $.fn.fullpage.setAllowScrolling(false);
             $.fn.fullpage.setKeyboardScrolling(false);
 
-            let form = this.current.querySelector('form');
-            if (form != null) {
-                setTimeout(()=>{form.clear();}, 500);
+            var form = this.current.querySelector('form');
+            if ((form != null) && (typeof form.clear != 'undefined')) {
+                setTimeout(()=>{
+                    if (form!=null) {
+                        form.clear();
+                    }
+                }, 500);
             }
 
             if (typeof popup == "undefined" && this.last.length > 0) {
@@ -359,7 +364,11 @@
 
             form = popup.querySelector('form');
             if (form != null) {
-                setTimeout(()=>{form.clear();}, 500);
+                setTimeout(()=>{
+                    if (form!=null) {
+                        form.clear();
+                    }
+                }, 500);
             }
 
             let props = {
