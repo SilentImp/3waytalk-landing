@@ -195,6 +195,13 @@
 }
 
 @media (max-width: 750px) {
+
+    html.ios body .landing {
+        .shema .shema__connection {
+            margin: 0 auto -30px;
+            }
+        }
+
     @component shema {
         width: 320px;
         white-space: normal;

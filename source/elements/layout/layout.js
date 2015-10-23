@@ -52,7 +52,6 @@
             } else {
                 document.body.parentNode.classList.add('desktop');
             }
-            // document.body.parentNode.classList.add('android');
         }
     }
     new Layout;

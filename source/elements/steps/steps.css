@@ -66,7 +66,7 @@
         }
     }
 
-@media (max-width: 750px) and (min-height: 481px) {
+@media (max-width: 750px) and (min-height: $textMode) {
     html body {
         @component steps {
             position: absolute;

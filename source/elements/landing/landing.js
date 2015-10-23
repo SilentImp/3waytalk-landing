@@ -17,6 +17,11 @@
          * @description Adding events and properties
          */
         init() {
+
+            if(document.querySelector('.landing') == null) {
+                return;
+            }
+
             this.fired = false;
             this.tablet = 1200;
             this.mobile = 750;
@@ -70,9 +75,8 @@
         }
 
         onResize () {
-            console.log(Math.max(document.documentElement.clientWidth, window.innerWidth || 0), ' x ' ,Math.max(document.documentElement.clientHeight, window.innerHeight || 0));
             if (
-                (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) > 480 )
+                (Math.max(document.documentElement.clientHeight, window.innerHeight || 0) > 420 )
                 && (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) < 500)
             ){
                 this.meta.setAttribute("content", "width=400");
@@ -155,6 +159,7 @@
                 , availabale_height
                 , delta = 20
                 , cell
+                , size
                 , scale = 1
                 , scale_x = 1
                 , scale_y = 1
@@ -179,10 +184,13 @@
 
             header = main.querySelector('.slide__header');
             main.style.backgroundSize = "auto " + viewport_height + "px";
+
             if (viewport_width > 750) {
                 del = 0;
+                size = 550;
             } else {
                 del = 100;
+                size = 480;
             }
             availabale_height = viewport_height - del - header.offsetHeight;
 
@@ -190,8 +198,8 @@
                 (availabale_height >= 200)
                 && (viewport_width > 750)
             ) {
-                phones.style.height = Math.min(availabale_height, 480) + "px";
-                phones.style.marginLeft = -Math.min(availabale_height, 480)*0.1 + "px";
+                phones.style.height = Math.min(availabale_height, size) + "px";
+                phones.style.marginLeft = -Math.min(availabale_height, size)*0.1 + "px";
                 phones.style.visibility = "visible";
             } else if (availabale_height < 200 ) {
                 phones.style.visibility = "hidden";

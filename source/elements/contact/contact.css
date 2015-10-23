@@ -4,26 +4,32 @@
     margin: 26px 0 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: $text-grey;
+    font-size: 0;
+    text-align: center;
     @descendent wrapper {
         max-width: 960px;
+        display: inline-block;
+        text-align: left;
         padding: 0 20px;
         margin: 0 auto;
         @mixin clear;
         }
     @descendent address {
-        width: 50%;
         float: left;
+        margin: 0 20px;
         }
     @descendent details {
-        width: 50%;
         float: left;
+        margin: 0 20px;
         }
+
     @descendent map {
         margin: 26px 0 0;
         clear: both;
         width: 100%;
-        min-height: 200px;
-        height: calc(100vh - 168px - 60px - 26px - 26px);
+        height: calc(100vh - 90px - 60px - 56px - 26px);
+        border-style: none;
+        border-width: 0;
         }
 
     p {

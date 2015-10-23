@@ -17,6 +17,11 @@
          * @description Adding events and properties
          */
         init () {
+
+            if(document.querySelector('.login') == null) {
+                return;
+            }
+
             let back_buttons =              document.querySelectorAll('.login__back')
                 , login_buttons =           document.querySelectorAll('.login__login-button, .login_success .login__submit')
                 , mobile_popup_buttons =    document.querySelectorAll('.menu__interpreter, .header__interpreter');
