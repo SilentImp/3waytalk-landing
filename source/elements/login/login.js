@@ -289,8 +289,6 @@
          * @description Open register form
          */
         openRegister () {
-            event.preventDefault();
-
             $.fn.fullpage.setAllowScrolling(false);
             $.fn.fullpage.setKeyboardScrolling(false);
 
@@ -339,7 +337,7 @@
 
             let form = this.current.querySelector('form');
             if (form != null) {
-                setTimeout(()=>{form.clear();}, 250);
+                setTimeout(()=>{form.clear();}, 500);
             }
 
             if (typeof popup == "undefined" && this.last.length > 0) {
@@ -353,8 +351,7 @@
 
             form = popup.querySelector('form');
             if (form != null) {
-                console.log('clearing');
-                setTimeout(()=>{form.clear();}, 250);
+                setTimeout(()=>{form.clear();}, 500);
             }
 
             let props = {
@@ -405,8 +402,7 @@
                 };
 
             Velocity(this.lightbox, props, options);
-
-            this.clearAll();
+            setTimeout(()=>{this.clearAll();}, 500);
         }
 
         clearAll () {

@@ -194,57 +194,6 @@
                 phone.style.height = availabale_height + "px";
             }
 
-
-            // if (viewport_width < 750) {
-            //
-            //     if ((viewport_height < 790) && (viewport_height > 480)) {
-            //         scale = viewport_height/790;
-            //
-            //         if (scale < 1) {
-            //
-            //             phone.style[Modernizr.prefixed('transform')] = 'scale(' + scale + ')';
-            //
-            //         } else {
-            //             phone.removeAttribute('style');
-            //             header.removeAttribute('style');
-            //         }
-            //
-            //     } else if (viewport_height < 481){
-            //         header.removeAttribute('style');
-            //     } else {
-            //         phone.removeAttribute('style');
-            //         header.removeAttribute('style');
-            //     }
-            //
-            //     if ((viewport_width > 500) && (scale < 1)) {
-            //         i_width = ((scale*440)/3)*2;
-            //         phone.style[Modernizr.prefixed('transform-origin')] = "66.666% 66.666%";
-            //         phone.style.right = (-(i_width/2) - 20) + "px";
-            //         header.style.borderRightWidth = i_width - 20 + "px"
-            //     } else if ((viewport_width < 501) && (viewport_width > 420) && (scale < 1)) {
-            //         i_width = (scale*440)/2;
-            //         phone.style[Modernizr.prefixed('transform-origin')] = "50% 66.666%";
-            //         phone.style.right = (-i_width - 20) + "px";
-            //         header.style.borderRightWidth = i_width - 20 + "px"
-            //     } else if (scale < 1) {
-            //         i_width = (scale*440)/3;
-            //         phone.style[Modernizr.prefixed('transform-origin')] = "33.333% 66.666%";
-            //         phone.style.right = (-(i_width*2) - 20) + "px";
-            //         header.style.borderRightWidth = i_width - 20 + "px"
-            //     }
-            //
-            //     if ((viewport_width > 500) && (scale>=1)) {
-            //         phone.style.right = "-145px";
-            //         header.style.borderRightWidth =  "270px";
-            //     } else if ((viewport_width < 501) && (viewport_width > 420) && (scale>=1)) {
-            //         phone.style.right = "-220px";
-            //         header.style.borderRightWidth = "200px"
-            //     } else if (scale>=1) {
-            //         phone.style.right = "-290px";
-            //         header.style.borderRightWidth = "125px"
-            //     }
-            // }
-
             cell = service_slide.querySelector('.fp-tableCell');
             viewport_height = Math.min(cell.offsetHeight, parseInt(cell.style.height, 10));
             viewport_width = cell.offsetWidth;
@@ -307,20 +256,6 @@
 
             tr_y = 0;
             tr_x = 0;
-
-            // if (
-            //     (availabale_width < element_width )
-            //     && (
-            //         (viewport_width < 1221)
-            //         && (viewport_width > 750)
-            //     )
-            // ) {
-            //     tr_y = '-150px';
-            //     tr_x = -(element_width - viewport_width)/2;
-            // } else if (viewport_width < 750) {
-            //     tr_x = '-50%';
-            //     tr_y = '0';
-            // }
 
             if (viewport_width < 750) {
                 // mobile
