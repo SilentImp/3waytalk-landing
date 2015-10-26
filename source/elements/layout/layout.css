@@ -4,7 +4,7 @@ html{
     position: relative;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     body {
         width: 100%;
         height: 100%;
@@ -12,6 +12,9 @@ html{
         font-family: "Helvetica Neue Cyr","Helvetica Neue", Helvetica, sans-serif;
         position: relative;
         background-color: $grey;
+        &.landing {
+            overflow: hidden;
+        }
         .page{
             padding: 0 0 90px;
             min-height: 100%;

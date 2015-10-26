@@ -75,6 +75,10 @@
 
             $('.login select').select2();
 
+            [].forEach.call(document.querySelectorAll('.login'), (element) => {
+                element.style.visibility = "visible";
+            });
+
             [].forEach.call(mobile_popup_buttons, (button) => {
                 button.addEventListener('click', this.openMobilePopup.bind(this));
             });
