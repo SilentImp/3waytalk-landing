@@ -122,47 +122,38 @@
 
         changeFromLanguage () {
             let value_from = this.language_from.value
-                , value_to = this.language_to.value
-                , hidden
-                , to_disable;
+                , value_to = this.language_to.value;
 
             if (value_from === value_to) {
                 this.language_to.selectedIndex = 0;
                 $(this.language_to).select2("val", "");
             }
 
-            hidden = this.language_to.querySelector('option[value][disabled]');
-            if (hidden != null) {
-                hidden.removeAttribute('disabled', 'disabled');
-            }
-            to_disable = this.language_to.querySelector('option[value="' + value_from + '"]');
-            if(to_disable != null) {
+            [].forEach.call(this.language_to.querySelectorAll('option[value][disabled]'), (to_enable)=>{
+                to_enable.removeAttribute('disabled');
+            });
+
+            [].forEach.call(this.language_to.querySelectorAll('option[value="' + value_from + '"]'), (to_disable)=>{
                 to_disable.setAttribute('disabled', 'disabled');
-            }
+            });
+
+            // inefficient, but it look lite there are no other way correctly disable/enable select2 dynamically
+            $(this.language_to).select2();
         }
 
         openNext (event) {
-
-            console.log('next');
-
             event.preventDefault();
 
+            console.log('next');
             this.step1_data = {
                 from: $('select.language_from').select2("val")
                 , to: $('select.language_to').select2("val")
                 , location: $('select.language_location').select2("val")
             };
 
-            console.log(this.step1_data);
-
             if (this.step1_form.validate() == false) {
                 return;
             }
-
-            $('select.language_from').select2("val", "");
-            $('select.language_to').select2("val", "");
-            $('select.language_location').select2("val", "");
-
 
             this.openForm(this.step2);
         }
@@ -410,17 +401,16 @@
 
             var form = this.current.querySelector('form');
 
-            $('select.language_from').select2("val", "");
-            $('select.language_to').select2("val", "");
-            $('select.language_location').select2("val", "");
-
-            if ((form != null) && (typeof form.clear != 'undefined')) {
-                setTimeout(()=>{
-                    if (form!=null) {
-                        form.clear();
-                    }
-                }, 500);
-            }
+            // $('select.language_from').select2("val", "");
+            // $('select.language_to').select2("val", "");
+            // $('select.language_location').select2("val", "");
+            // if ((form != null) && (typeof form.clear != 'undefined')) {
+            //     setTimeout(()=>{
+            //         if (form!=null) {
+            //             form.clear();
+            //         }
+            //     }, 500);
+            // }
 
             if (typeof popup == "undefined" && this.last.length > 0) {
                 popup = this.last.pop();
@@ -431,14 +421,14 @@
                 this.last.push(this.current);
             }
 
-            form = popup.querySelector('form');
-            if (form != null) {
-                setTimeout(()=>{
-                    if (form!=null) {
-                        form.clear();
-                    }
-                }, 500);
-            }
+            // form = popup.querySelector('form');
+            // if (form != null) {
+            //     setTimeout(()=>{
+            //         if (form!=null) {
+            //             form.clear();
+            //         }
+            //     }, 500);
+            // }
 
             let props = {
                     right: - this.current.offsetWidth + "px"
