@@ -219,10 +219,10 @@
         </header>
         <fieldset>
           <div class="login__line"> 
-            <input id="password" type="password" name="password" value="" required="required" placeholder="Password"/>
+            <input id="password" type="password" name="password" value="" required="required" placeholder="Password" autocomplete="off"/>
           </div>
           <div class="login__line"> 
-            <input type="password" name="password_confirmation" value="" required="required" placeholder="Repeat password" data-equal="#password"/>
+            <input type="password" name="password_confirmation" value="" required="required" placeholder="Repeat password" data-equal="#password" autocomplete="off"/>
           </div>
           <div class="login__line">
             <button type="submit" class="login__submit">Confirm</button>
@@ -245,10 +245,10 @@
         </header>
         <fieldset>
           <div class="login__line">
-            <input type="email" name="email" value="" required="required" placeholder="Email"/>
+            <input type="email" name="email" value="" required="required" placeholder="Email" autocomplete="off"/>
           </div>
           <div class="login__line">
-            <input type="password" name="password" value="" required="required" placeholder="Password"/>
+            <input type="password" name="password" value="" required="required" placeholder="Password" autocomplete="off"/>
           </div>
           <div class="login__line">
             <button type="submit" class="login__submit">Log in</button>
@@ -279,7 +279,7 @@
         </header>
         <fieldset>
           <div class="login__line"> 
-            <input type="email" name="email" value="" required="required" placeholder="Email"/>
+            <input type="email" name="email" value="" required="required" placeholder="Email" autocomplete="off"/>
           </div>
           <div class="login__line">
             <button type="submit" class="login__submit">Send</button>
@@ -312,7 +312,7 @@
         <fieldset>
           <div class="login__line">
             <div class="login__line login__line_half"> 
-              <select data-placeholder="Your native language" name="language" required="required" class="language_from">
+              <select id="primary" data-placeholder="Your native language" name="language" required="required" class="language_from">
                 <option selected="selected" disabled="disabled"></option>
                 <option value="ru">Russian</option>
                 <option value="en">English</option>
@@ -321,7 +321,7 @@
               </select>
             </div>
             <div class="login__line login__line_half">
-              <select data-placeholder="Your second language" name="second_language" required="required" class="language_to">
+              <select data-placeholder="Your second language" name="second_language" required="required" data-unequal="#primary" class="language_to">
                 <option selected="selected" disabled="disabled"></option>
                 <option value="ru">Russian</option>
                 <option value="en">English</option>
@@ -361,19 +361,19 @@
         <fieldset>
           <div class="login__line">
             <div class="login__line login__line_half"> 
-              <input type="text" name="name" value="" required="required" placeholder="First name"/>
+              <input type="text" name="name" value="" required="required" placeholder="First name" autocomplete="off"/>
             </div>
             <div class="login__line login__line_half">
-              <input type="text" name="surname" value="" required="required" placeholder="Surname"/>
+              <input type="text" name="surname" value="" required="required" placeholder="Surname" autocomplete="off"/>
             </div>
             <p class="login__warning">Please enter your actual name. This information is used for payments</p>
           </div>
           <div class="login__line">
             <div class="login__line login__line_half"> 
-              <input type="email" name="email" value="" required="required" placeholder="Email"/>
+              <input type="email" name="email" value="" required="required" placeholder="Email" autocomplete="off"/>
             </div>
             <div class="login__line login__line_half">
-              <input type="password" name="password" value="" required="required" placeholder="Password"/>
+              <input type="password" name="password" value="" required="required" placeholder="Password" autocomplete="off"/>
             </div>
           </div>
           <div class="login__line login__line_navigation">
