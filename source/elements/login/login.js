@@ -73,7 +73,15 @@
 
             window.addEventListener('resize', this.reposPopup.bind(this));
 
-            $('.login select').select2();
+            $('select.language_from').select2();
+            $('select.language_to').select2();
+            $('select.language_location').select2();
+
+            this.language_from =        document.querySelector('.language_from');
+            this.language_to =          document.querySelector('.language_to');
+            this.language_location =    document.querySelector('.language_location');
+
+            $(".login select.language_from").on("change", this.changeFromLanguage.bind(this));
 
             [].forEach.call(document.querySelectorAll('.login'), (element) => {
                 element.style.visibility = "visible";
@@ -112,11 +120,50 @@
             }
         }
 
+        changeFromLanguage () {
+            let value_from = this.language_from.value
+                , value_to = this.language_to.value
+                , hidden
+                , to_disable;
+
+            if (value_from === value_to) {
+                this.language_to.selectedIndex = 0;
+                $(this.language_to).select2("val", "");
+            }
+
+            hidden = this.language_to.querySelector('option[value][disabled]');
+            if (hidden != null) {
+                hidden.removeAttribute('disabled', 'disabled');
+            }
+            to_disable = this.language_to.querySelector('option[value="' + value_from + '"]');
+            if(to_disable != null) {
+                to_disable.setAttribute('disabled', 'disabled');
+            }
+        }
+
         openNext (event) {
+
+            console.log('next');
+
             event.preventDefault();
+
+            this.step1_data = {
+                from: $('select.language_from').select2("val")
+                , to: $('select.language_to').select2("val")
+                , location: $('select.language_location').select2("val")
+            };
+
+            console.log(this.step1_data);
+
             if (this.step1_form.validate() == false) {
                 return;
             }
+
+            $('select.language_from').select2("val", "");
+            $('select.language_to').select2("val", "");
+            $('select.language_location').select2("val", "");
+
+
             this.openForm(this.step2);
         }
 
@@ -213,12 +260,23 @@
                 , OK = 200
                 , message
                 , xhr = new XMLHttpRequest()
-                , loaded = new Promise((resolve, reject) => {
+                , loaded
+                , index
+                , data = new FormData(form);
+
+                if (this.step1_data != null) {
+                    data.append('from',     this.step1_data.from);
+                    data.append('to',       this.step1_data.to);
+                    data.append('location', this.step1_data.location);
+                    this.step1_data = null;
+                }
+
+                loaded = new Promise((resolve, reject) => {
                     xhr.open('POST', form.getAttribute('action'));
-                    xhr.send(new FormData(form));
+                    xhr.send(data);
                     xhr.onreadystatechange = () => {
                         if (xhr.readyState === DONE) {
-                            this.recovery_form.reset();
+                            setTimeout(()=>{this.clearAll();}, 500);
                             if (xhr.status === OK) {
                                 resolve();
                             } else {
@@ -239,6 +297,8 @@
 
                 loaded.then(message).catch(this.showErrorMessage.bind(this));
                 // loaded.then(message).catch(message);
+
+                this.step1Data = null;
 
             } catch (err) {
                 console.log('error: ', err);
@@ -349,6 +409,11 @@
             $.fn.fullpage.setKeyboardScrolling(false);
 
             var form = this.current.querySelector('form');
+
+            $('select.language_from').select2("val", "");
+            $('select.language_to').select2("val", "");
+            $('select.language_location').select2("val", "");
+
             if ((form != null) && (typeof form.clear != 'undefined')) {
                 setTimeout(()=>{
                     if (form!=null) {
@@ -430,9 +495,6 @@
             [].forEach.call(document.querySelectorAll('form'), (form) => {
                 form.clear();
             });
-
-            $('.login select').select2("destroy");
-            $('.login select').select2();
         }
 
         /**

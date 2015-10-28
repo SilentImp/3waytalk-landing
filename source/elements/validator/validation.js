@@ -39,12 +39,17 @@
          * @description Reset form and clear errors
          */
         clear () {
-            this.form.reset();
-            let selectors = $(this.form).find('select');
-            if (selectors.length > 0) {
-                selectors.select2("destroy");
-                selectors.select2();
+
+            let selects = $(this.form).find('select');
+            if(selects.length>0){
+                selects.select2("val", "");
             }
+
+            [].forEach.call(this.form.querySelectorAll('select'), (select) => {
+                select.selectedIndex = 0;
+            });
+
+            this.form.reset();
 
             setTimeout(()=>{
                 let errors = document.querySelectorAll('.form-error'),
