@@ -36,6 +36,8 @@
             this.step2 =                    document.querySelector('.login_register-step-2');
             this.step2_form =               document.querySelector('.login_register-step-2 form.login__form');
 
+            this.login_form =               document.querySelector('.login_login form.login__form');
+
             this.mobile_popup =             document.querySelector('.popup_mobile');
             this.mobile_popup_close =       this.mobile_popup.querySelector('.popup__close');
 
@@ -70,6 +72,7 @@
             this.password_form.addEventListener('submit', this.sendData.bind(this));
             this.step1_form.addEventListener('submit', this.openNext.bind(this));
             this.step2_form.addEventListener('submit', this.sendData.bind(this));
+            this.login_form.addEventListener('submit', this.sendData.bind(this));
 
             window.addEventListener('resize', this.reposPopup.bind(this));
 
@@ -144,7 +147,6 @@
         openNext (event) {
             event.preventDefault();
 
-            console.log('next');
             this.step1_data = {
                 from: $('select.language_from').select2("val")
                 , to: $('select.language_to').select2("val")
@@ -249,7 +251,7 @@
             try {
                 let DONE = 4
                 , OK = 200
-                , message
+                , after_action
                 , xhr = new XMLHttpRequest()
                 , loaded
                 , index
@@ -280,20 +282,30 @@
                     };
                 });
 
-                if (form.hasAttribute('data-check')) {
-                    message = this.showCheckMessage.bind(this);
+                if (form.hasAttribute('data-success')) {
+                    after_action = this.redirectTo.bind(this, form.getAttribute('data-success'));
+                } else if (form.hasAttribute('data-check')) {
+                    after_action = this.showCheckMessage.bind(this);
                 } else {
-                    message = this.showSuccessMessage.bind(this);
+                    after_action = this.showSuccessMessage.bind(this);
                 }
 
-                loaded.then(message).catch(this.showErrorMessage.bind(this));
-                // loaded.then(message).catch(message);
+                loaded.then(after_action).catch(this.showErrorMessage.bind(this));
+                // loaded.then(after_action).catch(after_action);
 
                 this.step1Data = null;
 
             } catch (err) {
                 console.log('error: ', err);
             }
+        }
+
+
+        /**
+         * @description Redirect to url
+         */
+        redirectTo (url) {
+            document.location.href = url;
         }
 
         /**

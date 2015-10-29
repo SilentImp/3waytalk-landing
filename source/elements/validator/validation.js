@@ -42,8 +42,6 @@
          */
         clear () {
 
-            console.log('Чистим');
-
             let selects = $(this.form).find('select')
                 , index = selects.length;
             while (index--) {
@@ -55,7 +53,6 @@
                 }
 
                 [].forEach.call(selects[index].querySelectorAll('option[value][disabled]'), (option) => {
-                    console.log(option);
                     option.removeAttribute('disabled');
                 });
             }
