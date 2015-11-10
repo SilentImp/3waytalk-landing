@@ -1,5 +1,5 @@
 /**
- * fullPage 2.6.6
+ * fullPage 2.7.4
  * https://github.com/alvarotrigo/fullPage.js
  * MIT licensed
  *
@@ -231,4 +231,9 @@ html.fp-enabled,
 }
 .fp-slidesNav ul li {
     display: inline-block;
+}
+.fp-auto-height.fp-section,
+.fp-auto-height .fp-slide,
+.fp-auto-height .fp-tableCell{
+    height: auto !important;
 }
