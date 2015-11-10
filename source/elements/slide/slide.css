@@ -113,12 +113,12 @@ html body .landing__section:last-child {
             .interpreter.interpreter_bottom {
                 right: 0;
                 opacity: 1;
-                transition: opacity .5s 1.5s, right .5s .75s;
+                transition: opacity .5s .75s, right .5s .35s;
             }
             .interpreter.interpreter_top {
                 right: 0;
                 opacity: 1;
-                transition: opacity .5s 2.75s, right .5s 1.35s;
+                transition: opacity .5s 1.35s, right .5s .75s;
             }
             .slide {
                 &__phone {
