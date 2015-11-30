@@ -12,6 +12,7 @@
   "repository": "git@github.com:SilentImp/3waytalk-landing.git",
   "dependencies": {
     "autoprefixer-core": "*",
+    "babel-preset-es2015": "^6.1.18",
     "css2modernizr": "*",
     "cssnano": "*",
     "del": "*",

@@ -128,7 +128,9 @@ gulp.task('js', function() {
   return gulp.src(dirs.source.js)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(babel())
+    .pipe(babel({
+        "presets": ["es2015"]
+    }))
     .pipe(concat("scripts.js"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(dirs.build.js));
