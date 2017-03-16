@@ -205,7 +205,6 @@ gulp.task('watch', function () {
 
 gulp.task('default', ['copy', 'fonts', 'iconfont', 'html', 'css', 'js', 'images']);
 
-
 gulp.task('serve', serve('build'));
 
 gulp.task('sw', ['watch', 'serve']);
